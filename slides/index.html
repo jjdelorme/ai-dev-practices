@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation</title>
+    <style>
+        body { margin: 0; background: #121212; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: 'Roboto', sans-serif; }
+        #slide-container { width: 90%; max-width: 1200px; aspect-ratio: 16/9; box-shadow: 0 0 50px rgba(0,0,0,0.8); border: 1px solid #333; background: #1e1e2e; }
+        #slide-img { width: 100%; height: 100%; object-fit: contain; }
+        #controls { margin-top: 20px; display: flex; gap: 20px; align-items: center; }
+        button { padding: 10px 20px; background: #333; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px; transition: background 0.2s; }
+        button:hover { background: #555; }
+        button:disabled { opacity: 0.3; cursor: not-allowed; }
+        #slide-counter { color: #8990b3; font-size: 18px; min-width: 60px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div id="slide-container">
+        <img id="slide-img" src="slide_1.svg" alt="Slide">
+    </div>
+    <div id="controls">
+        <button id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <span id="slide-counter">1 / 8</span>
+        <button id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+        const img = document.getElementById('slide-img');
+        const counter = document.getElementById('slide-counter');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateSlide() {
+            img.src = `slide_${currentSlide}.svg`;
+            counter.innerText = `${currentSlide} / ${totalSlides}`;
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(direction) {
+            const next = currentSlide + direction;
+            if (next >= 1 && next <= totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        // Initialize state
+        updateSlide();
+    </script>
+</body>
+</html>

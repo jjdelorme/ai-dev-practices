@@ -1,0 +1,49 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#2d2b55"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap');
+      .header { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 72px; fill: #61afef; }
+      .headline { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 48px; fill: #ffffff; }
+      .bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 36px; fill: #dcdfe4; }
+      .bullet-bold { font-weight: 700; fill: #e5c07b; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
+
+  <text x="100" y="120" class="header">The "Context is King" Challenge</text>
+  <text x="100" y="250" class="headline">Managing the Finite Resource of Context</text>
+
+  <g transform="translate(100, 380)">
+    <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Context Poisoning:</tspan> Bad info/hallucinations degrade future answers.</text>
+    
+    <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Context Distraction:</tspan> Overloading with irrelevant info loses focus.</text>
+
+    <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">The Fix:</tspan> Hawkish context management.</text>
+    <text x="50" y="250" class="bullet">Use focused sessions for specific tasks, avoid sprawling conversations.</text>
+  </g>
+
+  <!-- Illustration: Data Funnel -->
+  <g transform="translate(1450, 600)">
+    <!-- Particles -->
+    <circle cx="-100" cy="-150" r="10" fill="#e06c75" opacity="0.8"/>
+    <circle cx="0" cy="-160" r="12" fill="#98c379" opacity="0.8"/>
+    <circle cx="80" cy="-140" r="8" fill="#d19a66" opacity="0.8"/>
+    <circle cx="-50" cy="-120" r="10" fill="#e06c75" opacity="0.8"/>
+    <circle cx="40" cy="-110" r="10" fill="#61afef" opacity="0.8"/>
+    
+    <!-- Funnel -->
+    <path d="M-120 -80 L120 -80 L40 100 L40 200 L-40 200 L-40 100 Z" fill="none" stroke="#a5b3ce" stroke-width="6"/>
+    
+    <!-- Clean Stream -->
+    <rect x="-20" y="100" width="40" height="150" fill="#61afef" opacity="0.6"/>
+    <circle cx="0" cy="220" r="15" fill="#61afef"/>
+  </g>
+</svg>

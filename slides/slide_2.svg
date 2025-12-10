@@ -1,0 +1,50 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#2d2b55"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap');
+      .header { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 72px; fill: #61afef; }
+      .headline { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 48px; fill: #ffffff; }
+      .bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 36px; fill: #dcdfe4; }
+      .bullet-bold { font-weight: 700; fill: #e5c07b; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
+
+  <text x="100" y="120" class="header">The Mindset Shift</text>
+  <text x="100" y="250" class="headline">AI is a Teammate, Not Just a Tool</text>
+
+  <g transform="translate(100, 380)">
+    <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Shift Perspective:</tspan> Move from "Prove it to me" to "Iterative Partnership".</text>
+    
+    <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Fingerspitzengefühl (Fingertip Feeling):</tspan> Success requires hands-on intuition.</text>
+    <text x="50" y="150" class="bullet">You cannot learn this from a book; practice to develop the "tact".</text>
+
+    <circle cx="15" cy="238" r="8" fill="#e5c07b"/>
+    <text x="50" y="250" class="bullet"><tspan class="bullet-bold">Ownership:</tspan> Humans must own the results.</text>
+    <text x="50" y="300" class="bullet">AI assists, but you define the standard.</text>
+  </g>
+
+  <!-- Illustration: Handshake / Connection -->
+  <g transform="translate(1450, 600)">
+     <!-- Robot Hand -->
+     <path d="M-150 0 L-50 0 Q0 0 20 50 L40 120" stroke="#61afef" stroke-width="20" fill="none" stroke-linecap="round"/>
+     <circle cx="-150" cy="0" r="30" fill="#61afef"/>
+     <circle cx="-50" cy="0" r="20" fill="#61afef"/>
+     
+     <!-- Human Hand -->
+     <path d="M150 0 L50 0 Q0 0 -20 -50 L-40 -120" stroke="#e5c07b" stroke-width="20" fill="none" stroke-linecap="round"/>
+     <circle cx="150" cy="0" r="30" fill="#e5c07b"/>
+     <circle cx="50" cy="0" r="20" fill="#e5c07b"/>
+     
+     <!-- Connection Node -->
+     <circle cx="0" cy="0" r="40" fill="#98c379" opacity="0.8"/>
+     <circle cx="0" cy="0" r="60" stroke="#98c379" stroke-width="2" fill="none" stroke-dasharray="10 5"/>
+  </g>
+</svg>

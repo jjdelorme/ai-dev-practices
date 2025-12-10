@@ -1,0 +1,38 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#2d2b55"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap');
+      .header { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 72px; fill: #61afef; }
+      .headline { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 48px; fill: #ffffff; }
+      .bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 36px; fill: #dcdfe4; }
+      .bullet-bold { font-weight: 700; fill: #e5c07b; }
+      .centered { text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  
+  <text x="960" y="300" class="header centered">Conclusion</text>
+  <text x="960" y="400" class="headline centered">The Future of Vibe Coding</text>
+
+  <g transform="translate(960, 550)">
+    <text x="0" y="0" class="bullet centered">AI excels at grunt work and accelerating experimentation.</text>
+    <text x="0" y="80" class="bullet centered">Success comes from explicit asks, standards, and verification.</text>
+    
+    <text x="0" y="250" class="bullet centered" style="fill: #e5c07b; font-weight: 700; font-size: 42px;">It’s not about automation replacing us;</text>
+    <text x="0" y="310" class="bullet centered" style="fill: #e5c07b; font-weight: 700; font-size: 42px;">it’s about "slack" for higher-order thinking.</text>
+  </g>
+  
+  <!-- Illustration: Rocket/Growth -->
+  <g transform="translate(960, 100)">
+     <path d="M0 0 L-20 40 L0 30 L20 40 Z" fill="#e06c75" transform="translate(0, -60)"/>
+     <rect x="-10" y="-30" width="20" height="40" fill="#dcdfe4"/>
+     <circle cx="0" cy="-30" r="10" fill="#dcdfe4"/>
+     <circle cx="0" cy="-30" r="4" fill="#61afef"/>
+     
+     <path d="M-10 10 Q0 40 10 10" fill="#e5c07b"/>
+  </g>
+</svg>

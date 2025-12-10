@@ -1,0 +1,47 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#2d2b55"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap');
+      .header { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 72px; fill: #61afef; }
+      .headline { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 48px; fill: #ffffff; }
+      .bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 36px; fill: #dcdfe4; }
+      .bullet-bold { font-weight: 700; fill: #e5c07b; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
+
+  <text x="100" y="120" class="header">Prompting is Specification</text>
+  <text x="100" y="250" class="headline">Writing Effective Instructions for LLMs</text>
+
+  <g transform="translate(100, 380)">
+    <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Authoritative Language:</tspan> Use "MUST", "CRITICAL", "NEVER".</text>
+    
+    <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Proximity Principle:</tspan> Keep instructions close to definitions.</text>
+
+    <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Negative Constraints:</tspan> Explicitly state what NOT to do.</text>
+    
+    <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
+    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Examples > Adjectives:</tspan> Show, don't just tell.</text>
+  </g>
+
+  <!-- Illustration: Blueprint/Code Structure -->
+  <g transform="translate(1450, 600)">
+    <rect x="-150" y="-150" width="300" height="350" fill="none" stroke="#61afef" stroke-width="4" stroke-dasharray="10 10"/>
+    <rect x="-120" y="-120" width="240" height="40" fill="#61afef" opacity="0.3"/>
+    <rect x="-120" y="-60" width="100" height="20" fill="#98c379" opacity="0.5"/>
+    <rect x="-120" y="-20" width="180" height="20" fill="#e5c07b" opacity="0.5"/>
+    <rect x="-120" y="20" width="200" height="20" fill="#c678dd" opacity="0.5"/>
+    
+    <!-- "Pen" tip -->
+    <path d="M50 100 L150 200 L180 170 L80 70 Z" fill="#dcdfe4"/>
+    <path d="M150 200 L180 230 L210 200 L180 170 Z" fill="#e06c75"/>
+  </g>
+</svg>

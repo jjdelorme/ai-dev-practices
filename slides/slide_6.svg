@@ -1,0 +1,48 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#2d2b55"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap');
+      .header { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 72px; fill: #61afef; }
+      .headline { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 48px; fill: #ffffff; }
+      .bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 36px; fill: #dcdfe4; }
+      .bullet-bold { font-weight: 700; fill: #e5c07b; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
+
+  <text x="100" y="120" class="header">Spec-Driven &amp; Test-Driven Development</text>
+  <text x="100" y="250" class="headline">Architecture Before Code</text>
+
+  <g transform="translate(100, 380)">
+    <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Plan First:</tspan> Iterate on a spec with AI before coding.</text>
+    
+    <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Small Batches:</tspan> Keep tasks small, focused, and specific.</text>
+
+    <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">TDD:</tspan> AI writes tests first to define success (Red-Green-Refactor).</text>
+    
+    <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
+    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Rubber Ducking:</tspan> Talk through problems with AI to clarify thoughts.</text>
+  </g>
+
+  <!-- Illustration: TDD Cycle -->
+  <g transform="translate(1450, 600)">
+    <path d="M0 -100 A100 100 0 0 1 86 50" fill="none" stroke="#e06c75" stroke-width="20"/> <!-- Red -->
+    <path d="M86 50 A100 100 0 0 1 -86 50" fill="none" stroke="#98c379" stroke-width="20"/> <!-- Green -->
+    <path d="M-86 50 A100 100 0 0 1 0 -100" fill="none" stroke="#61afef" stroke-width="20"/> <!-- Refactor -->
+    
+    <!-- Arrows -->
+    <path d="M86 50 L100 30 L110 60 Z" fill="#e06c75"/>
+    <path d="M-86 50 L-110 60 L-100 30 Z" fill="#98c379"/>
+    <path d="M0 -100 L-20 -110 L-20 -80 Z" fill="#61afef"/>
+    
+    <text x="0" y="0" font-family="Roboto" font-weight="700" font-size="30" fill="#ffffff" text-anchor="middle" dy="10">TDD</text>
+  </g>
+</svg>
