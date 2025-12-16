@@ -15,38 +15,37 @@
   <rect width="100%" height="100%" fill="url(#bg)"/>
   <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
 
-  <text x="100" y="120" class="header">The GEMINI.md Strategy</text>
-  <text x="100" y="250" class="headline">Codifying Project Intelligence</text>
+  <text x="100" y="120" class="header">Spec-Driven &amp; Test-Driven Development</text>
+  <text x="100" y="250" class="headline">Architecture Before Code</text>
 
   <g transform="translate(100, 380)">
     <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
-    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">The Problem:</tspan> General training vs. project-specific style.</text>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Plan First:</tspan> Iterate on a spec with AI before coding.</text>
     
     <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
-    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">The Solution:</tspan> Use GEMINI.md to enforce project rules.</text>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Small Batches:</tspan> Keep tasks small, focused, and specific.</text>
 
     <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
-    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Best Practice:</tspan> Treat prompts like code. Version control them.</text>
-    <text x="50" y="250" class="bullet">Refine them based on where the model fails.</text>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">TDD:</tspan> AI writes tests first to define success (Red-Green-Refactor).</text>
+    
+    <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
+    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">BDD:</tspan> Use Gherkin style specs for behavior validation.</text>
 
-    <circle cx="15" cy="308" r="8" fill="#e5c07b"/>
-    <text x="50" y="320" class="bullet"><tspan class="bullet-bold">Focus on Ambiguity:</tspan> Steer choices (e.g. frameworks),</text>
-    <text x="50" y="370" class="bullet">don't restate general standards.</text>
+    <circle cx="15" cy="388" r="8" fill="#e5c07b"/>
+    <text x="50" y="400" class="bullet"><tspan class="bullet-bold">Rubber Ducking:</tspan> Talk through problems with AI to clarify thoughts.</text>
   </g>
 
-  <!-- Illustration: Document Shield -->
+  <!-- Illustration: TDD Cycle -->
   <g transform="translate(1450, 600)">
-    <!-- Document -->
-    <path d="M-100 -140 L40 -140 L100 -80 L100 140 L-100 140 Z" fill="#282c34" stroke="#abb2bf" stroke-width="4"/>
-    <path d="M40 -140 L40 -80 L100 -80" fill="none" stroke="#abb2bf" stroke-width="4"/>
+    <path d="M0 -100 A100 100 0 0 1 86 50" fill="none" stroke="#e06c75" stroke-width="20"/> <!-- Red -->
+    <path d="M86 50 A100 100 0 0 1 -86 50" fill="none" stroke="#98c379" stroke-width="20"/> <!-- Green -->
+    <path d="M-86 50 A100 100 0 0 1 0 -100" fill="none" stroke="#61afef" stroke-width="20"/> <!-- Refactor -->
     
-    <!-- Code Lines -->
-    <line x1="-70" y1="-50" x2="0" y2="-50" stroke="#61afef" stroke-width="6"/>
-    <line x1="-70" y1="-20" x2="70" y2="-20" stroke="#98c379" stroke-width="6"/>
-    <line x1="-70" y1="10" x2="40" y2="10" stroke="#e5c07b" stroke-width="6"/>
+    <!-- Arrows -->
+    <path d="M86 50 L100 30 L110 60 Z" fill="#e06c75"/>
+    <path d="M-86 50 L-110 60 L-100 30 Z" fill="#98c379"/>
+    <path d="M0 -100 L-20 -110 L-20 -80 Z" fill="#61afef"/>
     
-    <!-- Shield Overlay -->
-    <path d="M0 -20 L90 10 Q90 90 0 160 Q-90 90 -90 10 L0 -20 Z" fill="rgba(97, 175, 239, 0.2)" stroke="#61afef" stroke-width="6" transform="translate(0, 50) scale(1.2)"/>
-    <path d="M-30 60 L0 90 L30 30" stroke="#61afef" stroke-width="8" fill="none" transform="translate(0, 50)"/>
+    <text x="0" y="0" font-family="Roboto" font-weight="700" font-size="30" fill="#ffffff" text-anchor="middle" dy="10">TDD</text>
   </g>
 </svg>

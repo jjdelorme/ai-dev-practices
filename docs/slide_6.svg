@@ -15,34 +15,43 @@
   <rect width="100%" height="100%" fill="url(#bg)"/>
   <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
 
-  <text x="100" y="120" class="header">Spec-Driven &amp; Test-Driven Development</text>
-  <text x="100" y="250" class="headline">Architecture Before Code</text>
+  <text x="100" y="120" class="header">Agentic Patterns &amp; Prototyping</text>
+  <text x="100" y="250" class="headline">Accelerating Experimentation</text>
 
   <g transform="translate(100, 380)">
     <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
-    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Plan First:</tspan> Iterate on a spec with AI before coding.</text>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">10x Prototyping:</tspan> Build 100 prototypes, keep the 5 gems.</text>
     
     <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
-    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Small Batches:</tspan> Keep tasks small, focused, and specific.</text>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Supervisor Agents:</tspan> Use agents to watch for "lazy" coding.</text>
 
     <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
-    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">TDD:</tspan> AI writes tests first to define success (Red-Green-Refactor).</text>
-    
-    <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
-    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Rubber Ducking:</tspan> Talk through problems with AI to clarify thoughts.</text>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Self-Correction:</tspan> Ask agent to review its own work.</text>
+    <text x="50" y="250" class="bullet">"Review and ensure it meets spec" catches many errors.</text>
   </g>
 
-  <!-- Illustration: TDD Cycle -->
+  <!-- Illustration: Supervisor Network -->
   <g transform="translate(1450, 600)">
-    <path d="M0 -100 A100 100 0 0 1 86 50" fill="none" stroke="#e06c75" stroke-width="20"/> <!-- Red -->
-    <path d="M86 50 A100 100 0 0 1 -86 50" fill="none" stroke="#98c379" stroke-width="20"/> <!-- Green -->
-    <path d="M-86 50 A100 100 0 0 1 0 -100" fill="none" stroke="#61afef" stroke-width="20"/> <!-- Refactor -->
+    <!-- Links -->
+    <line x1="0" y1="0" x2="-100" y2="-100" stroke="#61afef" stroke-width="2"/>
+    <line x1="0" y1="0" x2="100" y2="-100" stroke="#61afef" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-100" y2="100" stroke="#61afef" stroke-width="2"/>
+    <line x1="0" y1="0" x2="100" y2="100" stroke="#61afef" stroke-width="2"/>
     
-    <!-- Arrows -->
-    <path d="M86 50 L100 30 L110 60 Z" fill="#e06c75"/>
-    <path d="M-86 50 L-110 60 L-100 30 Z" fill="#98c379"/>
-    <path d="M0 -100 L-20 -110 L-20 -80 Z" fill="#61afef"/>
+    <!-- Central Node (Supervisor) -->
+    <circle cx="0" cy="0" r="40" fill="#e5c07b"/>
+    <path d="M-15 -5 L0 10 L15 -20" stroke="#1e1e2e" stroke-width="6" fill="none"/>
     
-    <text x="0" y="0" font-family="Roboto" font-weight="700" font-size="30" fill="#ffffff" text-anchor="middle" dy="10">TDD</text>
+    <!-- Worker Nodes -->
+    <circle cx="-100" cy="-100" r="20" fill="#61afef"/>
+    <circle cx="100" cy="-100" r="20" fill="#61afef"/>
+    <circle cx="-100" cy="100" r="20" fill="#61afef"/>
+    <circle cx="100" cy="100" r="20" fill="#61afef"/>
+    
+    <!-- Magnifying Glass Overlay -->
+    <g transform="translate(40, 40)">
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#98c379" stroke-width="6"/>
+      <line x1="20" y1="20" x2="40" y2="40" stroke="#98c379" stroke-width="6"/>
+    </g>
   </g>
 </svg>
