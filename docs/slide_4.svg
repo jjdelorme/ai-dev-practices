@@ -20,16 +20,19 @@
 
   <g transform="translate(100, 380)">
     <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
-    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Authoritative Language:</tspan> Use "MUST", "CRITICAL", "NEVER".</text>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Use Examples (Few-Shot):</tspan> The #1 tip; often more effective than zero-shot.</text>
     
     <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
-    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Proximity Principle:</tspan> Keep instructions close to definitions.</text>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Clear, Explicit Instructions:</tspan> Be precise; treat the LLM like an intern.</text>
 
     <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
-    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Negative Constraints:</tspan> Explicitly state what NOT to do.</text>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Provide Context Effectively:</tspan> Place important data at top; use delimiters.</text>
     
     <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
-    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Examples > Adjectives:</tspan> Show, don't just tell.</text>
+    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Iterate and Experiment:</tspan> Test, refine, and avoid superstitious additions.</text>
+
+    <circle cx="15" cy="388" r="8" fill="#e5c07b"/>
+    <text x="50" y="400" class="bullet"><tspan class="bullet-bold">Leverage Models:</tspan> Use LLMs to generate or improve prompts.</text>
   </g>
 
   <!-- Illustration: Blueprint/Code Structure -->
