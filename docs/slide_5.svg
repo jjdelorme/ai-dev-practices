@@ -28,6 +28,10 @@
     <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
     <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Best Practice:</tspan> Treat prompts like code. Version control them.</text>
     <text x="50" y="250" class="bullet">Refine them based on where the model fails.</text>
+
+    <circle cx="15" cy="308" r="8" fill="#e5c07b"/>
+    <text x="50" y="320" class="bullet"><tspan class="bullet-bold">Focus on Ambiguity:</tspan> Steer choices (e.g. frameworks),</text>
+    <text x="50" y="370" class="bullet">don't restate general standards.</text>
   </g>
 
   <!-- Illustration: Document Shield -->
