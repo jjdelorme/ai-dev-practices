@@ -37,6 +37,7 @@
     <circle cx="15" cy="398" r="8" fill="#e5c07b"/>
     <text x="50" y="410" class="bullet"><tspan class="bullet-bold">MCP Servers (The Tools):</tspan> Dynamic context &amp; capabilities.</text>
     <text x="50" y="460" class="sub-bullet">Injects specific context/tools only when needed (prevents overload).</text>
+    <text x="50" y="510" class="sub-bullet">Computer Use / Browser Automation: Validate the app you are building.</text>
   </g>
 
   <!-- Illustration: Toolkit/Hierarchy -->
