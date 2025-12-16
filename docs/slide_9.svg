@@ -16,7 +16,7 @@
   <rect width="100%" height="100%" fill="url(#bg)"/>
   
   <text x="960" y="300" class="header centered">Conclusion</text>
-  <text x="960" y="400" class="headline centered">The Future of Vibe Coding</text>
+  <text x="960" y="400" class="headline centered">The Future of Vibe Engineering</text>
 
   <g transform="translate(960, 550)">
     <text x="0" y="0" class="bullet centered">AI excels at grunt work and accelerating experimentation.</text>
