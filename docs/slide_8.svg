@@ -10,42 +10,50 @@
       .headline { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 48px; fill: #ffffff; }
       .bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 36px; fill: #dcdfe4; }
       .bullet-bold { font-weight: 700; fill: #e5c07b; }
-      .section-header { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 42px; fill: #e06c75; }
     </style>
   </defs>
   <rect width="100%" height="100%" fill="url(#bg)"/>
   <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
 
-  <text x="100" y="120" class="header">Reality Check</text>
-  <text x="100" y="250" class="headline">Shortcomings, Risks, and Trade-offs</text>
+  <text x="100" y="120" class="header">Agentic Patterns &amp; Prototyping</text>
+  <text x="100" y="250" class="headline">Accelerating Experimentation</text>
 
-  <g transform="translate(100, 350)">
-    <!-- Shortcomings -->
-    <text x="0" y="0" class="section-header">Shortcomings:</text>
-    <circle cx="15" cy="50" r="8" fill="#e5c07b"/>
-    <text x="50" y="60" class="bullet">Context saturation &amp; Reward-function hijacking</text>
-    <circle cx="15" cy="100" r="8" fill="#e5c07b"/>
-    <text x="50" y="110" class="bullet">Corner-cutting tendencies</text>
+  <g transform="translate(100, 380)">
+    <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">The Agentic Team:</tspan> Moving from Chat to Collaboration.</text>
+    
+    <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Supervisor:</tspan> Manages orchestration, quality, and context.</text>
 
-    <!-- Blessing and Curse -->
-    <text x="0" y="200" class="section-header">Blessing and Curse:</text>
-    <circle cx="15" cy="250" r="8" fill="#e5c07b"/>
-    <text x="50" y="260" class="bullet">Unpredictable (Non-deterministic)</text>
+    <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Researcher &amp; Engineer:</tspan> Deep investigation and implementation.</text>
 
-    <!-- Risks -->
-    <text x="0" y="350" class="section-header">Risks:</text>
-    <circle cx="15" cy="400" r="8" fill="#e5c07b"/>
-    <text x="50" y="410" class="bullet">AI Slop &amp; Code Review Fatigue</text>
-    <circle cx="15" cy="450" r="8" fill="#e5c07b"/>
-    <text x="50" y="460" class="bullet">Reducing personal critical thinking dependency</text>
+    <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
+    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Tester &amp; Auditor:</tspan> Independent verification and standards check.</text>
   </g>
 
-  <!-- Illustration: Warning Sign / Balance -->
-  <g transform="translate(1500, 550)">
-    <!-- Triangle -->
-    <path d="M0 -150 L170 150 L-170 150 Z" fill="none" stroke="#e5c07b" stroke-width="20" stroke-linejoin="round"/>
-    <!-- Exclamation Mark -->
-    <rect x="-15" y="-80" width="30" height="150" rx="5" fill="#e5c07b"/>
-    <circle cx="0" cy="110" r="20" fill="#e5c07b"/>
+  <!-- Illustration: Supervisor Network -->
+  <g transform="translate(1450, 600)">
+    <!-- Links -->
+    <line x1="0" y1="0" x2="-100" y2="-100" stroke="#61afef" stroke-width="2"/>
+    <line x1="0" y1="0" x2="100" y2="-100" stroke="#61afef" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-100" y2="100" stroke="#61afef" stroke-width="2"/>
+    <line x1="0" y1="0" x2="100" y2="100" stroke="#61afef" stroke-width="2"/>
+    
+    <!-- Central Node (Supervisor) -->
+    <circle cx="0" cy="0" r="40" fill="#e5c07b"/>
+    <path d="M-15 -5 L0 10 L15 -20" stroke="#1e1e2e" stroke-width="6" fill="none"/>
+    
+    <!-- Worker Nodes -->
+    <circle cx="-100" cy="-100" r="20" fill="#61afef"/>
+    <circle cx="100" cy="-100" r="20" fill="#61afef"/>
+    <circle cx="-100" cy="100" r="20" fill="#61afef"/>
+    <circle cx="100" cy="100" r="20" fill="#61afef"/>
+    
+    <!-- Magnifying Glass Overlay -->
+    <g transform="translate(40, 40)">
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#98c379" stroke-width="6"/>
+      <line x1="20" y1="20" x2="40" y2="40" stroke="#98c379" stroke-width="6"/>
+    </g>
   </g>
 </svg>

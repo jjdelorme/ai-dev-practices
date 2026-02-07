@@ -10,50 +10,52 @@
       .headline { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 48px; fill: #ffffff; }
       .bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 36px; fill: #dcdfe4; }
       .bullet-bold { font-weight: 700; fill: #e5c07b; }
-      .sub-bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 30px; fill: #a5b3ce; }
     </style>
   </defs>
   <rect width="100%" height="100%" fill="url(#bg)"/>
   <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
 
-  <text x="100" y="120" class="header">Organizing Your Toolkit</text>
-  <text x="100" y="250" class="headline">Hierarchy of Context &amp; Automation</text>
+  <text x="100" y="120" class="header">Deep Code Understanding</text>
+  <text x="100" y="250" class="headline">GraphRAG &amp; Context Awareness</text>
 
   <g transform="translate(100, 380)">
-    <!-- Point 1: GEMINI.md -->
     <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
-    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">GEMINI.md (The "Why" &amp; "How"):</tspan> Project-specific context.</text>
-    <text x="50" y="50" class="sub-bullet">Defines intent, coding standards, and project-specific learnings.</text>
-    <text x="50" y="100" class="sub-bullet">Focus on ambiguity: Steer choices, don't restate standards.</text>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Beyond Text Search:</tspan> LLMs need structure, not just grep.</text>
     
-    <!-- Point 2: Slash Commands -->
-    <circle cx="15" cy="168" r="8" fill="#e5c07b"/>
-    <text x="50" y="180" class="bullet"><tspan class="bullet-bold">Custom Slash Commands (The "What"):</tspan> Reusable prompts.</text>
-    <text x="50" y="230" class="sub-bullet">Project Level (.gemini/commands): Specific repeatable workflows.</text>
-    <text x="50" y="280" class="sub-bullet">Extensions (System Level): Global commands distributed across projects.</text>
-    <text x="50" y="330" class="sub-bullet">Prompts as Code: Version control your prompts to track improvements.</text>
-
-    <!-- Point 3: MCP Servers -->
-    <circle cx="15" cy="398" r="8" fill="#e5c07b"/>
-    <text x="50" y="410" class="bullet"><tspan class="bullet-bold">MCP Servers (The Tools):</tspan> Dynamic context &amp; capabilities.</text>
-    <text x="50" y="460" class="sub-bullet">Injects specific context/tools only when needed (prevents overload).</text>
-    <text x="50" y="510" class="sub-bullet">Computer Use / Browser Automation: Validate the app you are building.</text>
+    <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">GraphRAG:</tspan> RAG over dependency &amp; call graphs.</text>
+    
+    <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Symbolic Analysis:</tspan> Using ASTs to trace actual execution flow.</text>
+    
+    <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
+    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Code Archeology:</tspan> Mapping the "Why" behind complex legacy logic.</text>
+    
+    <circle cx="15" cy="388" r="8" fill="#e5c07b"/>
+    <text x="50" y="400" class="bullet"><tspan class="bullet-bold">Grounded Answers:</tspan> Topology reduces hallucinations.</text>
   </g>
 
-  <!-- Illustration: Toolkit/Hierarchy -->
-  <g transform="translate(1400, 500)">
-     <!-- Layers -->
-     <rect x="-100" y="0" width="300" height="60" rx="10" fill="#61afef" opacity="0.2" stroke="#61afef" stroke-width="2"/>
-     <text x="50" y="40" font-family="Roboto" font-size="24" fill="#61afef" text-anchor="middle">Context (GEMINI.md)</text>
+  <!-- Illustration: Network Graph -->
+  <g transform="translate(1450, 600)">
+    <!-- Nodes -->
+    <circle cx="0" cy="-80" r="20" fill="#61afef"/>
+    <circle cx="-80" cy="0" r="20" fill="#61afef"/>
+    <circle cx="80" cy="0" r="20" fill="#61afef"/>
+    <circle cx="0" cy="80" r="20" fill="#61afef"/>
+    <circle cx="0" cy="0" r="30" fill="#e5c07b"/> <!-- Central Hub -->
 
-     <rect x="-80" y="80" width="260" height="60" rx="10" fill="#e5c07b" opacity="0.2" stroke="#e5c07b" stroke-width="2"/>
-     <text x="50" y="120" font-family="Roboto" font-size="24" fill="#e5c07b" text-anchor="middle">Prompts (Commands)</text>
+    <!-- Edges -->
+    <line x1="0" y1="-80" x2="0" y2="-30" stroke="#dcdfe4" stroke-width="4"/>
+    <line x1="-80" y1="0" x2="-30" y2="0" stroke="#dcdfe4" stroke-width="4"/>
+    <line x1="80" y1="0" x2="30" y2="0" stroke="#dcdfe4" stroke-width="4"/>
+    <line x1="0" y1="80" x2="0" y2="30" stroke="#dcdfe4" stroke-width="4"/>
+    
+    <!-- Cross Connections -->
+    <line x1="-80" y1="0" x2="0" y2="-80" stroke="#dcdfe4" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="80" y1="0" x2="0" y2="80" stroke="#dcdfe4" stroke-width="2" stroke-dasharray="5,5"/>
 
-     <rect x="-60" y="160" width="220" height="60" rx="10" fill="#98c379" opacity="0.2" stroke="#98c379" stroke-width="2"/>
-     <text x="50" y="200" font-family="Roboto" font-size="24" fill="#98c379" text-anchor="middle">Tools (MCP)</text>
-     
-     <!-- Connecting line -->
-     <line x1="50" y1="60" x2="50" y2="80" stroke="#dcdfe4" stroke-width="2"/>
-     <line x1="50" y1="140" x2="50" y2="160" stroke="#dcdfe4" stroke-width="2"/>
+    <!-- Magnifying Glass/Search on top -->
+    <circle cx="40" cy="-40" r="25" fill="none" stroke="#98c379" stroke-width="5"/>
+    <line x1="60" y1="-20" x2="80" y2="0" stroke="#98c379" stroke-width="5"/>
   </g>
 </svg>

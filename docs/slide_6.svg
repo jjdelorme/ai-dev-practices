@@ -15,43 +15,37 @@
   <rect width="100%" height="100%" fill="url(#bg)"/>
   <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
 
-  <text x="100" y="120" class="header">Agentic Patterns &amp; Prototyping</text>
-  <text x="100" y="250" class="headline">Accelerating Experimentation</text>
+  <text x="100" y="120" class="header">Working with Legacy Code</text>
+  <text x="100" y="250" class="headline">Applying Modern Agents to Existing Systems</text>
 
   <g transform="translate(100, 380)">
     <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
-    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">10x Prototyping:</tspan> Build 100 prototypes, keep the 5 gems.</text>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Identify Seams:</tspan> Find safe places to decouple dependencies.</text>
     
     <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
-    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Supervisor Agents:</tspan> Use agents to watch for "lazy" coding.</text>
-
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Characterization Tests:</tspan> Agents write tests to lock in behavior.</text>
+    
     <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
-    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Self-Correction:</tspan> Ask agent to review its own work.</text>
-    <text x="50" y="250" class="bullet">"Review and ensure it meets spec" catches many errors.</text>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Strangler Fig Pattern:</tspan> Gradually replace system edges.</text>
+    
+    <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
+    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Safety Net:</tspan> Heightened importance of tests before refactoring.</text>
+    
+    <circle cx="15" cy="388" r="8" fill="#e5c07b"/>
+    <text x="50" y="400" class="bullet"><tspan class="bullet-bold">Enable Change:</tspan> Break deps -> Test -> Refactor (Feathers' Way).</text>
   </g>
 
-  <!-- Illustration: Supervisor Network -->
+  <!-- Illustration: Unlocking Legacy Code -->
   <g transform="translate(1450, 600)">
-    <!-- Links -->
-    <line x1="0" y1="0" x2="-100" y2="-100" stroke="#61afef" stroke-width="2"/>
-    <line x1="0" y1="0" x2="100" y2="-100" stroke="#61afef" stroke-width="2"/>
-    <line x1="0" y1="0" x2="-100" y2="100" stroke="#61afef" stroke-width="2"/>
-    <line x1="0" y1="0" x2="100" y2="100" stroke="#61afef" stroke-width="2"/>
+    <!-- Old Lock / Box -->
+    <rect x="-80" y="-60" width="160" height="120" rx="10" fill="#2d2b55" stroke="#a5b3ce" stroke-width="4" stroke-dasharray="10,5"/>
+    <path d="M-40 -60 V-90 A40 40 0 0 1 40 -90 V-60" fill="none" stroke="#a5b3ce" stroke-width="10"/>
     
-    <!-- Central Node (Supervisor) -->
-    <circle cx="0" cy="0" r="40" fill="#e5c07b"/>
-    <path d="M-15 -5 L0 10 L15 -20" stroke="#1e1e2e" stroke-width="6" fill="none"/>
+    <!-- New Key / Agent -->
+    <path d="M20 40 L80 100 L110 70 L50 10" fill="#e5c07b"/>
+    <circle cx="35" cy="25" r="15" fill="#1e1e2e"/>
     
-    <!-- Worker Nodes -->
-    <circle cx="-100" cy="-100" r="20" fill="#61afef"/>
-    <circle cx="100" cy="-100" r="20" fill="#61afef"/>
-    <circle cx="-100" cy="100" r="20" fill="#61afef"/>
-    <circle cx="100" cy="100" r="20" fill="#61afef"/>
-    
-    <!-- Magnifying Glass Overlay -->
-    <g transform="translate(40, 40)">
-      <circle cx="0" cy="0" r="30" fill="none" stroke="#98c379" stroke-width="6"/>
-      <line x1="20" y1="20" x2="40" y2="40" stroke="#98c379" stroke-width="6"/>
-    </g>
+    <!-- Green Check for Tests -->
+    <path d="M-120 80 L-100 100 L-60 20" fill="none" stroke="#98c379" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>
