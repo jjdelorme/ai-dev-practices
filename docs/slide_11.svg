@@ -10,29 +10,55 @@
       .headline { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 48px; fill: #ffffff; }
       .bullet { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 36px; fill: #dcdfe4; }
       .bullet-bold { font-weight: 700; fill: #e5c07b; }
-      .centered { text-anchor: middle; }
     </style>
   </defs>
   <rect width="100%" height="100%" fill="url(#bg)"/>
-  
-  <text x="960" y="300" class="header centered">Conclusion</text>
-  <text x="960" y="400" class="headline centered">The Future of Agentic AI Assistance</text>
+  <rect x="100" y="150" width="100" height="10" fill="#61afef"/>
 
-  <g transform="translate(960, 550)">
-    <text x="0" y="0" class="bullet centered">AI excels at grunt work and accelerating experimentation.</text>
-    <text x="0" y="80" class="bullet centered">Success comes from explicit asks, standards, and verification.</text>
+  <text x="100" y="120" class="header">The Critical Thinking Gap</text>
+  <text x="100" y="250" class="headline">Preserving Cognition in an Automated Workflow</text>
+
+  <g transform="translate(100, 380)">
+    <circle cx="15" cy="-12" r="8" fill="#e5c07b"/>
+    <text x="50" y="0" class="bullet"><tspan class="bullet-bold">Cognitive Atrophy:</tspan> Delegation erodes your ability to reason.</text>
     
-    <text x="0" y="250" class="bullet centered" style="fill: #e5c07b; font-weight: 700; font-size: 42px;">It’s not about automation replacing us;</text>
-    <text x="0" y="310" class="bullet centered" style="fill: #e5c07b; font-weight: 700; font-size: 42px;">it’s about "slack" for higher-order thinking.</text>
+    <circle cx="15" cy="88" r="8" fill="#e5c07b"/>
+    <text x="50" y="100" class="bullet"><tspan class="bullet-bold">Sparring Partner:</tspan> Use AI to challenge your own logic.</text>
+    
+    <circle cx="15" cy="188" r="8" fill="#e5c07b"/>
+    <text x="50" y="200" class="bullet"><tspan class="bullet-bold">Verification First:</tspan> Only delegate what you can verify.</text>
+    
+    <circle cx="15" cy="288" r="8" fill="#e5c07b"/>
+    <text x="50" y="300" class="bullet"><tspan class="bullet-bold">Keep Your Edge:</tspan> Ask for "Why," not just "What."</text>
   </g>
-  
-  <!-- Illustration: Rocket/Growth -->
-  <g transform="translate(960, 100)">
-     <path d="M0 0 L-20 40 L0 30 L20 40 Z" fill="#e06c75" transform="translate(0, -60)"/>
-     <rect x="-10" y="-30" width="20" height="40" fill="#dcdfe4"/>
-     <circle cx="0" cy="-30" r="10" fill="#dcdfe4"/>
-     <circle cx="0" cy="-30" r="4" fill="#61afef"/>
-     
-     <path d="M-10 10 Q0 40 10 10" fill="#e5c07b"/>
+
+  <!-- Illustration: Balance Scale (Speed vs Skill) -->
+  <g transform="translate(1600, 600)">
+    <!-- Base -->
+    <path d="M-60 150 L60 150 L0 0 Z" fill="#a5b3ce"/>
+    <rect x="-5" y="-120" width="10" height="120" fill="#a5b3ce"/>
+    
+    <!-- Beam -->
+    <path d="M-150 -120 L150 -80" stroke="#dcdfe4" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="0" cy="-100" r="10" fill="#61afef"/>
+
+    <!-- Left Pan (Speed/Clock - Heavier/Lower in short term view, but here visually balanced or tipped) -->
+    <!-- Let's tip it slightly to show the trade-off tension -->
+    <line x1="-150" y1="-120" x2="-150" y2="-20" stroke="#a5b3ce" stroke-width="2"/>
+    <path d="M-190 -20 A40 20 0 0 0 -110 -20" fill="none" stroke="#a5b3ce" stroke-width="4"/>
+    <!-- Icon: Clock -->
+    <circle cx="-150" cy="-40" r="25" fill="none" stroke="#e06c75" stroke-width="3"/>
+    <line x1="-150" y1="-40" x2="-150" y2="-55" stroke="#e06c75" stroke-width="3"/>
+    <line x1="-150" y1="-40" x2="-140" y2="-40" stroke="#e06c75" stroke-width="3"/>
+
+    <!-- Right Pan (Brain/Skill - Higher/Lighter? Or let's balance them to imply the goal) -->
+    <line x1="150" y1="-80" x2="150" y2="20" stroke="#a5b3ce" stroke-width="2"/>
+    <path d="M110 20 A40 20 0 0 0 190 20" fill="none" stroke="#a5b3ce" stroke-width="4"/>
+    <!-- Icon: Brain/Network -->
+    <circle cx="150" cy="0" r="25" fill="none" stroke="#98c379" stroke-width="3"/>
+    <circle cx="140" cy="-5" r="4" fill="#98c379"/>
+    <circle cx="160" cy="-5" r="4" fill="#98c379"/>
+    <circle cx="150" cy="10" r="4" fill="#98c379"/>
+    <path d="M140 -5 L160 -5 L150 10 Z" stroke="#98c379" stroke-width="1" fill="none"/>
   </g>
 </svg>
