@@ -892,7 +892,107 @@
                 </div>
             </section>
 
-            <!-- Slide 7: Deep Code Understanding -->
+             <!-- Slide 7: Intent-Driven Reconstruction -->
+             <section>
+                 <div class="slide-header">
+                     <span class="slide-tracker">THE PARADIGM SHIFT</span>
+                     <h2 class="slide-title">Intent-Driven Reconstruction</h2>
+                     <div class="slide-subtitle">Greenfield Execution from Legacy Specifications</div>
+                 </div>
+                 <div class="slide-body">
+                     <div class="flex-cols">
+                         <div class="col" style="flex: 1.2;">
+                             <ul class="custom-list">
+                                 <li>
+                                     <strong>Deconstruct Legacy:</strong> Use LLMs to ingest old codebases and extract pure business rules.
+                                     <span class="desc">Isolate core business intent, data structures, and edge cases from old, dusty frameworks.</span>
+                                 </li>
+                                 <li>
+                                     <strong>Human-in-the-Loop Verification:</strong> Review the extracted rules before writing new code.
+                                     <span class="desc">A human developer confirms the business intent, stripping away accidental legacy bugs or dead code path assumptions.</span>
+                                 </li>
+                                 <li>
+                                     <strong>Executable BDD Specs:</strong> Codify verified rules into behavior-driven Gherkin tests.
+                                     <span class="desc">Write human-readable specs that act as the unambiguous source of truth for both you and your agent.</span>
+                                 </li>
+                                 <li>
+                                     <strong>Greenfield Rebuild:</strong> Feed clean, verified specs to an engineering agent to build from scratch.
+                                     <span class="desc">The agent develops a brand new, highly optimized implementation using modern design patterns.</span>
+                                 </li>
+                                 <li>
+                                     <strong>Zero Tech Debt:</strong> Complete the transition with 100% test coverage and no legacy baggage.
+                                     <span class="desc">Avoid messy step-by-step refactoring by shifting straight to a modern, robust architecture.</span>
+                                 </li>
+                             </ul>
+                         </div>
+                         <div class="col" style="flex: 0.8; display: flex; align-items: center; justify-content: center;">
+                             <div class="info-panel success" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                                 <svg width="260" height="260" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                                     <g transform="translate(160, 160)">
+                                         <!-- Flow paths (Conveyor / pipeline) -->
+                                         <path d="M-100 20 C-60 20, -60 -40, 0 -40 C60 -40, 60 40, 100 40" fill="none" stroke="var(--google-gray-medium)" stroke-dasharray="6 4" stroke-width="2"/>
+                                         
+                                         <!-- Step 1: Legacy Node -->
+                                         <g transform="translate(-100, 20)">
+                                             <!-- Messy, crooked legacy box -->
+                                             <rect x="-35" y="-35" width="70" height="70" rx="6" fill="none" stroke="var(--google-red)" stroke-width="3" transform="rotate(-8)"/>
+                                             <line x1="-20" y1="-10" x2="20" y2="-15" stroke="var(--google-red)" stroke-width="1.5" transform="rotate(-8)"/>
+                                             <line x1="-15" y1="10" x2="15" y2="5" stroke="var(--google-red)" stroke-width="1.5" transform="rotate(-8)"/>
+                                             <!-- Technical Debt label -->
+                                             <text x="0" y="50" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-red)" text-anchor="middle">Legacy Code</text>
+                                         </g>
+                                         
+                                         <!-- Step 2: Extraction / Brain Node (Top Center) -->
+                                         <g transform="translate(0, -40)">
+                                             <!-- Brain / LLM Spark circle -->
+                                             <circle cx="0" cy="0" r="30" fill="none" stroke="var(--google-blue)" stroke-width="3"/>
+                                             <!-- Spark icon -->
+                                             <path d="M0 -15 L4 -5 L15 -5 L7 3 L10 14 L0 7 L-10 14 L-7 3 L-15 -5 L-4 -5 Z" fill="var(--google-blue)"/>
+                                             <!-- Text -->
+                                             <text x="0" y="-40" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-blue)" text-anchor="middle">LLM Deconstruct</text>
+                                         </g>
+                                         
+                                         <!-- Step 3: Human Verification Checkpoint (Center) -->
+                                         <g transform="translate(0, 40)">
+                                             <!-- Outer glowing shield -->
+                                             <circle cx="0" cy="0" r="32" fill="rgba(52, 168, 83, 0.1)" stroke="var(--google-green)" stroke-width="2" stroke-dasharray="4 2"/>
+                                             <!-- Human profile + Checkmark -->
+                                             <circle cx="0" cy="-5" r="10" fill="none" stroke="var(--google-green)" stroke-width="2.5"/>
+                                             <path d="M-15 15 C-15 5, 15 5, 15 15" fill="none" stroke="var(--google-green)" stroke-width="2.5"/>
+                                             <circle cx="12" cy="5" r="7" fill="var(--google-green)"/>
+                                             <path d="M9 5 L11 7 L15 3" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                             <text x="0" y="52" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-green)" text-anchor="middle">Human Verify</text>
+                                         </g>
+                                         
+                                         <!-- Step 4: Greenfield Output Node (Right) -->
+                                         <g transform="translate(100, 40)">
+                                             <!-- Crisp, glowing, golden diamond/matrix -->
+                                             <rect x="-30" y="-30" width="60" height="60" rx="10" fill="none" stroke="var(--google-yellow)" stroke-width="3.5" transform="rotate(45)"/>
+                                             <circle cx="0" cy="0" r="8" fill="var(--google-yellow)"/>
+                                             <text x="0" y="50" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-yellow)" text-anchor="middle">Clean Greenfield</text>
+                                         </g>
+                                         
+                                         <!-- Connections/Arrows -->
+                                         <!-- Arrow 1: Legacy to LLM -->
+                                         <path d="M-60 10 Q-30 10, -30 -10" fill="none" stroke="var(--google-blue)" stroke-width="2" stroke-linecap="round"/>
+                                         <path d="M-30 -10 L-35 -4 L-25 -5 Z" fill="var(--google-blue)"/>
+                                         
+                                         <!-- Arrow 2: LLM to Human -->
+                                         <path d="M0 -10 L0 8" fill="none" stroke="var(--google-green)" stroke-width="2" stroke-linecap="round"/>
+                                         <path d="M0 8 L-5 2 L5 2 Z" fill="var(--google-green)"/>
+                                         
+                                         <!-- Arrow 3: Human to Greenfield -->
+                                         <path d="M30 40 L65 40" fill="none" stroke="var(--google-yellow)" stroke-width="2" stroke-linecap="round"/>
+                                         <path d="M65 40 L59 35 L59 45 Z" fill="var(--google-yellow)"/>
+                                     </g>
+                                 </svg>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </section>
+
+            <!-- Slide 8: Deep Code Understanding -->
             <section>
                 <div class="slide-header">
                     <span class="slide-tracker">THE DISCOVERY</span>
@@ -959,7 +1059,7 @@
                 </div>
             </section>
 
-            <!-- Slide 8: Agentic Patterns & Prototyping -->
+            <!-- Slide 9: Agentic Patterns & Prototyping -->
             <section>
                 <div class="slide-header">
                     <span class="slide-tracker">THE ARCHITECTURE</span>
@@ -1021,7 +1121,7 @@
                 </div>
             </section>
 
-            <!-- Slide 9: Organizing Your Toolkit -->
+            <!-- Slide 10: Organizing Your Toolkit -->
             <section>
                 <div class="slide-header">
                     <span class="slide-tracker">THE TOOLKIT</span>
@@ -1079,7 +1179,7 @@
                 </div>
             </section>
 
-            <!-- Slide 10: Reality Check -->
+            <!-- Slide 11: Reality Check -->
             <section>
                 <div class="slide-header">
                     <span class="slide-tracker">THE REALITY</span>
@@ -1130,7 +1230,7 @@
                 </div>
             </section>
 
-            <!-- Slide 11: The Critical Thinking Gap -->
+            <!-- Slide 12: The Critical Thinking Gap -->
             <section>
                 <div class="slide-header">
                     <span class="slide-tracker">THE COGNITION</span>
@@ -1196,7 +1296,7 @@
                 </div>
             </section>
 
-            <!-- Slide 12: Conclusion -->
+            <!-- Slide 13: Conclusion -->
             <section data-transition="zoom">
                 <div class="slide-header" style="text-align: center;">
                     <span class="slide-tracker">THE SYNTHESIS</span>
@@ -1249,7 +1349,7 @@
     
     <script>
         // Total slides variable for GEMINI.md system rule compliance
-        const totalSlides = 12;
+        const totalSlides = 13;
 
         // Initialize reveal.js with custom configurations
         Reveal.initialize({
