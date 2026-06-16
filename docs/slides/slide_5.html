@@ -1,0 +1,54 @@
+<section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE METHODOLOGY</span>
+                    <h2 class="slide-title">Spec-Driven &amp; Test-Driven Development</h2>
+                    <div class="slide-subtitle">Architecture Before Code</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols">
+                        <div class="col" style="flex: 1.2;">
+                            <ul class="custom-list">
+                                <li>
+                                    <strong>Plan First:</strong> Iterate on a spec with AI before coding.
+                                    <span class="desc">Establish schemas, API signatures, and behavioral limits prior to any implementation.</span>
+                                </li>
+                                <li>
+                                    <strong>Small Batches:</strong> Keep tasks small, focused, and specific.
+                                    <span class="desc">Smaller context windows lead to highly precise code edits and zero structural degradation.</span>
+                                </li>
+                                <li>
+                                    <strong>TDD:</strong> AI writes tests first to define success (Red-Green-Refactor).
+                                    <span class="desc">Lock down specifications via unit/integration test assertions before writing logic.</span>
+                                </li>
+                                <li>
+                                    <strong>BDD:</strong> Use Gherkin style specs for behavior validation.
+                                    <span class="desc">Write human-readable feature descriptions so both human and agent share identical goals.</span>
+                                </li>
+                                <li>
+                                    <strong>Rubber Ducking:</strong> Talk through complex problems with AI to clarify thoughts.
+                                    <span class="desc">Treat the agent as a sparring partner to stress-test your design and assumptions.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col" style="flex: 0.8; display: flex; align-items: center; justify-content: center;">
+                            <div class="info-panel success" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="250" height="250" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                                    <g transform="translate(150, 150)">
+                                        <!-- TDD Cycle paths -->
+                                        <path d="M0 -70 A70 70 0 0 1 60 35" fill="none" stroke="var(--google-red)" stroke-width="14"/> <!-- Red -->
+                                        <path d="M60 35 A70 70 0 0 1 -60 35" fill="none" stroke="var(--google-green)" stroke-width="14"/> <!-- Green -->
+                                        <path d="M-60 35 A70 70 0 0 1 0 -70" fill="none" stroke="var(--google-blue)" stroke-width="14"/> <!-- Refactor -->
+                                        
+                                        <!-- Arrows -->
+                                        <path d="M60 35 L70 20 L77 41 Z" fill="var(--google-red)"/>
+                                        <path d="M-60 35 L-77 41 L-70 20 Z" fill="var(--google-green)"/>
+                                        <path d="M0 -70 L-14 -77 L-14 -56 Z" fill="var(--google-blue)"/>
+                                        
+                                        <text x="0" y="0" font-family="'Outfit', sans-serif" font-weight="700" font-size="22" fill="var(--google-gray-dark)" text-anchor="middle" dy="7">TDD</text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

@@ -1,0 +1,53 @@
+<section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE REAL WORLD</span>
+                    <h2 class="slide-title">Working with Legacy Code</h2>
+                    <div class="slide-subtitle">Applying Modern Agents to Existing Systems</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols">
+                        <div class="col" style="flex: 1.2;">
+                            <ul class="custom-list">
+                                <li>
+                                    <strong>Identify Seams:</strong> Find safe places to decouple dependencies.
+                                    <span class="desc">Identify interfaces or boundaries where you can alter behavior without editing old, fragile blocks.</span>
+                                </li>
+                                <li>
+                                    <strong>Characterization Tests:</strong> Agents write tests to lock in legacy behavior.
+                                    <span class="desc">Document and preserve the current output of the system before any refactoring starts.</span>
+                                </li>
+                                <li>
+                                    <strong>Strangler Fig Pattern:</strong> Gradually replace system edges.
+                                    <span class="desc">Iteratively migrate functions to clean structures, routing calls away from the old core.</span>
+                                </li>
+                                <li>
+                                    <strong>Safety Net:</strong> Heightened importance of tests before refactoring.
+                                    <span class="desc">Never allow an agent to rewrite code without a robust, verifying test suite in place.</span>
+                                </li>
+                                <li>
+                                    <strong>Enable Change:</strong> Break dependencies ➔ Test ➔ Refactor (The Feathers Method).
+                                    <span class="desc">Follow strict legacy-code practices: isolate, assert, edit, and refactor.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col" style="flex: 0.8; display: flex; align-items: center; justify-content: center;">
+                            <div class="info-panel success" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="250" height="250" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                                    <g transform="translate(150, 150)">
+                                        <!-- Old Lock / Box -->
+                                        <rect x="-60" y="-45" width="120" height="90" rx="8" fill="none" stroke="var(--google-gray-medium)" stroke-width="3" stroke-dasharray="8 4"/>
+                                        <path d="M-30 -45 V-65 A30 30 0 0 1 30 -65 V-45" fill="none" stroke="var(--google-gray-medium)" stroke-width="8"/>
+                                        
+                                        <!-- New Key / Agent -->
+                                        <path d="M15 30 L60 75 L80 55 L35 10 Z" fill="var(--google-yellow)"/>
+                                        <circle cx="25" cy="15" r="10" fill="none" stroke="var(--google-yellow)" stroke-width="3"/>
+                                        
+                                        <!-- Green Check for Tests -->
+                                        <path d="M-90 60 L-75 75 L-45 15" fill="none" stroke="var(--google-green)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

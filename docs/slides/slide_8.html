@@ -1,0 +1,65 @@
+<section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE DISCOVERY</span>
+                    <h2 class="slide-title">Deep Code Understanding</h2>
+                    <div class="slide-subtitle">GraphRAG &amp; Context Awareness</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols">
+                        <div class="col" style="flex: 1.2;">
+                            <ul class="custom-list">
+                                <li>
+                                    <strong>Beyond Text Search:</strong> LLMs need structural topology, not just plain grep.
+                                    <span class="desc">Simple lexical search misses deep, indirect code dependencies and cascading side-effects.</span>
+                                </li>
+                                <li>
+                                    <strong>GraphRAG:</strong> Retrieval-Augmented Generation over dependency &amp; call graphs.
+                                    <span class="desc">Query relationships, execution flows, and architectural layers to ground the agent's context.</span>
+                                </li>
+                                <li>
+                                    <strong>Symbolic Analysis:</strong> Using ASTs (Abstract Syntax Trees) to trace execution.
+                                    <span class="desc">Provide models with parse-tree telemetry to map exactly how data is modified across steps.</span>
+                                </li>
+                                <li>
+                                    <strong>Code Archeology:</strong> Mapping the "Why" behind complex legacy structures.
+                                    <span class="desc">Recover developer intent and business rules embedded in old code comments and git trajectories.</span>
+                                </li>
+                                <li>
+                                    <strong>Grounded Answers:</strong> Topology reduces hallucinations.
+                                    <span class="desc">Restricting retrieval to verified class hierarchies guarantees mathematically sound recommendations.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col" style="flex: 0.8; display: flex; align-items: center; justify-content: center;">
+                            <div class="info-panel highlight" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="250" height="250" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                                    <g transform="translate(150, 150)">
+                                        <!-- Nodes -->
+                                        <circle cx="0" cy="-60" r="15" fill="var(--google-blue)"/>
+                                        <circle cx="-60" cy="0" r="15" fill="var(--google-blue)"/>
+                                        <circle cx="60" cy="0" r="15" fill="var(--google-blue)"/>
+                                        <circle cx="0" cy="60" r="15" fill="var(--google-blue)"/>
+                                        <circle cx="0" cy="0" r="22" fill="var(--google-yellow)"/> <!-- Central Hub -->
+                                    
+                                        <!-- Edges -->
+                                        <line x1="0" y1="-60" x2="0" y2="-22" stroke="var(--google-gray-medium)" stroke-width="3"/>
+                                        <line x1="-60" y1="0" x2="-22" y2="0" stroke="var(--google-gray-medium)" stroke-width="3"/>
+                                        <line x1="60" y1="0" x2="22" y2="0" stroke="var(--google-gray-medium)" stroke-width="3"/>
+                                        <line x1="0" y1="60" x2="0" y2="22" stroke="var(--google-gray-medium)" stroke-width="3"/>
+                                        
+                                        <!-- Cross Connections -->
+                                        <line x1="-60" y1="0" x2="0" y2="-60" stroke="var(--google-gray-medium)" stroke-width="1.5" stroke-dasharray="4 4"/>
+                                        <line x1="60" y1="0" x2="0" y2="60" stroke="var(--google-gray-medium)" stroke-width="1.5" stroke-dasharray="4 4"/>
+                                    
+                                        <!-- Magnifying Glass -->
+                                        <g transform="translate(30, -30)">
+                                            <circle cx="0" cy="0" r="18" fill="none" stroke="var(--google-green)" stroke-width="4"/>
+                                            <line x1="13" y1="13" x2="27" y2="27" stroke="var(--google-green)" stroke-width="4"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

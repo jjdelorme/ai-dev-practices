@@ -1,0 +1,56 @@
+<section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE WINDOW</span>
+                    <h2 class="slide-title">Context Engineering</h2>
+                    <div class="slide-subtitle">Managing the Finite Resource of Context</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols">
+                        <div class="col" style="flex: 1.2;">
+                            <ul class="custom-list">
+                                <li>
+                                    <strong>Context Poisoning:</strong> Hallucinations and inline errors are repeatedly referenced.
+                                    <span class="desc">A single incorrect output in history can loop back, reinforcing future errors.</span>
+                                </li>
+                                <li>
+                                    <strong>Context Distraction:</strong> Model over-focuses on long context, neglecting system core instructions.
+                                    <span class="desc">Too much raw text dilutes attention, leading the model to ignore foundational prompts.</span>
+                                </li>
+                                <li>
+                                    <strong>Context Confusion:</strong> Superfluous, redundant info leads to low-quality responses.
+                                    <span class="desc">Keep context highly relevant; prune old, dead, or irrelevant discussions.</span>
+                                </li>
+                                <li>
+                                    <strong>Context Clash:</strong> New info or tool output conflicts with core design assumptions.
+                                    <span class="desc">Discrepancies between historical context and current guidelines baffle the LLM.</span>
+                                </li>
+                                <li>
+                                    <strong>The Fix: Hawkish Context Management.</strong>
+                                    <span class="desc">Use focused sessions for specific tasks, avoid sprawling chats, and minimize tool/MCP registrations.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col" style="flex: 0.8; display: flex; align-items: center; justify-content: center;">
+                            <div class="info-panel warning" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="250" height="250" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                                    <g transform="translate(150, 150)">
+                                        <!-- Particles -->
+                                        <circle cx="-60" cy="-110" r="8" fill="var(--google-red)" opacity="0.8"/>
+                                        <circle cx="0" cy="-120" r="10" fill="var(--google-green)" opacity="0.8"/>
+                                        <circle cx="60" cy="-100" r="7" fill="var(--google-yellow)" opacity="0.8"/>
+                                        <circle cx="-30" cy="-90" r="8" fill="var(--google-red)" opacity="0.8"/>
+                                        <circle cx="30" cy="-80" r="8" fill="var(--google-blue)" opacity="0.8"/>
+                                        
+                                        <!-- Funnel -->
+                                        <path d="M-90 -60 L90 -60 L30 50 L30 110 L-30 110 L-30 50 Z" fill="none" stroke="var(--google-gray-medium)" stroke-width="4"/>
+                                        
+                                        <!-- Clean Stream -->
+                                        <rect x="-15" y="50" width="30" height="90" fill="var(--google-blue)" opacity="0.5"/>
+                                        <circle cx="0" cy="120" r="12" fill="var(--google-blue)"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
