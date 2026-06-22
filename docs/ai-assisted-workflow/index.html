@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mastering the AI-Assisted Development Workflow</title>
+    <meta name="description" content="A premium HTML slide deck on Mastering the AI-Assisted Development Workflow built with reveal.js.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Reveal.js styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/simple.min.css">
+    
+    <!-- Highlight.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Google-Style Slide Theme overrides */
+        :root {
+            --google-blue: #1a73e8;
+            --google-red: #ea4335;
+            --google-yellow: #fbbc05;
+            --google-green: #34a853;
+            --google-blue-light: #e8f0fe;
+            --google-red-light: #fce8e6;
+            --google-green-light: #e6f4ea;
+            --google-yellow-light: #fef7e0;
+            --google-gray-dark: #202124;
+            --google-gray-medium: #5f6368;
+            --google-gray-light: #f1f3f4;
+            --google-gray-bg: #f8f9fa;
+        }
+
+        /* Set overall typography */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--google-gray-dark);
+            background-color: var(--google-gray-bg);
+        }
+
+        .reveal {
+            font-family: 'Roboto', sans-serif;
+            color: var(--google-gray-dark);
+        }
+
+        /* Persistent Google Header/Footer */
+        .global-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 55px;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 45px;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-top: 1px solid var(--google-gray-light);
+        }
+
+        .footer-text-left {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--google-gray-medium);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-text-right {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--google-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-accent-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            display: flex;
+        }
+
+        .footer-accent-bar .segment {
+            flex: 1;
+            height: 100%;
+        }
+
+        .footer-accent-bar .segment.blue { background-color: var(--google-blue); }
+        .footer-accent-bar .segment.red { background-color: var(--google-red); }
+        .footer-accent-bar .segment.yellow { background-color: var(--google-yellow); }
+        .footer-accent-bar .segment.green { background-color: var(--google-green); }
+
+        .global-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 45px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--google-gray-medium);
+            letter-spacing: 2px;
+        }
+
+        /* Widescreen 16:9 slide layout overrides */
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal .slides section {
+            top: 0 !important;
+            height: 100%;
+            width: 100%;
+            padding: 60px 45px 95px 45px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Slide titles and trackers */
+        .slide-header {
+            margin-bottom: 25px;
+            border-bottom: none;
+        }
+
+        .slide-tracker {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--google-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .slide-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px !important;
+            font-weight: 500 !important;
+            color: var(--google-gray-dark) !important;
+            margin: 0 !important;
+            line-height: 1.2 !important;
+            text-transform: none !important;
+            letter-spacing: -0.5px !important;
+        }
+
+        .slide-subtitle {
+            font-size: 18px;
+            color: var(--google-gray-medium);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .slide-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* General typographic classes */
+        p.lead {
+            font-size: 18px;
+            line-height: 1.5;
+            color: var(--google-gray-medium);
+            margin-bottom: 20px;
+        }
+
+        /* Lists */
+        ul.custom-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.custom-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 14px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--google-gray-dark);
+        }
+
+        ul.custom-list li::before {
+            content: "•";
+            color: var(--google-blue);
+            font-size: 24px;
+            position: absolute;
+            left: 8px;
+            top: -4px;
+        }
+
+        ul.custom-list li strong {
+            font-weight: 500;
+            color: var(--google-gray-dark);
+        }
+
+        ul.custom-list li span.desc {
+            color: var(--google-gray-medium);
+            display: block;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        /* Column Splits */
+        .flex-cols {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        /* Premium Graphic Panels & Cards */
+        .info-panel {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid var(--google-gray-light);
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-panel.highlight {
+            border-top: 4px solid var(--google-blue);
+        }
+
+        .info-panel.success {
+            border-top: 4px solid var(--google-green);
+        }
+
+        .info-panel.warning {
+            border-top: 4px solid var(--google-red);
+        }
+
+        .panel-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* High-Impact Metric Grid styling */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--google-gray-light);
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.2s;
+        }
+
+        .metric-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .metric-num.red { color: var(--google-red); }
+        .metric-num.blue { color: var(--google-blue); }
+        .metric-num.green { color: var(--google-green); }
+        .metric-num.yellow { color: var(--google-yellow); }
+
+        .metric-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 6px;
+        }
+
+        .metric-desc {
+            font-size: 12px;
+            color: var(--google-gray-medium);
+            line-height: 1.4;
+        }
+
+        /* Circular Icon Badges */
+        .badge-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .badge-icon.blue { background-color: var(--google-blue-light); color: var(--google-blue); }
+        .badge-icon.red { background-color: var(--google-red-light); color: var(--google-red); }
+        .badge-icon.green { background-color: var(--google-green-light); color: var(--google-green); }
+        .badge-icon.yellow { background-color: var(--google-yellow-light); color: var(--google-yellow); }
+        .badge-icon.gray { background-color: var(--google-gray-light); color: var(--google-gray-medium); }
+
+        /* Blockquotes */
+        blockquote.google-quote {
+            background-color: var(--google-gray-light);
+            border-left: 5px solid var(--google-blue);
+            padding: 20px 25px;
+            margin: 20px 0;
+            box-shadow: none;
+            border-radius: 0 8px 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        blockquote.google-quote p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px !important;
+            font-style: italic;
+            line-height: 1.5 !important;
+            color: var(--google-gray-dark) !important;
+            margin-bottom: 12px !important;
+        }
+
+        blockquote.google-quote cite {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--google-gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        /* Timeline / Process Tracker */
+        .process-track {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .process-step {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--google-gray-light);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: center;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .process-step.active {
+            border: 2px solid var(--google-blue);
+            box-shadow: 0 4px 15px rgba(26,115,232,0.1);
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--google-blue);
+            color: #ffffff;
+            border-radius: 50%;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .process-step.active .step-num {
+            background: var(--google-blue);
+        }
+
+        .step-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: var(--google-gray-medium);
+            line-height: 1.4;
+        }
+
+        .process-arrow {
+            padding: 0 15px;
+            color: var(--google-blue);
+            font-weight: bold;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Title Slide Custom Layout */
+        .title-slide-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .title-text-box {
+            flex: 1.3;
+            text-align: left;
+        }
+
+        .title-visual-box {
+            flex: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .google-color-stack {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .color-dot.blue { background-color: var(--google-blue); }
+        .color-dot.red { background-color: var(--google-red); }
+        .color-dot.yellow { background-color: var(--google-yellow); }
+        .color-dot.green { background-color: var(--google-green); }
+
+        /* Banner Text Callout */
+        .motto-banner {
+            background-color: var(--google-blue-light);
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid rgba(26, 115, 232, 0.12);
+        }
+
+        .motto-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--google-blue);
+            margin: 0;
+        }
+
+        .motto-source {
+            font-size: 13px;
+            color: var(--google-gray-medium);
+            margin-top: 4px;
+        }
+
+        /* Bullet card styling */
+        .bullet-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .bullet-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--google-gray-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-sizing: border-box;
+        }
+
+        .bullet-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .bullet-card-desc {
+            font-size: 13px;
+            color: var(--google-gray-medium);
+            line-height: 1.5;
+        }
+
+        /* Footnotes */
+        .footnote {
+            margin-top: auto;
+            padding-top: 15px;
+            font-size: 11px;
+            color: var(--google-gray-medium);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .footnote a {
+            color: var(--google-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="reveal">
+        
+        <!-- Persistent branded footer bar across all slides -->
+        <div class="global-footer">
+            <span class="footer-text-left">Mastering the AI-Assisted Development Workflow</span>
+            <span class="footer-text-right">Jason De Lorme — ai-dev-practices</span>
+            <div class="footer-accent-bar">
+                <div class="segment blue"></div>
+                <div class="segment red"></div>
+                <div class="segment yellow"></div>
+                <div class="segment green"></div>
+            </div>
+        </div>
+        
+        <!-- Persistent branded header bar -->
+        <div class="global-header">
+            <span class="header-logo">AI-ASSISTED WORKFLOW</span>
+        </div>
+
+        <div class="slides">
+        <div class="slides">
+            <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'Outfit', sans-serif; color: var(--google-gray-medium);">
+                <h3>Loading Presentation Slides...</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Reveal.js & Plugins scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    
+    <script>
+        // Total slides variable for GEMINI.md system rule compliance
+        const totalSlides = 13;
+
+        // Async function to load all slides in parallel
+        async function loadAndInitializeSlides() {
+            const slidesContainer = document.querySelector('.slides');
+            const slidePromises = [];
+
+            // Queue up fetch requests for all slides
+            for (let i = 1; i <= totalSlides; i++) {
+                slidePromises.push(
+                    fetch(`slides/slide_${i}.html`)
+                        .then(res => {
+                            if (!res.ok) throw new Error(`Slide ${i} could not be loaded`);
+                            return res.text();
+                        })
+                );
+            }
+
+            try {
+                // Resolve all fetches in parallel
+                const slideContents = await Promise.all(slidePromises);
+                
+                // Clear the loading screen and inject the slides
+                slidesContainer.innerHTML = '';
+                slideContents.forEach(html => {
+                    slidesContainer.insertAdjacentHTML('beforeend', html);
+                });
+
+                // Initialize Reveal.js ONLY after the DOM is fully loaded and populated
+                initializeReveal();
+            } catch (error) {
+                console.error("Error loading modular slides:", error);
+                slidesContainer.innerHTML = `
+                    <section>
+                        <div style="text-align: center; padding: 40px; font-family: 'Outfit', sans-serif;">
+                            <h2 style="color: var(--google-red);">Loading Error</h2>
+                            <p style="color: white; margin-top: 15px;">Failed to dynamically load slides.</p>
+                            <p style="color: var(--google-gray-medium); font-size: 14px; margin-top: 10px;">
+                                Make sure you are viewing this presentation through a web server (e.g. http://localhost:8088)<br>
+                                and not directly opening the index.html file from your filesystem.
+                            </p>
+                        </div>
+                    </section>
+                `;
+                // Initialize a fallback instance of reveal so it doesn't crash the UI completely
+                initializeReveal();
+            }
+        }
+
+        function initializeReveal() {
+            Reveal.initialize({
+                // Set widescreen dimensions
+                width: 1280,
+                height: 720,
+                margin: 0.04,
+                minScale: 0.2,
+                maxScale: 2.0,
+                
+                // Turn off default centering to allow crisp top-aligned layouts
+                center: false,
+                
+                // Slide configurations
+                hash: true,
+                slideNumber: 'c/t',
+                transition: 'fade', // professional fade transition matching Google standard
+                
+                // Plugins
+                plugins: [ RevealHighlight ]
+            });
+        }
+
+        // Kick off the loading sequence
+        loadAndInitializeSlides();
+    </script>
+</body>
+</html>

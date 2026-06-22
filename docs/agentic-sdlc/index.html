@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Shifting from Syntax to Intent: Navigating the Transition to the Agentic SDLC</title>
+    <meta name="description" content="A premium HTML slide deck on transitioning to the Agentic SDLC (ASDLC) built with reveal.js.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Reveal.js styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/simple.min.css">
+    
+    <!-- Highlight.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Google-Style Slide Theme overrides */
+        :root {
+            --google-blue: #1a73e8;
+            --google-red: #ea4335;
+            --google-yellow: #fbbc05;
+            --google-green: #34a853;
+            --google-blue-light: #e8f0fe;
+            --google-red-light: #fce8e6;
+            --google-green-light: #e6f4ea;
+            --google-yellow-light: #fef7e0;
+            --google-gray-dark: #202124;
+            --google-gray-medium: #5f6368;
+            --google-gray-light: #f1f3f4;
+            --google-gray-bg: #f8f9fa;
+        }
+
+        /* Set overall typography */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--google-gray-dark);
+            background-color: var(--google-gray-bg);
+        }
+
+        .reveal {
+            font-family: 'Roboto', sans-serif;
+            color: var(--google-gray-dark);
+        }
+
+        /* Persistent Google Header/Footer */
+        .global-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 55px;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 45px;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-top: 1px solid var(--google-gray-light);
+        }
+
+        .footer-text-left {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--google-gray-medium);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-text-right {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--google-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-accent-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            display: flex;
+        }
+
+        .footer-accent-bar .segment {
+            flex: 1;
+            height: 100%;
+        }
+
+        .footer-accent-bar .segment.blue { background-color: var(--google-blue); }
+        .footer-accent-bar .segment.red { background-color: var(--google-red); }
+        .footer-accent-bar .segment.yellow { background-color: var(--google-yellow); }
+        .footer-accent-bar .segment.green { background-color: var(--google-green); }
+
+        .global-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 45px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--google-gray-medium);
+            letter-spacing: 2px;
+        }
+
+        /* Widescreen 16:9 slide layout overrides */
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal .slides section {
+            top: 0 !important;
+            height: 100%;
+            width: 100%;
+            padding: 60px 45px 95px 45px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Slide titles and trackers */
+        .slide-header {
+            margin-bottom: 25px;
+            border-bottom: none;
+        }
+
+        .slide-tracker {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--google-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .slide-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px !important;
+            font-weight: 500 !important;
+            color: var(--google-gray-dark) !important;
+            margin: 0 !important;
+            line-height: 1.2 !important;
+            text-transform: none !important;
+            letter-spacing: -0.5px !important;
+        }
+
+        .slide-subtitle {
+            font-size: 18px;
+            color: var(--google-gray-medium);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .slide-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* General typographic classes */
+        p.lead {
+            font-size: 18px;
+            line-height: 1.5;
+            color: var(--google-gray-medium);
+            margin-bottom: 20px;
+        }
+
+        /* Lists */
+        ul.custom-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.custom-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 14px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--google-gray-dark);
+        }
+
+        ul.custom-list li::before {
+            content: "•";
+            color: var(--google-blue);
+            font-size: 24px;
+            position: absolute;
+            left: 8px;
+            top: -4px;
+        }
+
+        ul.custom-list li strong {
+            font-weight: 500;
+            color: var(--google-gray-dark);
+        }
+
+        ul.custom-list li span.desc {
+            color: var(--google-gray-medium);
+            display: block;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        /* Column Splits */
+        .flex-cols {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        /* Premium Graphic Panels & Cards */
+        .info-panel {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid var(--google-gray-light);
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-panel.highlight {
+            border-top: 4px solid var(--google-blue);
+        }
+
+        .info-panel.success {
+            border-top: 4px solid var(--google-green);
+        }
+
+        .info-panel.warning {
+            border-top: 4px solid var(--google-red);
+        }
+
+        .panel-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* High-Impact Metric Grid styling */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--google-gray-light);
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.2s;
+        }
+
+        .metric-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .metric-num.red { color: var(--google-red); }
+        .metric-num.blue { color: var(--google-blue); }
+        .metric-num.green { color: var(--google-green); }
+        .metric-num.yellow { color: var(--google-yellow); }
+
+        .metric-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 6px;
+        }
+
+        .metric-desc {
+            font-size: 12px;
+            color: var(--google-gray-medium);
+            line-height: 1.4;
+        }
+
+        /* Circular Icon Badges */
+        .badge-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .badge-icon.blue { background-color: var(--google-blue-light); color: var(--google-blue); }
+        .badge-icon.red { background-color: var(--google-red-light); color: var(--google-red); }
+        .badge-icon.green { background-color: var(--google-green-light); color: var(--google-green); }
+        .badge-icon.yellow { background-color: var(--google-yellow-light); color: var(--google-yellow); }
+        .badge-icon.gray { background-color: var(--google-gray-light); color: var(--google-gray-medium); }
+
+        /* Blockquotes */
+        blockquote.google-quote {
+            background-color: var(--google-gray-light);
+            border-left: 5px solid var(--google-blue);
+            padding: 20px 25px;
+            margin: 20px 0;
+            box-shadow: none;
+            border-radius: 0 8px 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        blockquote.google-quote p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px !important;
+            font-style: italic;
+            line-height: 1.5 !important;
+            color: var(--google-gray-dark) !important;
+            margin-bottom: 12px !important;
+        }
+
+        blockquote.google-quote cite {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--google-gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        /* Timeline / Process Tracker */
+        .process-track {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .process-step {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--google-gray-light);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: center;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .process-step.active {
+            border: 2px solid var(--google-blue);
+            box-shadow: 0 4px 15px rgba(26,115,232,0.1);
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--google-blue);
+            color: #ffffff;
+            border-radius: 50%;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .process-step.active .step-num {
+            background: var(--google-blue);
+        }
+
+        .step-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: var(--google-gray-medium);
+            line-height: 1.4;
+        }
+
+        .process-arrow {
+            padding: 0 15px;
+            color: var(--google-blue);
+            font-weight: bold;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Table styles */
+        .google-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--google-gray-light);
+        }
+
+        .google-table th {
+            background-color: var(--google-gray-light);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 2px solid #dadce0;
+        }
+
+        .google-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--google-gray-light);
+            color: var(--google-gray-medium);
+            line-height: 1.4;
+            vertical-align: top;
+        }
+
+        .google-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        .google-table td strong {
+            color: var(--google-gray-dark);
+            font-weight: 500;
+        }
+
+        /* Focus Highlight Column in Table */
+        .google-table th.focus, .google-table td.focus {
+            background-color: rgba(52, 168, 83, 0.05); /* very soft light green */
+            border-left: 2px solid var(--google-green);
+            border-right: 2px solid var(--google-green);
+        }
+        .google-table th.focus {
+            background-color: rgba(52, 168, 83, 0.1) !important;
+            color: var(--google-green);
+        }
+        .google-table tr:last-child td.focus {
+            border-bottom: 2px solid var(--google-green);
+        }
+
+        /* Terminal Window Container for code */
+        .terminal-window {
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            margin: 15px 0;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .terminal-header {
+            background: #252526;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+            margin-right: 15px;
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background-color: #ff5f56; }
+        .terminal-dot.yellow { background-color: #ffbd2e; }
+        .terminal-dot.green { background-color: #27c93f; }
+
+        .terminal-title {
+            color: #9aa0a6;
+            font-size: 11px;
+            font-family: 'Fira Code', monospace;
+            text-transform: lowercase;
+        }
+
+        .terminal-body {
+            padding: 16px;
+            margin: 0;
+        }
+
+        .terminal-body pre {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            background: transparent !important;
+            width: 100% !important;
+        }
+
+        .terminal-body code {
+            font-family: 'Fira Code', 'Fira Mono', monospace !important;
+            font-size: 13px !important;
+            line-height: 1.5 !important;
+            background: transparent !important;
+            color: #f8f8f2 !important;
+        }
+
+        /* Formula Card */
+        .formula-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid var(--google-gray-light);
+            text-align: center;
+            margin: 20px 0;
+            border-left: 6px solid var(--google-blue);
+        }
+
+        .formula-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .formula-text span.accent {
+            color: var(--google-blue);
+        }
+
+        /* Title Slide Custom Layout */
+        .title-slide-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .title-text-box {
+            flex: 1.3;
+            text-align: left;
+        }
+
+        .title-visual-box {
+            flex: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .google-color-stack {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .color-dot.blue { background-color: var(--google-blue); }
+        .color-dot.red { background-color: var(--google-red); }
+        .color-dot.yellow { background-color: var(--google-yellow); }
+        .color-dot.green { background-color: var(--google-green); }
+
+        /* Abstract CSS Graphic */
+        .abstract-graphic {
+            width: 280px;
+            height: 280px;
+            position: relative;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            border: 1px solid var(--google-gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .graphic-ring {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 2px dashed #dadce0;
+            position: absolute;
+            animation: rotate 60s linear infinite;
+        }
+
+        .graphic-core {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--google-blue-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(26,115,232,0.15);
+            z-index: 2;
+        }
+
+        .graphic-core-inner {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--google-blue);
+            box-shadow: 0 0 15px rgba(26,115,232,0.3);
+        }
+
+        .satellite-node {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 3;
+        }
+
+        .sat-1 { background-color: var(--google-red); top: 35px; left: 45px; }
+        .sat-2 { background-color: var(--google-green); bottom: 40px; right: 35px; }
+        .sat-3 { background-color: var(--google-yellow); top: 120px; right: 20px; }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Banner Text Callout */
+        .motto-banner {
+            background-color: var(--google-blue-light);
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid rgba(26, 115, 232, 0.12);
+        }
+
+        .motto-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--google-blue);
+            margin: 0;
+        }
+
+        .motto-source {
+            font-size: 13px;
+            color: var(--google-gray-medium);
+            margin-top: 4px;
+        }
+
+        /* Bullet card styling */
+        .bullet-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .bullet-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--google-gray-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-sizing: border-box;
+        }
+
+        .bullet-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .bullet-card-desc {
+            font-size: 13px;
+            color: var(--google-gray-medium);
+            line-height: 1.5;
+        }
+
+        /* Highlighting cards in action plan */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+
+        .roadmap-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 18px 15px;
+            border: 1px solid var(--google-gray-light);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--google-gray-medium);
+        }
+
+        .roadmap-card.blue { border-top-color: var(--google-blue); }
+        .roadmap-card.red { border-top-color: var(--google-red); }
+        .roadmap-card.yellow { border-top-color: var(--google-yellow); }
+        .roadmap-card.green { border-top-color: var(--google-green); }
+
+        .roadmap-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--google-gray-medium);
+            margin-bottom: 10px;
+        }
+        .roadmap-card.blue .roadmap-num { color: var(--google-blue); }
+        .roadmap-card.red .roadmap-num { color: var(--google-red); }
+        .roadmap-card.yellow .roadmap-num { color: var(--google-yellow); }
+        .roadmap-card.green .roadmap-num { color: var(--google-green); }
+
+        .roadmap-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .roadmap-desc {
+            font-size: 11px;
+            color: var(--google-gray-medium);
+            line-height: 1.45;
+        }
+
+        /* Footnotes */
+        .footnote {
+            margin-top: auto;
+            padding-top: 15px;
+            font-size: 11px;
+            color: var(--google-gray-medium);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .footnote a {
+            color: var(--google-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="reveal">
+        
+        <!-- Persistent branded footer bar across all slides -->
+        <div class="global-footer">
+            <span class="footer-text-left">Shifting from Syntax to Intent: Navigating the Transition to the Agentic SDLC</span>
+            <span class="footer-text-right">Antigravity &amp; Gemini Agent Platform</span>
+            <div class="footer-accent-bar">
+                <div class="segment blue"></div>
+                <div class="segment red"></div>
+                <div class="segment yellow"></div>
+                <div class="segment green"></div>
+            </div>
+        </div>
+        
+        <!-- Persistent branded header bar (subtle AGY logo) -->
+        <div class="global-header">
+            <span class="header-logo">ANTIGRAVITY</span>
+        </div>
+
+        <div class="slides">
+
+            <!-- Slide 1: Title Slide -->
+            <section data-transition="fade">
+                <div class="title-slide-container">
+                    <div class="title-text-box">
+                        <div class="google-color-stack">
+                            <div class="color-dot blue"></div>
+                            <div class="color-dot red"></div>
+                            <div class="color-dot yellow"></div>
+                            <div class="color-dot green"></div>
+                        </div>
+                        <h1 style="font-family: 'Outfit', sans-serif; font-size: 52px; font-weight: 700; color: var(--google-gray-dark); line-height: 1.15; margin: 0 0 15px 0; text-transform: none; letter-spacing: -1.5px;">
+                            Shifting from Syntax<br>to <span style="color: var(--google-blue);">Intent</span>
+                        </h1>
+                        <h2 style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 400; color: var(--google-gray-medium); margin: 0 0 30px 0; text-transform: none; line-height: 1.3;">
+                            Navigating the Transition to the Agentic SDLC (ASDLC)
+                        </h2>
+                        <p style="font-size: 15px; color: var(--google-gray-medium); line-height: 1.5; margin-bottom: 5px; max-width: 650px;">
+                            Building a reliable, high-velocity engineering model in the age of generative agents.
+                        </p>
+                        <p style="font-size: 13px; font-style: italic; color: var(--google-blue); font-weight: 500;">
+                            A Conceptual, High-Impact Strategy Deck for Engineering Teams and Leaders
+                        </p>
+                    </div>
+                    <div class="title-visual-box">
+                        <div class="abstract-graphic">
+                            <div class="graphic-ring"></div>
+                            <div class="graphic-core">
+                                <div class="graphic-core-inner"></div>
+                            </div>
+                            <div class="satellite-node sat-1"></div>
+                            <div class="satellite-node sat-2"></div>
+                            <div class="satellite-node sat-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 2: The Mirage of Speed -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE ANATOMY OF VELOCITY</span>
+                    <h2 class="slide-title">The Mirage of Speed</h2>
+                    <div class="slide-subtitle">An hour saved at a non-constraint is an illusion.</div>
+                </div>
+                <div class="slide-body">
+                    <blockquote class="google-quote">
+                        <p>"An hour saved at a non-constraint is a mirage."</p>
+                        <cite>— Eliyahu M. Goldratt, The Goal (referenced in Beyond the IDE)</cite>
+                    </blockquote>
+                    
+                    <div class="process-track">
+                        <div class="process-step active">
+                            <span class="step-num">1</span>
+                            <div class="step-title">Exploration &amp; Coding</div>
+                            <div class="step-desc">Compressed from <strong>Weeks</strong> to <strong>Minutes</strong> using AI ⚡</div>
+                        </div>
+                        <div class="process-arrow">➔</div>
+                        <div class="process-step" style="border: 2px solid var(--google-red); box-shadow: 0 4px 15px rgba(234,67,53,0.08);">
+                            <span class="step-num" style="background: var(--google-red);">2</span>
+                            <div class="step-title" style="color: var(--google-red);">Verification &amp; Governance</div>
+                            <div class="step-desc">Still bound to a manual scale of <strong>Days or Weeks</strong> 🛑</div>
+                        </div>
+                    </div>
+
+                    <ul class="custom-list" style="margin-top: 15px;">
+                        <li><strong>The IDE is no longer the constraint:</strong> Churning out raw code is functionally instant, pushing the bottleneck downstream.</li>
+                        <li><strong>Unverified code is WIP (Work-in-Process):</strong> Code sitting in review backlogs or QA buffers represents locked capital generating zero value and accumulating systemic risk.</li>
+                    </ul>
+                    
+                    <div class="footnote">
+                        * Source data link: <a href="https://drive.google.com/a/google.com/open?id=168-ikD0FJ6k66UrNX3hSXCOPPTl2XAGq" target="_blank">Beyond the IDE: Software Engineering in the Age of Generative AI</a> (Goldratt’s Theory of Constraints application).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: The 2026 Data Whiplash -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE OPERATIONAL WHIPLASH</span>
+                    <h2 class="slide-title">The Downstream Cost of Unchecked Generation</h2>
+                    <div class="slide-subtitle">What happens when we flood traditional manual validation gates with 10x code output?</div>
+                </div>
+                <div class="slide-body">
+                    <div class="metrics-grid">
+                        <div class="metric-card" style="border-top: 4px solid var(--google-red);">
+                            <div class="metric-num red">+861%</div>
+                            <div class="metric-label">Code Churn</div>
+                            <div class="metric-desc">Unprecedented rewrite rates study of 22k developers (Faros AI)</div>
+                        </div>
+                        <div class="metric-card" style="border-top: 4px solid var(--google-red);">
+                            <div class="metric-num red">+242.7%</div>
+                            <div class="metric-label">Incident-to-PR Ratio</div>
+                            <div class="metric-desc">Sharp spike in production regression per shipped pull request</div>
+                        </div>
+                        <div class="metric-card" style="border-top: 4px solid var(--google-yellow);">
+                            <div class="metric-num yellow">+441.5%</div>
+                            <div class="metric-label">Median Review Time</div>
+                            <div class="metric-desc">Pull requests stack up; human reviewers cannot keep pace</div>
+                        </div>
+                        <div class="metric-card" style="border-top: 4px solid var(--google-red);">
+                            <div class="metric-num red">1.7x</div>
+                            <div class="metric-label">More Logic Defects</div>
+                            <div class="metric-desc">AI-authored pull requests hold double the security faults (CodeRabbit)</div>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 14px; line-height: 1.5; color: var(--google-gray-medium); margin-top: 25px; text-align: center; font-style: italic;">
+                        <strong>The Operational Reality:</strong> GitClear shows AI developers write 4x raw code, but yield only a 12% net productivity gain because downstream review &amp; integration gates remain completely choked.
+                    </p>
+                    
+                    <div class="footnote">
+                        * Sources: GitClear AI developer survey, Faros AI 22k Developer Study, and CodeRabbit Data (as cited in <a href="https://drive.google.com/file/d/1TrxjgvHe6JgxjgzC2_YydiC_iToAIklZ/view" target="_blank">The New SDLC With Vibe Coding</a> and <a href="https://drive.google.com/a/google.com/open?id=168-ikD0FJ6k66UrNX3hSXCOPPTl2XAGq" target="_blank">Beyond the IDE</a>).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Amdahl’s Law in Software Delivery -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">SYSTEMIC LIMITS</span>
+                    <h2 class="slide-title">Amdahl’s Law in Software Delivery</h2>
+                    <div class="slide-subtitle">Warp-speed syntax generation yields minimal net gains if verification remains serial.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-top: 10px;">
+                        <div class="col" style="flex: 1.1;">
+                            <div class="info-panel highlight">
+                                <span class="panel-title">
+                                    <span class="badge-icon blue">⚖️</span>
+                                    The Serial Wall of Engineering
+                                </span>
+                                <ul class="custom-list" style="margin-top: 10px;">
+                                    <li><strong>The Automated Fraction:</strong> Syntax typing, draft writing, initial boilerplate generation. AI does this instantly (the parallelized portion).</li>
+                                    <li><strong>The Serial Fraction:</strong> Architecture design, structural context, security audits, complex alignment, and PR reviews. This is bound to human timescales.</li>
+                                    <li><strong>The Delivery Cap:</strong> If code authoring makes up 20% of your lifecycle and AI makes it take 0 seconds, Amdahl's Law dictates your maximum overall speedup is only <strong>1.25x</strong>. The remaining 80% dominates.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col" style="flex: 0.9;">
+                            <div class="info-panel" style="background: var(--google-gray-light); border: none;">
+                                <span class="panel-title" style="color: var(--google-gray-dark);">
+                                    <span class="badge-icon gray">📊</span>
+                                    SDLC Breakdown (Time Spent)
+                                </span>
+                                
+                                <div style="margin-top: 15px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: var(--google-gray-medium);">Traditional SDLC:</span>
+                                    <div style="display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 6px 0 20px 0; font-size: 11px; font-weight: 600; color: white; text-align: center; line-height: 32px;">
+                                        <div style="flex: 5; background-color: var(--google-blue);">Coding (50%)</div>
+                                        <div style="flex: 5; background-color: var(--google-gray-medium);">Verify &amp; Review (50%)</div>
+                                    </div>
+                                    
+                                    <span style="font-size: 13px; font-weight: 500; color: var(--google-gray-medium);">AI-Accelerated SDLC (The Downstream Jam):</span>
+                                    <div style="display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 6px 0 10px 0; font-size: 11px; font-weight: 600; color: white; text-align: center; line-height: 32px;">
+                                        <div style="flex: 0.5; background-color: var(--google-green);">AI (5%)</div>
+                                        <div style="flex: 9.5; background-color: var(--google-red);">Human Verification Bottleneck (95%)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source framework: Amdahl’s Law (systemic scalability limit) and principles from the <a href="#" onclick="return false;">Building at AI Speed: NotebookLM Engineering Playbook (2026)</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: The AI Reviewer Paradox -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">NON-DETERMINISTIC RISKS</span>
+                    <h2 class="slide-title">The AI Reviewer Paradox</h2>
+                    <div class="slide-subtitle">Probabilistic reviewers introduce systemic noise, compounding reviewer cognitive load.</div>
+                </div>
+                <div class="slide-body">
+                    <blockquote class="google-quote">
+                        <p>"Attempting to resolve a verification bottleneck by adding probabilistic reviewers is like adding more cars to a traffic jam. The system does not move faster. The congestion grows."</p>
+                        <cite>— Beyond the IDE</cite>
+                    </blockquote>
+                    
+                    <div class="flex-cols" style="margin-top: 15px;">
+                        <div class="col">
+                            <div class="info-panel warning">
+                                <span class="panel-title">
+                                    <span class="badge-icon red">⚠️</span>
+                                    The Probabilistic Failure Mode
+                                </span>
+                                <ul class="custom-list" style="margin-top: 8px; font-size: 14px; line-height: 1.45;">
+                                    <li>Review agents make subjective assumptions, missing subtle regressions.</li>
+                                    <li><strong>The Council Trial:</strong> Evaluative trials of 4 different LLMs as code reviewers showed that some bugs were caught by only 1 or 2 models, and <em>none</em> of the models caught all 4 bugs. While an LLM council improves collective coverage, it multiplies the human auditing tax.</li>
+                                    <li>Engineers must audit the agent's complex review, creating <strong>dual verification overhead</strong>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <span class="panel-title">
+                                    <span class="badge-icon green">✅</span>
+                                    The Deterministic Solution
+                                </span>
+                                <ul class="custom-list" style="margin-top: 8px; font-size: 15px;">
+                                    <li>Enforce rigorous, automated unit and integration testing gates.</li>
+                                    <li>Wrap the agents in strict, deterministic <strong>execution harnesses</strong>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source: <a href="https://drive.google.com/a/google.com/open?id=168-ikD0FJ6k66UrNX3hSXCOPPTl2XAGq" target="_blank">Beyond the IDE: Software Engineering in the Age of Generative AI</a> (Addy Osmani, 2026).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6: The Consequence Boundary -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">VALIDATION BOUNDARY</span>
+                    <h2 class="slide-title">The Consequence Boundary</h2>
+                    <div class="slide-subtitle">Comparing deterministic verification gates against probabilistic AI reviewers.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-top: 10px; gap: 20px;">
+                        <!-- Left: Deterministic Path -->
+                        <div class="col" style="background: #ffffff; border-radius: 12px; border: 1px solid var(--google-gray-light); border-top: 4px solid var(--google-blue); padding: 15px 20px;">
+                            <span style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; color: var(--google-blue); display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                                <span>⚙️</span> Scenario A: Deterministic Path
+                            </span>
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                                <div style="background: var(--google-gray-light); border-radius: 6px; padding: 6px 12px; font-size: 11px; font-weight: 600; color: var(--google-gray-dark); width: 80%; text-align: center;">
+                                    Proposed Code Change
+                                </div>
+                                <div style="font-size: 14px; color: var(--google-gray-medium);">↓</div>
+                                <div style="background: var(--google-blue-light); border-radius: 6px; padding: 10px; border: 1px solid rgba(26,115,232,0.12); width: 90%; text-align: center;">
+                                    <div style="font-size: 12px; font-weight: 700; color: var(--google-blue);">Deterministic Gates</div>
+                                    <div style="font-size: 10px; color: var(--google-gray-medium); margin-top: 2px;">Compilers, linters, structured test gates</div>
+                                </div>
+                                <div style="font-size: 14px; color: var(--google-gray-medium);">↓</div>
+                                <div style="display: flex; justify-content: space-between; width: 100%; gap: 10px;">
+                                    <!-- Pass -->
+                                    <div style="flex: 1; background: var(--google-green-light); border-radius: 6px; padding: 8px; border: 1px solid rgba(52,168,83,0.12); text-align: center;">
+                                        <div style="font-size: 11px; font-weight: 700; color: var(--google-green);">PASS</div>
+                                        <div style="font-size: 10px; font-weight: 600; color: var(--google-gray-dark); margin-top: 2px;">Safe to Merge</div>
+                                        <div style="font-size: 9px; color: var(--google-gray-medium); margin-top: 1px;">0% False Positives</div>
+                                    </div>
+                                    <!-- Fail -->
+                                    <div style="flex: 1; background: var(--google-red-light); border-radius: 6px; padding: 8px; border: 1px solid rgba(234,67,53,0.12); text-align: center;">
+                                        <div style="font-size: 11px; font-weight: 700; color: var(--google-red);">FAIL</div>
+                                        <div style="font-size: 10px; font-weight: 600; color: var(--google-gray-dark); margin-top: 2px;">Blocked Change</div>
+                                        <div style="font-size: 9px; color: var(--google-gray-medium); margin-top: 1px;">Root cause known instantly (0.5 hrs fix)</div>
+                                    </div>
+                                </div>
+                                <div style="background: var(--google-gray-light); border-radius: 6px; padding: 8px; margin-top: 8px; width: 100%; box-sizing: border-box; text-align: center;">
+                                    <span style="font-size: 12px; font-weight: 700; color: var(--google-gray-dark);">Operational Tax: 2.5 hrs/week (6.25% Capacity)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Probabilistic Path -->
+                        <div class="col" style="background: #ffffff; border-radius: 12px; border: 1px solid var(--google-gray-light); border-top: 4px solid var(--google-red); padding: 15px 20px;">
+                            <span style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; color: var(--google-red); display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                                <span>🧠</span> Scenario B: Probabilistic Path
+                            </span>
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                                <div style="background: var(--google-gray-light); border-radius: 6px; padding: 6px 12px; font-size: 11px; font-weight: 600; color: var(--google-gray-dark); width: 80%; text-align: center;">
+                                    Proposed Code Change
+                                </div>
+                                <div style="font-size: 14px; color: var(--google-gray-medium);">↓</div>
+                                <div style="background: var(--google-red-light); border-radius: 6px; padding: 10px; border: 1px solid rgba(234,67,53,0.12); width: 90%; text-align: center;">
+                                    <div style="font-size: 12px; font-weight: 700; color: var(--google-red);">Probabilistic AI Checkers</div>
+                                    <div style="font-size: 10px; color: var(--google-gray-medium); margin-top: 2px;">Nondeterministic reviewers, LLM-based audits</div>
+                                </div>
+                                <div style="font-size: 14px; color: var(--google-gray-medium);">↓</div>
+                                <div style="display: flex; flex-direction: column; width: 100%; gap: 6px;">
+                                    <div style="display: flex; gap: 10px;">
+                                        <!-- True Pass -->
+                                        <div style="flex: 1; background: var(--google-green-light); border-radius: 6px; padding: 6px; border: 1px solid rgba(52,168,83,0.12); text-align: center;">
+                                            <div style="font-size: 10px; font-weight: 700; color: var(--google-green);">True Pass</div>
+                                            <div style="font-size: 9px; color: var(--google-gray-medium); margin-top: 1px;">Correctly merged</div>
+                                        </div>
+                                        <!-- False Positive -->
+                                        <div style="flex: 1; background: #feebec; border-radius: 6px; padding: 6px; border: 1px solid rgba(234,67,53,0.2); text-align: center;">
+                                            <div style="font-size: 10px; font-weight: 700; color: var(--google-red);">False Positive</div>
+                                            <div style="font-size: 9px; font-weight: 600; color: var(--google-gray-dark); margin-top: 1px;">Outage / Leak</div>
+                                            <div style="font-size: 8px; color: var(--google-gray-medium); margin-top: 1px;">High cost incident (1.0 hr)</div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; gap: 10px;">
+                                        <!-- True Fail -->
+                                        <div style="flex: 1; background: var(--google-gray-light); border-radius: 6px; padding: 6px; border: 1px solid var(--google-gray-light); text-align: center;">
+                                            <div style="font-size: 10px; font-weight: 700; color: var(--google-gray-dark);">True Fail</div>
+                                            <div style="font-size: 9px; color: var(--google-gray-medium); margin-top: 1px;">Requires dual review</div>
+                                        </div>
+                                        <!-- False Negative -->
+                                        <div style="flex: 1; background: var(--google-yellow-light); border-radius: 6px; padding: 6px; border: 1px solid rgba(251,188,5,0.2); text-align: center;">
+                                            <div style="font-size: 10px; font-weight: 700; color: #b06000;">False Negative</div>
+                                            <div style="font-size: 9px; font-weight: 600; color: var(--google-gray-dark); margin-top: 1px;">Noisy False Alarm</div>
+                                            <div style="font-size: 8px; color: var(--google-gray-medium); margin-top: 1px;">Wasted triage hours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="background: var(--google-red-light); border-radius: 6px; padding: 8px; margin-top: 8px; width: 100%; box-sizing: border-box; text-align: center; border: 1px solid rgba(234,67,53,0.15);">
+                                    <span style="font-size: 12px; font-weight: 700; color: var(--google-red);">Operational Tax: 6.25 hrs/week (15.6%+ Capacity)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source data and mathematical model: <a href="https://drive.google.com/a/google.com/open?id=168-ikD0FJ6k66UrNX3hSXCOPPTl2XAGq" target="_blank">Beyond the IDE: Software Engineering in the Age of Generative AI</a> (Addy Osmani, 2026).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 7: "I’m the Problem. It’s Me." -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">PROCESS ACCELERATION</span>
+                    <h2 class="slide-title">Trimming Human and Process Bottlenecks</h2>
+                    <div class="slide-subtitle">Individual speed demands aggressive simplification of administrative organizational overhead.</div>
+                </div>
+                <div class="slide-body">
+                    <p class="lead" style="margin-bottom: 20px;">
+                        As individual engineers move faster, traditional administrative processes become the new constraint. We must actively restructure how teams align and authorize work.
+                    </p>
+                    
+                    <div class="bullet-card-grid">
+                        <div class="bullet-card">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon blue">👥</span>
+                                High-Alignment Small Teams
+                            </div>
+                            <div class="bullet-card-desc">
+                                NotebookLM playbook standardizes keeping core launch teams extremely small (e.g., 2–4 engineers) to minimize alignment channels.
+                            </div>
+                        </div>
+                        <div class="bullet-card">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon green">⏱️</span>
+                                Default-to-Approved
+                            </div>
+                            <div class="bullet-card-desc">
+                                Adopt the <strong>2-Day Rule</strong>: publish plans to a shared channel. If no peer actively vetoes within 48 hours, the plan is approved automatically.
+                            </div>
+                        </div>
+                        <div class="bullet-card">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon yellow">🔽</span>
+                                Pushing Approvals Down
+                            </div>
+                            <div class="bullet-card-desc">
+                                Remove executive VP sign-offs from day-to-day work. Empower L7 engineering leads with full, final launch authorization.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="motto-banner" style="margin-top: 25px;">
+                        <p class="motto-text" style="font-size: 18px;">"Stop spending human hours compiling status updates for executives. Use AI to auto-generate team newsletters, status summaries, and launch slide updates."</p>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source: <a href="#" onclick="return false;">Building at AI Speed: The NotebookLM Engineering and Product Development Playbook</a> (April Lehman, March 2026).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 8: The ASDLC Spectrum -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE ASDLC SPECTRUM</span>
+                    <h2 class="slide-title">Vibe Coding vs. Agentic Engineering</h2>
+                    <div class="slide-subtitle">The differentiator is not whether you use AI, but the degree of structure and control.</div>
+                </div>
+                <div class="slide-body">
+                    <table class="google-table">
+                        <thead>
+                            <tr>
+                                <th>Dimension</th>
+                                <th>Vibe Coding 🎭</th>
+                                <th>Structured AI Coding ⚖️</th>
+                                <th class="focus">Agentic Engineering 🛠️</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Intent Specification</strong></td>
+                                <td>Ad-hoc, casual natural language prompts</td>
+                                <td>Prompts structured with rules and context</td>
+                                <td class="focus"><strong>Formal schemas, specifications, AGENTS.md</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Verification Gating</strong></td>
+                                <td>"Looks okay" manual spot checks</td>
+                                <td>Manual testing combined with basic check-ins</td>
+                                <td class="focus"><strong>Automated CI test suites, sandboxed verification</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Error Handling</strong></td>
+                                <td>Copy-pasting errors back to chat</td>
+                                <td>Developer analyzes; AI implements fix</td>
+                                <td class="focus"><strong>Agent self-diagnosis inside sandboxed runtimes</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Operational Risk</strong></td>
+                                <td style="color: var(--google-red); font-weight: 500; font-size: 13.5px;">High (Acceptable for prototypes)</td>
+                                <td style="color: var(--google-yellow); font-weight: 500; font-size: 13.5px;">Moderate (Human gates checkpoints)</td>
+                                <td class="focus" style="color: var(--google-green); font-weight: 600; font-size: 13.5px;">Low (Systematic contract-driven safety)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="footnote">
+                        * Source frameworks: <a href="https://weaveintelligence.io/blog/what-is-the-agentic-software-development-lifecycle-asdlc?utm_source=substack&utm_medium=email" target="_blank">What is the Agentic Software Development Lifecycle?</a> (Weave Intelligence) and Lee Boonstra's <a href="#" onclick="return false;">Spec-Driven Production Grade Development (2026)</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: The Economics of AI Development -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE ECONOMICS OF AI</span>
+                    <h2 class="slide-title">Build-Time Investment vs. Run-Time Waste</h2>
+                    <div class="slide-subtitle">Ad-hoc prompt loops accumulate compounding token and cognitive maintenance debt.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols">
+                        <div class="col">
+                            <div class="info-panel warning">
+                                <span class="panel-title">
+                                    <span class="badge-icon red">💸</span>
+                                    The Unstructured Prompting Trap
+                                </span>
+                                <ul class="custom-list" style="margin-top: 10px; font-size: 15px;">
+                                    <li><strong>The Token Burn Loop:</strong> Dumping whole files into context windows during trial-and-error prompt iterations.</li>
+                                    <li><strong>Spaghetti Maintenance Tax:</strong> Humans spend hours reverse-engineering unstructured, poorly documented code.</li>
+                                    <li><strong>Security Remediation Debt:</strong> Patching issues in production costs 100x more than upfront gates.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <span class="panel-title">
+                                    <span class="badge-icon green">⚡</span>
+                                    The High-Leverage Agentic Model
+                                </span>
+                                <ul class="custom-list" style="margin-top: 10px; font-size: 15px;">
+                                    <li><strong>Build-Time Asset Investment:</strong> Upfront creation of `AGENTS.md` and automated workspace validation gates.</li>
+                                    <li><strong>Open Knowledge Format (OKF):</strong> Grounding agents in Google's open, git-friendly spec—cataloging guidelines, metadata, and contracts as standard Markdown with YAML frontmatter to build portable knowledge graphs.</li>
+                                    <li><strong>High First-Pass Success:</strong> Serving highly targeted, modular context blocks via OKF and `/prompts.wiki` structures to dramatically raise accuracy and slash context-window token burn.</li>
+                                    <li><strong>Intelligent Model Routing:</strong> Running fast, lightweight models for compiled prompt validation and linting; reserving frontier models for strategic reasoning and planning.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Sources: Google Cloud's Open Knowledge Format (OKF) Specification (2026), Andrej Karpathy's LLM Wiki pattern, and Addy Osmani's <a href="https://addyosmani.com/blog/agentic-code-review/" target="_blank">Agentic Code Review</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: The Sixty-Second "Truth" Test -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">VERIFICATION MATRIX</span>
+                    <h2 class="slide-title">The Sixty-Second "Truth" Test</h2>
+                    <div class="slide-subtitle">How to prove an enterprise system is truly "in control" under AI acceleration.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-top: 15px; gap: 20px;">
+                        <!-- Col 1: Objective -->
+                        <div class="col" style="background: #ffffff; border-radius: 12px; border: 1px solid var(--google-gray-light); border-top: 4px solid var(--google-blue); padding: 15px 20px;">
+                            <div style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: var(--google-blue); display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                                <span>📋</span> 1. Expected Behavior
+                            </div>
+                            <div style="font-size: 13.5px; font-weight: 600; color: var(--google-gray-dark); margin-bottom: 4px;">What specifically are we supposed to do?</div>
+                            <div style="font-size: 11.5px; color: var(--google-gray-medium); line-height: 1.45;">
+                                Clearly define the target outcomes, API schemas, and contracts. Shift from unwritten wishes to machine-readable specifications.
+                            </div>
+                        </div>
+                        
+                        <!-- Col 2: Evidence -->
+                        <div class="col" style="background: #ffffff; border-radius: 12px; border: 1px solid var(--google-gray-light); border-top: 4px solid var(--google-green); padding: 15px 20px;">
+                            <div style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: var(--google-green); display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                                <span>🧪</span> 2. Live Verification
+                            </div>
+                            <div style="font-size: 13.5px; font-weight: 600; color: var(--google-gray-dark); margin-bottom: 4px;">How specifically do we prove we are doing it right now?</div>
+                            <div style="font-size: 11.5px; color: var(--google-gray-medium); line-height: 1.45;">
+                                Rely on immediate, substantiated claims (compilers, automated regression suites, static linters). Documented "quarterly checks" are inadequate.
+                            </div>
+                        </div>
+                        
+                        <!-- Col 3: Remediation -->
+                        <div class="col" style="background: #ffffff; border-radius: 12px; border: 1px solid var(--google-gray-light); border-top: 4px solid var(--google-red); padding: 15px 20px;">
+                            <div style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: var(--google-red); display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                                <span>🛡️</span> 3. Response Plan
+                            </div>
+                            <div style="font-size: 13.5px; font-weight: 600; color: var(--google-gray-dark); margin-bottom: 4px;">If it goes wrong, who is accountable, and what is the fix?</div>
+                            <div style="font-size: 11.5px; color: var(--google-gray-medium); line-height: 1.45;">
+                                Establish clear ownership and pre-defined remediation routes. If tests fail, the harness must auto-pipe traces to block commits and repair state.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="motto-banner" style="background-color: var(--google-blue-light); border-color: rgba(26, 115, 232, 0.15); margin-top: 20px; padding: 12px 20px; text-align: left; display: flex; align-items: flex-start; gap: 12px;">
+                        <div style="font-size: 24px; line-height: 1; margin-top: 2px;">⏱️</div>
+                        <div>
+                            <p class="motto-text" style="color: var(--google-blue); font-size: 15px; margin: 0 0 4px 0; font-weight: 600; font-family: 'Outfit', sans-serif;">
+                                The Sixty-Second State of Control
+                            </p>
+                            <p style="color: var(--google-gray-dark); font-size: 12.5px; line-height: 1.4; margin: 0;">
+                                If you cannot retrieve substantiated proof for these three questions in <strong>sixty seconds</strong>, you are in a state of <strong>known-unknown</strong>. Being "in control" means systematically reducing known-unknowns using automated, continuous verification.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source: <a href="https://drive.google.com/a/google.com/open?id=168-ikD0FJ6k66UrNX3hSXCOPPTl2XAGq" target="_blank">Beyond the IDE: Software Engineering in the Age of Generative AI</a> (Addy Osmani, 2026).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: Vibe Code First, Design Later -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">DEVELOPMENT METHODOLOGY (EVO)</span>
+                    <h2 class="slide-title">Vibe Code First, Design Later</h2>
+                    <div class="slide-subtitle">Matching engineering rigor to blast radius while preventing comprehension debt.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-top: 15px; gap: 20px;">
+                        <!-- Column 1: Exploration -->
+                        <div class="col">
+                            <div class="info-panel" style="border-top: 4px solid var(--google-yellow);">
+                                <span class="panel-title" style="font-size: 16px;">
+                                    <span class="badge-icon yellow">🧪</span>
+                                    1. Exploration (Vibe Zone)
+                                </span>
+                                <div style="font-size: 11px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">
+                                    Blast Radius: Low
+                                </div>
+                                <ul class="custom-list" style="margin-top: 0; font-size: 13px; line-height: 1.45;">
+                                    <li><strong>Learning Velocity:</strong> Let AI generate raw code rapidly. Build working prototypes in 48 hours to replace speculative spec writing.</li>
+                                    <li><strong>Risk Profile:</strong> Confined entirely to the creator. Zero external consequence enables pure exploratory freedom.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Column 2: Validation -->
+                        <div class="col">
+                            <div class="info-panel" style="border-top: 4px solid var(--google-blue);">
+                                <span class="panel-title" style="font-size: 16px;">
+                                    <span class="badge-icon blue">⚖️</span>
+                                    2. Validation (Proving Ground)
+                                </span>
+                                <div style="font-size: 11px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">
+                                    Blast Radius: Medium
+                                </div>
+                                <ul class="custom-list" style="margin-top: 0; font-size: 13px; line-height: 1.45;">
+                                    <li><strong>Bounded Behavior:</strong> Transition beyond the happy path. Establish schema/API contracts and repeatable, verifiable outcomes.</li>
+                                    <li><strong>Risk Profile:</strong> Affects early users or specific departments. Needs deterministic proof before scaling.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Column 3: Operation -->
+                        <div class="col">
+                            <div class="info-panel" style="border-top: 4px solid var(--google-green);">
+                                <span class="panel-title" style="font-size: 16px;">
+                                    <span class="badge-icon green">🛡️</span>
+                                    3. Operation (Rigor Zone)
+                                </span>
+                                <div style="font-size: 11px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">
+                                    Blast Radius: High
+                                </div>
+                                <ul class="custom-list" style="margin-top: 0; font-size: 13px; line-height: 1.45;">
+                                    <li><strong>Continuous Control:</strong> Zero tolerance for unverified probabilistic code. System is live at scale in the enterprise value chain.</li>
+                                    <li><strong>Rule:</strong> <em>"Vibe coding in production is prohibited."</em> Must resolve the "Three Questions" in 60 seconds.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="motto-banner" style="background-color: var(--google-red-light); border-color: rgba(234, 67, 53, 0.15); margin-top: 20px; padding: 12px 20px; text-align: left; display: flex; align-items: flex-start; gap: 12px;">
+                        <div style="font-size: 24px; line-height: 1; margin-top: 2px;">⚠️</div>
+                        <div>
+                            <p class="motto-text" style="color: var(--google-red); font-size: 16px; margin: 0 0 4px 0; font-weight: 600; font-family: 'Outfit', sans-serif;">
+                                The Comprehension Gap: Unchecked Generation Danger
+                            </p>
+                            <p style="color: var(--google-gray-dark); font-size: 13px; line-height: 1.4; margin: 0;">
+                                If AI generates all the code, <strong>no single human can understand the system as a whole</strong>. When production regressions inevitably strike, debugging becomes an impossible nightmare because no human comprehends the system's active state. Bypassing comprehension builds a deep debt of uncertainty that lowers the operational ceiling.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source references: "Vibe Code First" from April Lehman's <a href="#" onclick="return false;">Building at AI Speed (NotebookLM Playbook, 2026)</a>; "EVO Phases" and "Debt of Uncertainty" from <a href="#" onclick="return false;">Beyond the IDE (Enterprise Technology Leadership Journal, Spring 2026)</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 12: Harness Engineering & The "Ratchet" Habit -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">SYSTEM TIGHTENING</span>
+                    <h2 class="slide-title">Harness Engineering &amp; The "Ratchet" Habit</h2>
+                    <div class="slide-subtitle">Every agent mistake is a permanent system signal to tighten the harness.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="bullet-card-grid">
+                        <div class="bullet-card">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon blue">⚙️</span>
+                                The Harness Ratchet
+                            </div>
+                            <div class="bullet-card-desc">
+                                Never just click "retry" on failure. Immediately write an `AGENTS.md` rule, pre-commit constraint, or lint check to design the issue out of existence.
+                            </div>
+                        </div>
+                        <div class="bullet-card">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon green">🤫</span>
+                                Silent Success / Verbose Fail
+                            </div>
+                            <div class="bullet-card-desc">
+                                Keep context windows clean. If tests/checks pass, the harness remains silent. On failure, push rich, structured error text to trigger agent self-repair.
+                            </div>
+                        </div>
+                        <div class="bullet-card">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon gray">🤝</span>
+                                The Sprint Contract
+                            </div>
+                            <div class="bullet-card-desc">
+                                Split agents into distinct <strong>Generator</strong> and <strong>Evaluator</strong> roles. Force them to align on what "done" means <em>before</em> code is generated.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source: <a href="https://addyosmani.com/blog/agentic-code-review/" target="_blank">Agentic Code Review & Harness Tightening</a> (Addy Osmani, 2026).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 13: Harness Engineering -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">AGENT INFRASTRUCTURE</span>
+                    <h2 class="slide-title">Harness Engineering</h2>
+                    <div class="slide-subtitle">A raw model is not an agent. It becomes one through its execution harness.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="formula-card">
+                        <div class="formula-text">Agent = Model + <span class="accent">Harness</span></div>
+                    </div>
+                    
+                    <div class="flex-cols" style="margin-top: 10px;">
+                        <div class="col" style="flex: 1.1;">
+                            <ul class="custom-list" style="font-size: 13.5px; line-height: 1.45;">
+                                <li><strong>Scaffolding Dominates Success:</strong> Terminal Bench 2.0 (the global SWE-agent coding leaderboard) showed that changing <em>only</em> the harness moved an agent from outside the Top 30 into the Top 5.</li>
+                                <li><strong>What is a Harness?</strong> Prompts (`AGENTS.md`), custom tools (MCP servers), isolated sandboxes, orchestration, pre-commit checks, and trace telemetry.</li>
+                                <li><strong>Deterministic Pre-commit Gates:</strong> Implementing strict pre-commit hooks (e.g., blocking commits if secrets/credentials are detected, running static analysis like ESLint/Ruff, or enforcing matching test specs) to guarantee baseline correctness.</li>
+                                <li><strong>Antigravity (AGY) &amp; Gemini Agent Platform:</strong> Out-of-the-box, enterprise-ready harness providing isolated sandbox containers, MCP server routing, deterministic hooks, and trace auditing.</li>
+                            </ul>
+                        </div>
+                        <div class="col" style="flex: 0.9;">
+                            <div class="info-panel" style="background: var(--google-gray-light); border: none; padding: 20px;">
+                                <div style="display: flex; flex-direction: column; justify-content: center; height: 100%; text-align: center;">
+                                    <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--google-blue); font-size: 14px; letter-spacing: 1px; margin-bottom: 8px;">THE AGY HARNESS LAYER</span>
+                                    <div style="background: white; border-radius: 8px; padding: 12px; border: 1px solid #dadce0; margin-bottom: 8px; font-size: 13px; font-weight: 500; color: var(--google-gray-dark);">
+                                        Dynamic Context &amp; Memory
+                                    </div>
+                                    <div style="background: white; border-radius: 8px; padding: 12px; border: 1px solid #dadce0; margin-bottom: 8px; font-size: 13px; font-weight: 500; color: var(--google-gray-dark);">
+                                        Isolated Execution Sandboxes
+                                    </div>
+                                    <div style="background: white; border-radius: 8px; padding: 10px; border: 1px solid #dadce0; font-size: 12.5px; font-weight: 500; color: var(--google-gray-dark);">
+                                        Deterministic Pre-commit Gates<br>
+                                        <span style="font-size: 10.5px; color: var(--google-gray-medium); font-weight: 400;">(Linters, Secrets Scanners, Compilation)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source data: Terminal Bench 2.0 evaluation data and harness concepts in <a href="https://addyosmani.com/blog/agentic-code-review/" target="_blank">Agentic Code Review</a> (Addy Osmani, 2026).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 14: Multi-Agent Orchestration & The Ralph Wiggum Loop -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">AUTONOMOUS ORCHESTRATION</span>
+                    <h2 class="slide-title">Multi-Agent Orchestration &amp; The Ralph Wiggum Loop</h2>
+                    <div class="slide-subtitle">Transitioning from single-turn chatbots to persistent, collaborative agent loops.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-top: 10px; gap: 20px;">
+                        <!-- Left: Multi-Agent Orchestration -->
+                        <div class="col" style="background: #ffffff; border-radius: 12px; border: 1px solid var(--google-gray-light); border-top: 4px solid var(--google-blue); padding: 15px 20px;">
+                            <span style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; color: var(--google-blue); display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                                <span>🤝</span> Teamwork Preview: Multi-Agent Orchestration
+                            </span>
+                            <div style="font-size: 13px; color: var(--google-gray-dark); font-weight: 600; margin-bottom: 8px;">
+                                Spawning Collaborative Agent Swarms
+                            </div>
+                            <ul class="custom-list" style="margin-top: 0; font-size: 11.5px; line-height: 1.45; color: var(--google-gray-medium);">
+                                <li><strong>The `/teamwork-preview` Pattern:</strong> Moves beyond single agents. Spawns a primary orchestrator agent that manages dozens of specialized sub-agents working in parallel to write, test, and debug code.</li>
+                                <li><strong>The "Building an OS" Demo:</strong> Google successfully demonstrated `/teamwork-preview` by building a fully functional operating system (including scheduler, memory management, filesystem, and drivers) from scratch from a single prompt.</li>
+                                <li><strong>Key Advantage:</strong> Distributes reasoning across highly specialized roles, preventing single-agent cognitive bottlenecks.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Right: Ralph Wiggum Loop -->
+                        <div class="col" style="background: #ffffff; border-radius: 12px; border: 1px solid var(--google-gray-light); border-top: 4px solid var(--google-green); padding: 15px 20px;">
+                            <span style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; color: var(--google-green); display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                                <span>🔄</span> The `/goal` Command: The "Ralph Wiggum" Loop
+                            </span>
+                            <div style="font-size: 13px; color: var(--google-gray-dark); font-weight: 600; margin-bottom: 8px;">
+                                Continuous Verification-Driven Persistence
+                            </div>
+                            <ul class="custom-list" style="margin-top: 0; font-size: 11.5px; line-height: 1.45; color: var(--google-gray-medium);">
+                                <li><strong>The "Ralph Wiggum" Concept:</strong> Popularized by developers like Geoffrey Huntley. An agent persistently iterates by running code, evaluating compiler/test feedback, and editing files until constraints pass.</li>
+                                <li><strong>Flushing Memory to Prevent Rot:</strong> Between loop cycles, the harness flushes raw conversation history and persists code state directly to the filesystem. The agent restarts each iteration from clean, validated disk states.</li>
+                                <li><strong>"Set and Forget" Leverage:</strong> The cornerstone of "overnight builds." Humans design unambiguous verification standards (e.g., unit test suites); the loop drives autonomously to resolution.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Sources: Google Antigravity Teamwork-Preview Reference Guide (2026), Geoffrey Huntley's Ralph Loop Architecture, and Simon Willison's discussions on verification-driven vibecoding.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15: Spec-Driven Development (SDD) -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">ENGINEERING WORKFLOW</span>
+                    <h2 class="slide-title">Spec-Driven Development (SDD)</h2>
+                    <div class="slide-subtitle">Specifications act as machine-executable contracts governing autonomous execution.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="process-track" style="margin-top: 15px;">
+                        <div class="process-step">
+                            <span class="step-num">1</span>
+                            <div class="step-title">Specify (Human)</div>
+                            <div class="step-desc">Write declarative behavioral tests, API schemas, and contracts</div>
+                        </div>
+                        <div class="process-arrow">➔</div>
+                        <div class="process-step">
+                            <span class="step-num">2</span>
+                            <div class="step-title">Implement (AI)</div>
+                            <div class="step-desc">Generate code blocks in isolated sandbox runtimes</div>
+                        </div>
+                        <div class="process-arrow">➔</div>
+                        <div class="process-step">
+                            <span class="step-num">3</span>
+                            <div class="step-title">Cover (AI)</div>
+                            <div class="step-desc">Generate 100% test coverage matching behavioral spec</div>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="google-quote" style="margin-top: 20px;">
+                        <p>"The bottleneck moved from writing the code to specifying what it should do, and then verifying that the output matches that specification."</p>
+                        <cite>— The New SDLC With Vibe Coding</cite>
+                    </blockquote>
+                    
+                    <div class="footnote">
+                        * Source: <a href="https://drive.google.com/file/d/1Wtpa6nYaGIKonU5y5sa3K_E72qmIQzGS/view" target="_blank">Spec-Driven Production Grade Development</a> (Lee Boonstra, 2026) and <a href="https://drive.google.com/file/d/1TrxjgvHe6JgxjgzC2_YydiC_iToAIklZ/view" target="_blank">The New SDLC With Vibe Coding</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 16: Let AI Interview You! -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">REQUIREMENTS ELICITATION</span>
+                    <h2 class="slide-title">Replacing the PRD with Interactive Elicitation</h2>
+                    <div class="slide-subtitle">Empower agents to draw out critical specifications using conversational loops.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-top: 10px;">
+                        <div class="col" style="flex: 1.1;">
+                            <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--google-blue); font-size: 15px; display: block; margin-bottom: 10px;">
+                                The Antigravity `/grill-me` Workflow
+                            </span>
+                            <div class="process-track" style="margin: 10px 0;">
+                                <div class="process-step" style="padding: 10px;">
+                                    <div class="step-title" style="font-size: 13px; margin: 0;">1. Target Person</div>
+                                    <div class="step-desc" style="font-size: 11px;">"Who is this specifically for?"</div>
+                                </div>
+                                <div class="process-arrow" style="font-size: 16px; padding: 0 5px;">➔</div>
+                                <div class="process-step" style="padding: 10px;">
+                                    <div class="step-title" style="font-size: 13px; margin: 0;">2. Core Pain</div>
+                                    <div class="step-desc" style="font-size: 11px;">"Exactly where does frustration strike?"</div>
+                                </div>
+                                <div class="process-arrow" style="font-size: 16px; padding: 0 5px;">➔</div>
+                                <div class="process-step" style="padding: 10px;">
+                                    <div class="step-title" style="font-size: 13px; margin: 0;">3. Systems Context</div>
+                                    <div class="step-desc" style="font-size: 11px;">"Why does legacy tech fail them?"</div>
+                                </div>
+                            </div>
+                            <p style="font-size: 14px; line-height: 1.5; color: var(--google-gray-medium); margin-top: 12px;">
+                                This conversational elicitation loop breaks the "blank-page" blocker, compiling dialogue answers directly into rigid Technical Specifications.
+                            </p>
+                        </div>
+                        <div class="col" style="flex: 0.9;">
+                            <div class="info-panel highlight">
+                                <span class="panel-title">
+                                    <span class="badge-icon blue">💬</span>
+                                    No More PRD Templates
+                                </span>
+                                <ul class="custom-list" style="margin-top: 5px; font-size: 14px;">
+                                    <li>Writing PRDs manually is slow, missing complex edge cases.</li>
+                                    <li>`/grill-me` shifts the developer's role from raw document-writer to <strong>interactive conversational director</strong>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source workflow: <a href="https://drive.google.com/file/d/1Wtpa6nYaGIKonU5y5sa3K_E72qmIQzGS/view" target="_blank">Spec-Driven Production Grade Development in the Age of Vibe Coding</a> (Lee Boonstra, 2026).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 17: The "First Human" Code Review -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE GOVERNANCE BRIDGE</span>
+                    <h2 class="slide-title">The "First Human" Code Review</h2>
+                    <div class="slide-subtitle">Traditional code reviews audit human intent. AI reviews demand trajectory audits.</div>
+                </div>
+                <div class="slide-body">
+                    <blockquote class="google-quote" style="margin: 10px 0 20px 0;">
+                        <p>"I am proudly and confidently accountable for every single line of code in this application, even though I didn't write most of it."</p>
+                        <cite>— Simon Willison</cite>
+                    </blockquote>
+                    
+                    <div class="flex-cols">
+                        <div class="col">
+                            <div class="info-panel warning" style="padding: 18px;">
+                                <span class="panel-title" style="font-size: 16px;">
+                                    <span class="badge-icon red">❌</span>
+                                    The Legacy Review Trap
+                                </span>
+                                <p style="font-size: 12px; color: var(--google-gray-medium); line-height: 1.5; margin-bottom: 8px;">
+                                    Reviewers receive a flat code diff. All intermediate reasoning, failed tests, and execution loops are discarded.
+                                </p>
+                                <span style="font-size: 13px; font-weight: 600; color: var(--google-red);">The Human reverse-engineers raw syntax.</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success" style="padding: 18px;">
+                                <span class="panel-title" style="font-size: 16px;">
+                                    <span class="badge-icon green">🛡️</span>
+                                    Trajectory-Inclusive PRs
+                                </span>
+                                <p style="font-size: 12px; color: var(--google-gray-medium); line-height: 1.5; margin-bottom: 8px;">
+                                    The harness bundles complete execution logs, planning chains, terminal outputs, and test trace histories directly inside the PR.
+                                </p>
+                                <span style="font-size: 13px; font-weight: 600; color: var(--google-green);">The Human audits reasoning and behavior.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Sources: Simon Willison's Developer Accountability blog and Addy Osmani's <a href="https://drive.google.com/a/google.com/open?id=168-ikD0FJ6k66UrNX3hSXCOPPTl2XAGq" target="_blank">Beyond the IDE</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 18: Re-Engineering Developer Experience (DevEx) -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">DEVELOPER EXPERIENCE</span>
+                    <h2 class="slide-title">Re-Engineering Developer Experience (DevEx)</h2>
+                    <div class="slide-subtitle">How the Agentic SDLC actively combats friction across Nicole Forsgren’s three primary dimensions.</div>
+                </div>
+                <div class="slide-body">
+                    <p class="lead" style="margin-bottom: 20px;">
+                        Generative AI is often deployed in ways that increase friction—uncontrolled code outputs create cognitive clutter and choked verification pipelines. True Agentic SDLC design optimizes the three core pillars of developer experience.
+                    </p>
+                    
+                    <div class="bullet-card-grid">
+                        <div class="bullet-card" style="border-top: 4px solid var(--google-blue);">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon blue">⚡</span>
+                                1. Rapid Feedback Loops
+                            </div>
+                            <div class="bullet-card-desc">
+                                <strong>The Friction:</strong> Slowness in feedback—whether waiting on PR reviews, test suites, or slow LLM code generation—acts as a critical development bottleneck, forcing developers to wait idly.<br><br>
+                                <strong>The Agentic Shift:</strong> Compressing loop times. Moving verification from central queues to local, sandboxed runtimes that run unit tests and trace diagnostics in seconds.
+                            </div>
+                        </div>
+                        <div class="bullet-card" style="border-top: 4px solid var(--google-green);">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon green">🧘</span>
+                                2. Maintaining Flow State
+                            </div>
+                            <div class="bullet-card-desc">
+                                <strong>The Friction:</strong> Slowness breaks flow. When LLMs or tests take minutes, developers context-switch to other tasks to "stay active," shattering deep focus and concentration.<br><br>
+                                <strong>The Agentic Shift:</strong> Shifting from synchronous waiting to asynchronous delegation. Developers declare intent, then hand execution paths to background agents to remain in their own unbroken flow.
+                            </div>
+                        </div>
+                        <div class="bullet-card" style="border-top: 4px solid var(--google-yellow);">
+                            <div class="bullet-card-title">
+                                <span class="badge-icon yellow">🧠</span>
+                                3. Minimizing Cognitive Load
+                            </div>
+                            <div class="bullet-card-desc">
+                                <strong>The Friction:</strong> Forced multitasking during wait times requires developers to juggle the mental states of several unfinished tasks in active memory, causing cognitive exhaustion.<br><br>
+                                <strong>The Agentic Shift:</strong> Specifications and agent logs serve as external working memory. The agent manages file contexts, presenting clean traces that spare humans from carrying memory load.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source framework: Nicole Forsgren, Margaret-Anne Storey, et al., <i>DevEx: What Is It and Why It Matters</i> (research on developer experience and friction in engineering teams).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 19: The Self-Improving Product Loop -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">CONTINUOUS FEEDBACK</span>
+                    <h2 class="slide-title">The Self-Improving Product Loop</h2>
+                    <div class="slide-subtitle">Connecting in-app metrics and user signals directly to automated agentic remediation loops.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="process-track">
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 24px;">💬</div>
+                            <div style="font-size: 13px; font-weight: 600; margin-top: 5px; color: var(--google-gray-dark);">User Signal</div>
+                        </div>
+                        <div style="color: #9aa0a6;">➔</div>
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 24px;">⚙️</div>
+                            <div style="font-size: 13px; font-weight: 600; margin-top: 5px; color: var(--google-gray-dark);">Pipeline Analyzes</div>
+                        </div>
+                        <div style="color: #9aa0a6;">➔</div>
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 24px;">🤖</div>
+                            <div style="font-size: 13px; font-weight: 600; margin-top: 5px; color: var(--google-blue);">AGY Remediates</div>
+                        </div>
+                        <div style="color: #9aa0a6;">➔</div>
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 24px;">👤</div>
+                            <div style="font-size: 13px; font-weight: 600; margin-top: 5px; color: var(--google-gray-dark);">Human Audits</div>
+                        </div>
+                        <div style="color: #9aa0a6;">➔</div>
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 24px;">🚀</div>
+                            <div style="font-size: 13px; font-weight: 600; margin-top: 5px; color: var(--google-green);">Auto-Deploy</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-panel warning" style="margin-top: 20px; padding: 18px;">
+                        <span class="panel-title" style="font-size: 15px; margin-bottom: 6px;">
+                            <span class="badge-icon red">⚠️</span>
+                            Enterprise Safety Gap: Internal Automation vs. External Jules
+                        </span>
+                        <p style="font-size: 12.5px; line-height: 1.5; color: var(--google-gray-medium); margin: 0;">
+                            While Google's internal auto-remediation program has automated multiple production issue fixes with a 2-day cycle time, the public-facing platform, <strong>Google Jules, is not yet Enterprise-Ready</strong> for unsupervised loops. Safe adoption mandates establishing robust local security gates and execution verification runtimes like <strong>Antigravity</strong>.
+                        </p>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Sources: <a href="#" onclick="return false;">Building at AI Speed: NotebookLM Engineering Playbook</a> and Google Jules Developer Platform documentation.
+                    </div>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li><strong>AGY vs. Claude Code / OpenCode / Others (Local Tools):</strong> Local CLI coding tools are interactive helpers on a developer's machine. They execute code and commands in the developer's raw shell without native enterprise-wide boundaries, centralized telemetry, policy control, or sandbox enforcement.</li>
+                        <li><strong>How AGY Acts as a Safety Gate:</strong>
+                            <ol>
+                                <li><em>Isolated Sandbox Runtimes:</em> Runs unverified agent commands within secure container sandboxes (e.g. Docker, gVisor) instead of directly on developer or staging servers.</li>
+                                <li><em>Deterministic Hard Verification:</em> Rather than trusting the model's probabilistic self-review, AGY forces code changes through actual compilers, linters, and regression suites. If any test fails, the exact execution trace is piped back to the agent for automated repair.</li>
+                                <li><em>Trajectory-Inclusive PRs:</em> AGY logs the entire execution path (all tool calls, terminal outputs, and test outcomes). Code reviews shift from manual syntax reverse-engineering to high-level audits of the agent's intent, reasoning, and trajectory.</li>
+                                <li><em>Centralized MCP Control:</em> Enforces fine-grained routing and credentials for Model Context Protocol tools, restricting agent access to authorized databases and microservices.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 20: The Human's Evolving Role -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">ROLE EVOLUTION</span>
+                    <h2 class="slide-title">From Code Conductors to System Orchestrators</h2>
+                    <div class="slide-subtitle">Our role is not disappearing—it is rising to a higher level of architectural leverage.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-top: 10px;">
+                        <div class="col">
+                            <div class="info-panel" style="border-top: 4px solid var(--google-yellow);">
+                                <span class="panel-title">
+                                    <span class="badge-icon yellow">🖱️</span>
+                                    Conductor Mode (IDE Assistant)
+                                </span>
+                                <ul class="custom-list" style="margin-top: 8px; font-size: 14px;">
+                                    <li>Operating in real-time directly inside the IDE.</li>
+                                    <li>Accepting inline autocomplete and line completions.</li>
+                                    <li><strong>The Bottleneck:</strong> The human remains an inline blocker, reviewing edits keystroke-by-keystroke.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <span class="panel-title">
+                                    <span class="badge-icon green">🚀</span>
+                                    Orchestrator Mode (Async Factory)
+                                </span>
+                                <ul class="custom-list" style="margin-top: 8px; font-size: 14px;">
+                                    <li>Operating asynchronously at the architectural system layer.</li>
+                                    <li>Harness engineering (designing `AGENTS.md` rules and custom tools), planning specs, and designing test suites.</li>
+                                    <li><strong>The Leverage:</strong> Delegating execution to sandboxed agent cohorts and performing deep trajectory reviews.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footnote">
+                        * Source concepts: <a href="https://drive.google.com/a/google.com/open?id=168-ikD0FJ6k66UrNX3hSXCOPPTl2XAGq" target="_blank">Beyond the IDE</a> and Lee Boonstra's <a href="https://drive.google.com/file/d/1Wtpa6nYaGIKonU5y5sa3K_E72qmIQzGS/view" target="_blank">Spec-Driven Production Grade Development (2026)</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 21: Action Plan for Engineering Leaders -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE SOFTWARE FACTORY</span>
+                    <h2 class="slide-title">Action Plan: Establishing the Software Factory</h2>
+                    <div class="slide-subtitle">Five core directives to operationalize the Agentic SDLC within your organization.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="roadmap-grid" style="margin-top: 15px;">
+                        <div class="roadmap-card blue">
+                            <span class="roadmap-num">01</span>
+                            <div class="roadmap-title">Trim Process Friction</div>
+                            <div class="roadmap-desc">Adopt 2-day default approvals. Push launch authorization downstream to tech leads.</div>
+                        </div>
+                        <div class="roadmap-card red">
+                            <span class="roadmap-num">02</span>
+                            <div class="roadmap-title">Enforce Spec-Driven SDLC</div>
+                            <div class="roadmap-desc">Prohibit code edits lacking written schemas or behavioral verification test suites.</div>
+                        </div>
+                        <div class="roadmap-card yellow">
+                            <span class="roadmap-num">03</span>
+                            <div class="roadmap-title">Standardize AGY Harnesses</div>
+                            <div class="roadmap-desc">Treat harnesses as shared assets. Build custom tools and rules in <strong>Antigravity</strong>.</div>
+                        </div>
+                        <div class="roadmap-card green">
+                            <span class="roadmap-num">04</span>
+                            <div class="roadmap-title">Conversational Spec Elicitation</div>
+                            <div class="roadmap-desc">Abolish empty documents. Run `/grill-me` loops to generate code specifications.</div>
+                        </div>
+                        <div class="roadmap-card blue">
+                            <span class="roadmap-num">05</span>
+                            <div class="roadmap-title">Trajectory-Based Code Review</div>
+                            <div class="roadmap-desc">Up-level teams to audit agent execution traces, plans, and sandbox tests inside PRs.</div>
+                        </div>
+                    </div>
+                    
+                    <p style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: var(--google-blue); margin-top: 25px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">
+                        Generation is solved. Verification, specification, and harness engineering are the new engineering crafts.
+                    </p>
+                    
+                    <div class="footnote">
+                        * Synthesized from: <a href="https://drive.google.com/a/google.com/open?id=168-ikD0FJ6k66UrNX3hSXCOPPTl2XAGq" target="_blank">Beyond the IDE</a>, <a href="https://drive.google.com/file/d/1Wtpa6nYaGIKonU5y5sa3K_E72qmIQzGS/view" target="_blank">Spec-Driven Development</a>, <a href="https://drive.google.com/file/d/1TrxjgvHe6JgxjgzC2_YydiC_iToAIklZ/view" target="_blank">The New SDLC</a>, and <a href="#" onclick="return false;">Building at AI Speed</a>.
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js & Plugins scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    
+    <script>
+        // Initialize reveal.js with custom configurations
+        Reveal.initialize({
+            // Set widescreen dimensions
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            
+            // Turn off default centering to allow crisp top-aligned layouts
+            center: false,
+            
+            // Slide configurations
+            hash: true,
+            slideNumber: 'c/t',
+            transition: 'fade', // professional fade transition matching Google standard
+            
+            // Plugins
+            plugins: [ RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
