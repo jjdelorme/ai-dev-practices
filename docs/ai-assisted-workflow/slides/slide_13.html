@@ -1,42 +1,64 @@
-<section data-transition="zoom">
-                <div class="slide-header" style="text-align: center;">
-                    <span class="slide-tracker">THE SYNTHESIS</span>
-                    <h2 class="slide-title" style="text-align: center !important;">Conclusion</h2>
-                    <div class="slide-subtitle" style="text-align: center;">The Future of Agentic AI Assistance</div>
-                </div>
-                <div class="slide-body" style="justify-content: center; align-items: center;">
-                    <div style="display: flex; flex-direction: column; align-items: center; max-width: 900px; margin: 0 auto; text-align: center;">
-                        <!-- Rocket SVG -->
-                        <div style="margin-bottom: 20px;">
-                            <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
-                                 <g transform="translate(60, 60)">
-                                      <!-- Rocket body -->
-                                      <path d="M0 -35 L-12 -10 L12 -10 Z" fill="var(--google-red)"/>
-                                      <rect x="-6" y="-10" width="12" height="24" fill="var(--google-gray-light)"/>
-                                      <circle cx="0" cy="-10" r="6" fill="var(--google-gray-light)"/>
-                                      <circle cx="0" cy="-10" r="2" fill="var(--google-blue)"/>
-                                      <!-- Rocket fins -->
-                                      <path d="M-6 14 L-14 22 L-6 22 Z" fill="var(--google-blue)"/>
-                                      <path d="M6 14 L14 22 L6 22 Z" fill="var(--google-blue)"/>
-                                      <!-- Flame -->
-                                      <path d="M-4 14 Q0 30 4 14" fill="var(--google-yellow)"/>
-                                 </g>
-                            </svg>
-                        </div>
-                        
-                        <p class="lead" style="font-size: 21px; font-weight: 400; margin-bottom: 25px;">
-                            AI excels at grunt work and accelerating experimentation.<br>
-                            Real value and breakthrough success emerge from explicit instruction, rigid standards, and continuous manual/automated verification.
+<section>
+    <div class="slide-header">
+        <span class="slide-tracker">THE COGNITION</span>
+        <h2 class="slide-title">The Feynman Rule</h2>
+        <div class="slide-subtitle">Simple Explanation as the Ultimate Verification Gate</div>
+    </div>
+    <div class="slide-body">
+        <div class="flex-cols">
+            <div class="col" style="flex: 1.25;">
+                <ul class="custom-list">
+                    <li>
+                        <strong>The Inbound Spec Litmus Test:</strong> If you can't explain it simply, you can't prompt it cleanly.
+                        <span class="desc">Ambiguous or convoluted instructions cause model hallucination. Strip requirements down to first principles before delegating to AI.</span>
+                    </li>
+                    <li>
+                        <strong>The Outbound Ownership Gate:</strong> If you can't explain the generated code simply, you don't own it.
+                        <span class="desc">Never merge or push code that hides behind syntactic complexity. Syntactic generation is not semantic comprehension.</span>
+                    </li>
+                    <li>
+                        <strong>The First-Principles Sparring Partner:</strong> Use AI to practice the Feynman Technique.
+                        <span class="desc">Prompt the model to <em>"explain this legacy module to me like I'm a junior engineer,"</em> then explain your design back to uncover blind spots.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col" style="flex: 0.75; display: flex; align-items: stretch; justify-content: center;">
+                <div class="info-panel highlight" style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                        <svg width="180" height="150" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                            <g transform="translate(100, 80)">
+                                <!-- Central Prism / Light Core -->
+                                <circle cx="0" cy="0" r="36" fill="var(--google-blue-light)" stroke="var(--google-blue)" stroke-width="3"/>
+                                <path d="M-15 -18 L15 -18 L0 15 Z" fill="var(--google-blue)"/>
+                                
+                                <!-- Incoming Complex Waves (Left) -->
+                                <path d="M-85 -30 Q-65 -45 -45 -15" stroke="var(--google-red)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <path d="M-85 0 Q-65 15 -45 0" stroke="var(--google-yellow)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <path d="M-85 30 Q-65 45 -45 15" stroke="var(--google-gray-medium)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                
+                                <!-- Outgoing Pure Simple Beams (Right) -->
+                                <line x1="45" y1="-15" x2="85" y2="-15" stroke="var(--google-green)" stroke-width="4" stroke-linecap="round"/>
+                                <line x1="45" y1="0" x2="85" y2="0" stroke="var(--google-blue)" stroke-width="4" stroke-linecap="round"/>
+                                <line x1="45" y1="15" x2="85" y2="15" stroke="var(--google-green)" stroke-width="4" stroke-linecap="round"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <blockquote class="google-quote" style="margin: 0; padding: 14px 18px; border-left-color: var(--google-blue);">
+                        <p style="font-size: 16.5px !important; line-height: 1.45 !important; margin-bottom: 8px !important;">
+                            "If you can't explain it simply, you don't understand it well enough."
                         </p>
-                        
-                        <div class="motto-banner" style="width: 100%; max-width: 800px; padding: 25px;">
-                            <p class="motto-text" style="font-size: 28px; line-height: 1.4;">
-                                It’s not about automation replacing us;<br>it’s about <span style="color: var(--google-blue);">"slack"</span> for higher-order thinking.
-                            </p>
-                            <div class="motto-source" style="font-size: 14px; margin-top: 10px; font-weight: 500;">
-                                MASTERING THE AI-ASSISTED DEVELOPMENT WORKFLOW
-                            </div>
-                        </div>
+                        <cite style="font-size: 12px;">— Richard Feynman &bull; Physicist</cite>
+                    </blockquote>
+                    <div style="background: var(--google-blue-light); border-radius: 8px; padding: 10px 14px; margin-top: 12px; border: 1px solid rgba(26, 115, 232, 0.15);">
+                        <p style="font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; color: var(--google-blue); margin: 0 0 2px 0;">
+                            The Comprehension Rule
+                        </p>
+                        <p style="font-size: 12px; color: var(--google-gray-dark); margin: 0; line-height: 1.4;">
+                            Complexity is easy; clarity is hard. When code generation is free, <strong>clear mental models</strong> become your scarcest asset.
+                        </p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
+</section>
