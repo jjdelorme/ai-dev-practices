@@ -68,7 +68,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1240px;
             width: 100%;
             margin: auto;
             display: flex;
@@ -134,8 +134,8 @@
         /* Grid & Cards Styles */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
             width: 100%;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
         }
@@ -218,6 +218,12 @@
             border: 1px solid rgba(168, 85, 247, 0.15);
         }
 
+        .card-tag.executive {
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+        }
+
         .card h2 {
             font-family: 'Outfit', sans-serif;
             font-size: 28px;
@@ -244,6 +250,12 @@
 
         .highlight-violet {
             background: linear-gradient(135deg, var(--accent-violet), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .highlight-green {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -429,6 +441,40 @@
                                 <path d="M12,2C6.47,2,2,6.47,2,12s4.47,10,12,10s10-4.47,10-10S17.53,2,12,2z M12,20c-4.41,0-8-3.59-8-8s3.59-8,8-8s8,3.59,8,8 S16.41,20,12,20z M12,10c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S13.1,10,12,10z" />
                             </svg>
                             <span>Engineering Leadership</span>
+                        </div>
+                    </div>
+                    <div class="card-btn">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 3: Executive Playbook (Level 3 & 4 Factories) -->
+            <a href="executive-asdlc-playbook/index.html" class="card" id="card-executive">
+                <div class="card-header">
+                    <span class="card-tag executive">Executive Playbook &amp; Research</span>
+                    <h2>Implementing Level 3 &amp; 4 <span class="highlight-green">Software Factories</span></h2>
+                    <div class="card-subtitle">Light-to-Twilight Factories, Elephants &amp; Goldfish, and Brownfield Truth</div>
+                    <p>Synthesizes ASDLC.io Levels 1–5, Dave Rensin's Elephants &amp; Goldfish, Spotify Honk, AWS AI-DLC v2.0, GraphDB, Open Knowledge Format (OKF v0.2), and System One Jev into step-by-step blueprints for Application Modernization, Brownfield Systems, and Greenfield Engineering.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="meta-group">
+                        <div class="meta-item">
+                            <!-- Slides Icon -->
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19,4H5C3.89,4,3,4.9,3,6v12c0,1.1,0.89,2,2,2h14c1.1,0,2-0.9,2-2V6C21,4.9,20.1,4,19,4z M19,18H5V8h14V18z M12,10.5h5V12H12 V10.5z M12,13.5h5V15h-5V13.5z M7,11h3v3.5H7V11z" />
+                            </svg>
+                            <span>15 Slides + Playbook</span>
+                        </div>
+                        <div class="meta-item">
+                            <!-- Target Icon -->
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12,2C6.47,2,2,6.47,2,12s4.47,10,12,10s10-4.47,10-10S17.53,2,12,2z M12,20c-4.41,0-8-3.59-8-8s3.59-8,8-8s8,3.59,8,8 S16.41,20,12,20z M12,10c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S13.1,10,12,10z" />
+                            </svg>
+                            <span>Executive &amp; Principal Architects</span>
                         </div>
                     </div>
                     <div class="card-btn">

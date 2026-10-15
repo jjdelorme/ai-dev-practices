@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>The Practical Agentic SDLC: Implementing Level 3 &amp; 4 Software Factories</title>
+    <meta name="description" content="Executive Summary &amp; Practical Playbook for Level 3 and Level 4 Agentic Software Factories.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Reveal.js styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/simple.min.css">
+
+    <!-- Highlight.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --google-blue: #1a73e8;
+            --google-red: #ea4335;
+            --google-yellow: #fbbc05;
+            --google-green: #34a853;
+            --google-blue-light: #e8f0fe;
+            --google-red-light: #fce8e6;
+            --google-green-light: #e6f4ea;
+            --google-yellow-light: #fef7e0;
+            --google-gray-dark: #202124;
+            --google-gray-medium: #5f6368;
+            --google-gray-light: #f1f3f4;
+            --google-gray-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--google-gray-dark);
+            background-color: var(--google-gray-bg);
+        }
+
+        .reveal {
+            font-family: 'Roboto', sans-serif;
+            color: var(--google-gray-dark);
+        }
+
+        .global-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 45px;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-top: 1px solid var(--google-gray-light);
+        }
+
+        .footer-text-left {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--google-gray-medium);
+            letter-spacing: 0.4px;
+        }
+
+        .footer-text-right {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--google-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-text-right a {
+            color: var(--google-blue);
+            text-decoration: none;
+        }
+
+        .footer-accent-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            display: flex;
+        }
+
+        .footer-accent-bar .segment {
+            flex: 1;
+            height: 100%;
+        }
+
+        .footer-accent-bar .segment.blue { background-color: var(--google-blue); }
+        .footer-accent-bar .segment.red { background-color: var(--google-red); }
+        .footer-accent-bar .segment.yellow { background-color: var(--google-yellow); }
+        .footer-accent-bar .segment.green { background-color: var(--google-green); }
+
+        .global-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 46px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 45px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--google-gray-medium);
+            letter-spacing: 1.8px;
+        }
+
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal .slides section {
+            top: 0 !important;
+            height: 100%;
+            width: 100%;
+            padding: 52px 45px 80px 45px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .slide-header {
+            margin-bottom: 18px;
+            border-bottom: none;
+        }
+
+        .slide-tracker {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--google-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .slide-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 34px !important;
+            font-weight: 500 !important;
+            color: var(--google-gray-dark) !important;
+            margin: 0 !important;
+            line-height: 1.18 !important;
+            text-transform: none !important;
+            letter-spacing: -0.5px !important;
+        }
+
+        .slide-subtitle {
+            font-size: 16px;
+            color: var(--google-gray-medium);
+            margin-top: 5px;
+            line-height: 1.35;
+        }
+
+        .slide-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        ul.custom-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.custom-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            font-size: 14.5px;
+            line-height: 1.42;
+            color: var(--google-gray-dark);
+        }
+
+        ul.custom-list li::before {
+            content: "•";
+            color: var(--google-blue);
+            font-size: 20px;
+            position: absolute;
+            left: 6px;
+            top: -3px;
+        }
+
+        ul.custom-list li strong {
+            font-weight: 600;
+            color: var(--google-gray-dark);
+        }
+
+        ul.custom-list li span.desc {
+            color: var(--google-gray-medium);
+            display: block;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .flex-cols {
+            display: flex;
+            gap: 22px;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .info-panel {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+            border: 1px solid var(--google-gray-light);
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-panel.highlight { border-top: 4px solid var(--google-blue); }
+        .info-panel.success { border-top: 4px solid var(--google-green); }
+        .info-panel.warning { border-top: 4px solid var(--google-red); }
+        .info-panel.yellow { border-top: 4px solid var(--google-yellow); }
+
+        .panel-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16.5px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .badge-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .badge-icon.blue { background-color: var(--google-blue-light); color: var(--google-blue); }
+        .badge-icon.red { background-color: var(--google-red-light); color: var(--google-red); }
+        .badge-icon.green { background-color: var(--google-green-light); color: var(--google-green); }
+        .badge-icon.yellow { background-color: var(--google-yellow-light); color: #b06000; }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            width: 100%;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid var(--google-gray-light);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .metric-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 6px;
+        }
+
+        .metric-num.red { color: var(--google-red); }
+        .metric-num.blue { color: var(--google-blue); }
+        .metric-num.green { color: var(--google-green); }
+        .metric-num.yellow { color: #d99000; }
+
+        .metric-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 4px;
+        }
+
+        .metric-desc {
+            font-size: 11.5px;
+            color: var(--google-gray-medium);
+            line-height: 1.35;
+        }
+
+        .process-track {
+            display: flex;
+            align-items: stretch;
+            width: 100%;
+            margin: 12px 0;
+        }
+
+        .process-step {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 14px 12px;
+            border: 1px solid var(--google-gray-light);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: center;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .process-step.active {
+            border: 2px solid var(--google-blue);
+            background: #f8fbff;
+            box-shadow: 0 4px 15px rgba(26,115,232,0.1);
+        }
+
+        .process-step.gate {
+            border: 2px solid var(--google-green);
+            background: #f4fbf6;
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--google-blue);
+            color: #ffffff;
+            border-radius: 50%;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .process-step.gate .step-num {
+            background: var(--google-green);
+        }
+
+        .step-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 11.5px;
+            color: var(--google-gray-medium);
+            line-height: 1.35;
+        }
+
+        .process-arrow {
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            color: var(--google-blue);
+            font-weight: bold;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .google-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--google-gray-light);
+        }
+
+        .google-table th {
+            background-color: var(--google-gray-light);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            padding: 7px 11px;
+            text-align: left;
+            border-bottom: 2px solid #dadce0;
+        }
+
+        .google-table td {
+            padding: 7px 11px;
+            border-bottom: 1px solid var(--google-gray-light);
+            color: var(--google-gray-medium);
+            line-height: 1.32;
+            vertical-align: top;
+        }
+
+        .google-table td strong {
+            color: var(--google-gray-dark);
+            font-weight: 600;
+        }
+
+        .google-table th.focus, .google-table td.focus {
+            background-color: rgba(52, 168, 83, 0.06);
+            border-left: 2px solid var(--google-green);
+            border-right: 2px solid var(--google-green);
+        }
+
+        .google-table th.focus {
+            background-color: rgba(52, 168, 83, 0.12) !important;
+            color: var(--google-green);
+        }
+
+        .terminal-window {
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            margin: 4px 0;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .terminal-header {
+            background: #252526;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+            margin-right: 12px;
+        }
+
+        .terminal-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background-color: #ff5f56; }
+        .terminal-dot.yellow { background-color: #ffbd2e; }
+        .terminal-dot.green { background-color: #27c93f; }
+
+        .terminal-title {
+            color: #9aa0a6;
+            font-size: 11px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .terminal-body {
+            padding: 8px 12px;
+            margin: 0;
+        }
+
+        .terminal-body pre {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            background: transparent !important;
+            width: 100% !important;
+        }
+
+        .terminal-body code {
+            font-family: 'Fira Code', monospace !important;
+            font-size: 10.8px !important;
+            line-height: 1.26 !important;
+            background: transparent !important;
+            color: #f8f8f2 !important;
+        }
+
+        .title-slide-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .title-text-box {
+            flex: 1.15;
+            text-align: left;
+        }
+
+        .title-visual-box {
+            flex: 0.85;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .google-color-stack {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .color-dot.blue { background-color: var(--google-blue); }
+        .color-dot.red { background-color: var(--google-red); }
+        .color-dot.yellow { background-color: var(--google-yellow); }
+        .color-dot.green { background-color: var(--google-green); }
+
+        .motto-banner {
+            background-color: var(--google-blue-light);
+            border-radius: 8px;
+            padding: 10px 18px;
+            margin-top: 10px;
+            text-align: center;
+            border: 1px solid rgba(26, 115, 232, 0.15);
+        }
+
+        .motto-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--google-blue);
+            margin: 0;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+            width: 100%;
+        }
+
+        .roadmap-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 14px 12px;
+            border: 1px solid var(--google-gray-light);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--google-gray-medium);
+        }
+
+        .roadmap-card.blue { border-top-color: var(--google-blue); }
+        .roadmap-card.red { border-top-color: var(--google-red); }
+        .roadmap-card.yellow { border-top-color: var(--google-yellow); }
+        .roadmap-card.green { border-top-color: var(--google-green); }
+
+        .roadmap-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .roadmap-card.blue .roadmap-num { color: var(--google-blue); }
+        .roadmap-card.red .roadmap-num { color: var(--google-red); }
+        .roadmap-card.yellow .roadmap-num { color: #b06000; }
+        .roadmap-card.green .roadmap-num { color: var(--google-green); }
+
+        .roadmap-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--google-gray-dark);
+            margin-bottom: 5px;
+            line-height: 1.25;
+        }
+
+        .roadmap-desc {
+            font-size: 11.2px;
+            color: var(--google-gray-medium);
+            line-height: 1.35;
+        }
+
+        .footnote {
+            margin-top: auto;
+            padding-top: 8px;
+            font-size: 11px;
+            color: var(--google-gray-medium);
+            font-style: italic;
+            line-height: 1.32;
+        }
+
+        .footnote a {
+            color: var(--google-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pill-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+        .pill-tag.blue { background: var(--google-blue-light); color: var(--google-blue); }
+        .pill-tag.green { background: var(--google-green-light); color: var(--google-green); }
+        .pill-tag.yellow { background: var(--google-yellow-light); color: #b06000; }
+        .pill-tag.red { background: var(--google-red-light); color: var(--google-red); }
+
+        .diagram-box {
+            background: #ffffff;
+            border: 1px solid var(--google-gray-light);
+            border-radius: 12px;
+            padding: 8px 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="global-header">
+        <div class="header-logo">AGENTIC SDLC EXECUTIVE PLAYBOOK // LEVEL 3 &amp; 4 FACTORIES</div>
+    </div>
+
+    <div class="global-footer">
+        <div class="footer-text-left">Synthesized from ASDLC.io, Spotify Honk, AWS AI-DLC v2.0, Elephants &amp; Goldfish, OKF v0.2, GraphDB &amp; TypeSafe Jev</div>
+        <div class="footer-text-right"><a href="../practical-agentic-sdlc-playbook.md" target="_blank">Read Full Playbook (.md) &rarr;</a></div>
+        <div class="footer-accent-bar">
+            <div class="segment blue"></div>
+            <div class="segment red"></div>
+            <div class="segment yellow"></div>
+            <div class="segment green"></div>
+        </div>
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Title Slide -->
+            <section>
+                <div class="title-slide-container">
+                    <div class="title-text-box">
+                        <div class="google-color-stack">
+                            <div class="color-dot blue"></div>
+                            <div class="color-dot red"></div>
+                            <div class="color-dot yellow"></div>
+                            <div class="color-dot green"></div>
+                        </div>
+                        <span class="slide-tracker">Executive Research Briefing &amp; Implementation Guide</span>
+                        <h1 class="slide-title" style="font-size: 45px !important; margin-bottom: 16px !important;">The Practical Agentic SDLC: Implementing Level 3 &amp; 4 Software Factories</h1>
+                        <p style="font-size: 17.5px; color: var(--google-gray-medium); line-height: 1.45; margin-bottom: 22px;">
+                            Boiling down emergent AI engineering frameworks into high-signal, low-ceremony blueprints for <strong>Application Modernization</strong>, <strong>Brownfield Systems</strong>, and <strong>Greenfield Products</strong>.
+                        </p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span class="pill-tag blue">ASDLC.io Levels 1–5</span>
+                            <span class="pill-tag green">Elephants &amp; Goldfish</span>
+                            <span class="pill-tag yellow">Right-Sized Context &amp; Jev Decisions</span>
+                            <span class="pill-tag red">Spotify Honk &amp; AWS AI-DLC v2.0</span>
+                        </div>
+                    </div>
+                    <div class="title-visual-box">
+                        <svg width="430" height="330" viewBox="0 0 430 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="s1-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#1a73e8"/>
+                                </marker>
+                                <marker id="s1-green" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#34a853"/>
+                                </marker>
+                                <marker id="s1-red" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#ea4335"/>
+                                </marker>
+                            </defs>
+                            <rect x="8" y="8" width="414" height="314" rx="18" fill="white" stroke="#e0e3e7" stroke-width="1.5"/>
+                            <!-- Top Layer: Codebase Context -->
+                            <rect x="24" y="22" width="382" height="62" rx="10" fill="#e8f0fe" stroke="#1a73e8" stroke-width="1.5"/>
+                            <text x="215" y="45" text-anchor="middle" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="#1a73e8">CODEBASE CONTEXT</text>
+                            <text x="215" y="66" text-anchor="middle" font-family="Roboto, sans-serif" font-size="11.5" fill="#202124">AGENTS.md (&lt;80 lines) • OKF Specs • GraphDB</text>
+
+                            <!-- Connectors from Context to Elephant & Goldfish -->
+                            <path d="M115 84 L115 110" stroke="#1a73e8" stroke-width="2" marker-end="url(#s1-blue)"/>
+                            <path d="M315 84 L315 110" stroke="#1a73e8" stroke-width="2" marker-end="url(#s1-blue)"/>
+
+                            <!-- Middle Layer: Elephant & Goldfish -->
+                            <rect x="24" y="112" width="182" height="86" rx="10" fill="#fef7e0" stroke="#fbbc05" stroke-width="1.5"/>
+                            <text x="115" y="136" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12.5" font-weight="700" fill="#b06000">ELEPHANT PLANNER</text>
+                            <text x="115" y="156" text-anchor="middle" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">15-Min Socratic Loop</text>
+                            <text x="115" y="175" text-anchor="middle" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Writes Spec, Never Code</text>
+
+                            <path d="M206 155 L222 155" stroke="#34a853" stroke-width="2" marker-end="url(#s1-green)"/>
+
+                            <rect x="224" y="112" width="182" height="86" rx="10" fill="#e6f4ea" stroke="#34a853" stroke-width="1.5"/>
+                            <text x="315" y="136" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12.5" font-weight="700" fill="#34a853">GOLDFISH SWARM</text>
+                            <text x="315" y="156" text-anchor="middle" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Gate 1: Blind Spec Check</text>
+                            <text x="315" y="175" text-anchor="middle" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Gate 2: Sandboxed Build/Test</text>
+
+                            <!-- Connectors to Governance & Decision Layer -->
+                            <path d="M115 198 L115 224" stroke="#ea4335" stroke-width="2" marker-end="url(#s1-red)"/>
+                            <path d="M315 198 L315 224" stroke="#ea4335" stroke-width="2" marker-end="url(#s1-red)"/>
+
+                            <!-- Bottom Layer: Gates & Decisions -->
+                            <rect x="24" y="226" width="382" height="76" rx="10" fill="#fce8e6" stroke="#ea4335" stroke-width="1.5"/>
+                            <text x="215" y="248" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12.5" font-weight="700" fill="#ea4335">4-GATE GOVERNANCE &amp; DECISIONS</text>
+                            <text x="215" y="268" text-anchor="middle" font-family="Roboto, sans-serif" font-size="11" fill="#202124">Human: Gate 0 (Approve Spec) &amp; Gate 3 (Approve Merge)</text>
+                            <text x="215" y="286" text-anchor="middle" font-family="Roboto, sans-serif" font-size="11" fill="#5f6368">Machine: Gate 1 (Spec Check) &amp; Gate 2 (Tests + Critic + Jev)</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Levels 1-5 & Light / Twilight / Dark Software Factories -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">01 // Autonomy Taxonomy (ASDLC.io &amp; Dan Shapiro)</span>
+                    <h2 class="slide-title">Levels 1–5: The Software Factory Spectrum</h2>
+                    <div class="slide-subtitle">Where human attention sits defines the factory mode—putting the enterprise sweet spot at Levels 3 &amp; 4.</div>
+                </div>
+                <div class="slide-body">
+                    <!-- Clean inline SVG Spectrum with zero overlap -->
+                    <div class="diagram-box">
+                        <svg width="1140" height="122" viewBox="0 0 1140 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="s2-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#5f6368"/>
+                                </marker>
+                                <marker id="s2-green" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#34a853"/>
+                                </marker>
+                            </defs>
+                            <!-- L1 -->
+                            <rect x="4" y="8" width="182" height="90" rx="8" fill="#f8f9fa" stroke="#dadce0" stroke-width="1.5"/>
+                            <text x="95" y="29" text-anchor="middle" font-family="Outfit" font-size="12.5" font-weight="700" fill="#5f6368">L1: ASSISTIVE</text>
+                            <text x="95" y="47" text-anchor="middle" font-family="Roboto" font-size="11" fill="#202124">Autocomplete &amp; Chat</text>
+                            <text x="95" y="65" text-anchor="middle" font-family="Roboto" font-size="10.5" fill="#5f6368">Human = Driver</text>
+                            <text x="95" y="84" text-anchor="middle" font-family="Outfit" font-size="10" font-weight="600" fill="#5f6368">MANUAL WORKSHOP</text>
+
+                            <path d="M187 53 L201 53" stroke="#5f6368" stroke-width="2" marker-end="url(#s2-arrow)"/>
+
+                            <!-- L2 -->
+                            <rect x="203" y="8" width="188" height="90" rx="8" fill="#f8f9fa" stroke="#dadce0" stroke-width="1.5"/>
+                            <text x="297" y="29" text-anchor="middle" font-family="Outfit" font-size="12.5" font-weight="700" fill="#5f6368">L2: TASK-BASED</text>
+                            <text x="297" y="47" text-anchor="middle" font-family="Roboto" font-size="11" fill="#202124">Simple Multi-File Edits</text>
+                            <text x="297" y="65" text-anchor="middle" font-family="Roboto" font-size="10.5" fill="#ea4335">90% of Teams Plateau Here</text>
+                            <text x="297" y="84" text-anchor="middle" font-family="Outfit" font-size="10" font-weight="600" fill="#5f6368">GUARDED WORKSHOP</text>
+
+                            <path d="M392 53 L408 53" stroke="#34a853" stroke-width="2" marker-end="url(#s2-green)"/>
+
+                            <!-- Sweet Spot Bracket around L3 & L4 -->
+                            <rect x="410" y="3" width="480" height="100" rx="12" fill="#e6f4ea" stroke="#34a853" stroke-width="2.5"/>
+                            <text x="650" y="18" text-anchor="middle" font-family="Outfit" font-size="10.5" font-weight="700" fill="#34a853">★ ENTERPRISE SWEET SPOT (LIGHT TO TWILIGHT FACTORY) ★</text>
+
+                            <!-- L3 -->
+                            <rect x="420" y="24" width="220" height="73" rx="8" fill="white" stroke="#1a73e8" stroke-width="2"/>
+                            <text x="530" y="42" text-anchor="middle" font-family="Outfit" font-size="12.5" font-weight="700" fill="#1a73e8">L3: CONDITIONAL ("LIGHT")</text>
+                            <text x="530" y="58" text-anchor="middle" font-family="Roboto" font-size="11" fill="#202124">Ralph Loop + Hard Stop Gates</text>
+                            <text x="530" y="74" text-anchor="middle" font-family="Roboto" font-size="10.5" fill="#5f6368">Human = Change Owner (Gate 0 &amp; 3)</text>
+                            <text x="530" y="89" text-anchor="middle" font-family="Outfit" font-size="10" font-weight="700" fill="#1a73e8">SPEC-ANCHORED</text>
+
+                            <path d="M641 60 L656 60" stroke="#34a853" stroke-width="2" marker-end="url(#s2-green)"/>
+
+                            <!-- L4 -->
+                            <rect x="658" y="24" width="222" height="73" rx="8" fill="white" stroke="#34a853" stroke-width="2"/>
+                            <text x="769" y="42" text-anchor="middle" font-family="Outfit" font-size="12.5" font-weight="700" fill="#34a853">L4: HIGH ("TWILIGHT")</text>
+                            <text x="769" y="58" text-anchor="middle" font-family="Roboto" font-size="11" fill="#202124">Wave Swarms &amp; Fleet Migrations</text>
+                            <text x="769" y="74" text-anchor="middle" font-family="Roboto" font-size="10.5" fill="#5f6368">Human = Trajectory &amp; Parity Auditor</text>
+                            <text x="769" y="89" text-anchor="middle" font-family="Outfit" font-size="10" font-weight="700" fill="#34a853">SPEC + GRAPH + CHARACTERIZATION</text>
+
+                            <!-- Dashed Red Wall before L5 with dedicated gap and bottom badge -->
+                            <line x1="906" y1="4" x2="906" y2="103" stroke="#ea4335" stroke-width="2.5" stroke-dasharray="5,4"/>
+                            <rect x="854" y="105" width="104" height="15" rx="4" fill="#fce8e6" stroke="#ea4335" stroke-width="1"/>
+                            <text x="906" y="116" text-anchor="middle" font-family="Outfit" font-size="8.5" font-weight="700" fill="#ea4335">DTU + LEGAL WALL</text>
+
+                            <!-- L5 -->
+                            <rect x="922" y="8" width="214" height="90" rx="8" fill="#202124" stroke="#5f6368" stroke-width="1.5"/>
+                            <text x="1029" y="29" text-anchor="middle" font-family="Outfit" font-size="12.5" font-weight="700" fill="#fbbc05">L5: DARK FACTORY</text>
+                            <text x="1029" y="47" text-anchor="middle" font-family="Roboto" font-size="11" fill="#ffffff">Zero Human Code Review</text>
+                            <text x="1029" y="65" text-anchor="middle" font-family="Roboto" font-size="10.5" fill="#9aa0a6">Requires Full Digital Twin (DTU)</text>
+                            <text x="1029" y="84" text-anchor="middle" font-family="Outfit" font-size="10" font-weight="600" fill="#ea4335">SPEC-AS-SOURCE (FRONTIER)</text>
+                        </svg>
+                    </div>
+
+                    <table class="google-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 16%;">Factory Mode</th>
+                                <th style="width: 25%;">Spec Role (<a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" target="_blank" style="color: inherit; text-decoration: underline;">Tessl / Böckeler Tiers</a>)</th>
+                                <th style="width: 29%;">Inner Loop Execution</th>
+                                <th class="focus" style="width: 30%;">Human Governance Gate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>L1–L2: Manual / Guarded</strong></td>
+                                <td><strong>Spec-First / Ad-hoc:</strong> Written to prompt a single task, then discarded after commit.</td>
+                                <td>Developer prompts IDE agent for simple multi-file edits and manually runs tests.</td>
+                                <td class="focus"><strong>Synchronous Line-by-Line Diff Review</strong> on every intermediate step (creates reviewer bottleneck).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L3: Light Factory</strong><br><span class="pill-tag blue">Target: Brownfield &amp; Features</span></td>
+                                <td><strong>Spec-Anchored:</strong> Living <code>spec.md</code> + minimal <code>AGENTS.md</code> stay in Git beside code.</td>
+                                <td>Fresh Goldfish builders iterate via <strong>Ralph Loop</strong> (autonomous test/build loop pioneered by Geoffrey Huntley).</td>
+                                <td class="focus"><strong>2 Human + 2 Machine Gates:</strong> Humans approve <strong>Gate 0</strong> (Spec) &amp; <strong>Gate 3</strong> (Merge); Gates 1 &amp; 2 are automated.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L4: Twilight Factory</strong><br><span class="pill-tag green">Target: Modernization &amp; Fleet</span></td>
+                                <td><strong>Spec-Anchored + Characterization Tests:</strong> Specs paired with automated SQL/dataset parity checks.</td>
+                                <td>Multi-agent worktree waves &amp; background fleet bots (Spotify Honk) execute across modules/repos.</td>
+                                <td class="focus"><strong>Management by Exception:</strong> Audit parity receipts, holdout pass rates &amp; Jev confidence flags before Merge.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L5: Dark Factory</strong><br><span class="pill-tag yellow">StrongDM Frontier</span></td>
+                                <td><strong>Spec-as-Source (Tessl):</strong> Humans edit specs only; code is a compiled artifact never touched by humans.</td>
+                                <td>Closed-loop pipeline validated purely by External Holdouts &amp; simulated Digital Twins (DTU).</td>
+                                <td class="focus"><strong>Zero Code Review:</strong> Constrained by DTU simulation cost, <em>Silent Drift</em> &amp; <em>Unpriced Liability</em> (ASDLC.io).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://asdlc.io/concepts/levels-of-autonomy/" target="_blank">ASDLC.io Levels of Autonomy</a> | Dan Shapiro (CEO of Glowforge), <a href="https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/" target="_blank"><em>"The Five Levels"</em> (Jan 2026)</a> | Birgitta Böckeler (Thoughtworks), <a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" target="_blank"><em>SDD: Kiro, spec-kit, and Tessl</em> (MartinFowler.com)</a> &amp; <a href="https://tessl.io/" target="_blank">Tessl.io</a> | Geoffrey Huntley, <a href="https://ghuntley.com/ralph/" target="_blank"><em>The Ralph Wiggum Loop</em></a> | <a href="https://factory.strongdm.ai/" target="_blank">StrongDM Factory</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Why Levels 3 & 4 Are the Enterprise Sweet Spot -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">02 // Strategic Positioning</span>
+                    <h2 class="slide-title">Why Levels 3 &amp; 4 Are the Enterprise Sweet Spot</h2>
+                    <div class="slide-subtitle">Overcoming the Level 2 review bottleneck while managing the supervision, drift, and liability risks of Level 5.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-bottom: 14px;">
+                        <div class="col">
+                            <div class="info-panel warning">
+                                <div class="panel-title"><span class="badge-icon red">!</span>Why Level 2 Plateaus</div>
+                                <ul class="custom-list">
+                                    <li><strong>The Proofreader Bottleneck:</strong> AI generates code 10x faster, turning senior engineers into exhausted syntax reviewers.</li>
+                                    <li><strong>The "Dumb Zone" in Long Chats:</strong> Crossing ~40% context (~150k–200k tokens on a 1M window, <a href="https://www.youtube.com/watch?v=rmvDxxNubIg" target="_blank">Dex Horthy</a>) degrades reasoning; auto-compaction loses constraints.</li>
+                                    <li><strong>Reward Hacking:</strong> Unsupervised single-agent loops delete or weaken failing tests to report "Green."</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel yellow">
+                                <div class="panel-title"><span class="badge-icon yellow">⚠</span>Why L5 Is an R&amp;D Frontier (<a href="https://asdlc.io/concepts/levels-of-autonomy/" target="_blank" style="color: inherit; text-decoration: underline;">ASDLC.io</a>)</div>
+                                <ul class="custom-list">
+                                    <li><strong>Paradox of Supervision &amp; Silent Drift:</strong> ASDLC.io warns that L4/L5 isolation causes human context atrophy while passing tests mask divergence from intent; StrongDM requires full Digital Twins (DTUs) to compensate.</li>
+                                    <li><strong>Unpriced Liability:</strong> Stanford Law (Eran Kahana, <em>"Built by agents, tested by agents, trusted by whom?"</em>) highlights accountability gaps when no human can attest <code>Signed-off-by</code> provenance.</li>
+                                    <li><strong>Spec Maintenance Overhead:</strong> As Birgitta Böckeler (<a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" target="_blank">MartinFowler.com</a>) notes, making specs exhaustive enough to replace code shifts teams from debugging code to debugging prose.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <div class="panel-title"><span class="badge-icon green">✓</span>The 4-Gate L3/L4 Architecture</div>
+                                <ul class="custom-list">
+                                    <li><strong>👤 Human Gate 0 (Approve Spec):</strong> Socratic 15-min pre-design loop + Spec/Delta (<code>30s</code> leaf bugfix / <code>3m</code> seam feature sign-off).</li>
+                                    <li><strong>🤖 Auto Gate 1 (Blind Spec Check):</strong> Fresh zero-context Goldfish checks the written spec for blind spots before any code is written.</li>
+                                    <li><strong>🤖 Auto Gate 2 (Sandboxed Build &amp; Test):</strong> Isolated worktree builder runs <code>verify()</code> + Adversarial Critic + 100ms <em>Jev</em> diff audit.</li>
+                                    <li><strong>👤 Human Gate 3 (Approve Merge):</strong> Change Owner audits Critic/Jev verification receipt &amp; parity results before merge.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="motto-banner">
+                        <p class="motto-text">"Humans govern only the bookends (Gate 0 &amp; Gate 3) because Machine Gates 1 &amp; 2 enforce isolation, TDD, and anti-reward-hacking automatically."</p>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://asdlc.io/concepts/levels-of-autonomy/" target="_blank">ASDLC.io Levels of Autonomy (Paradox of Supervision, Silent Drift &amp; Eran Kahana / Stanford Law)</a> | <a href="https://factory.strongdm.ai/" target="_blank">StrongDM Software Factory</a> | <a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" target="_blank">Birgitta Böckeler, <em>MartinFowler.com</em></a> | <a href="https://www.youtube.com/watch?v=rmvDxxNubIg" target="_blank">Dex Horthy, <em>The Dumb Zone</em></a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Boiling Down the Ecosystem: Strip vs Keep -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">03 // Cutting Through Framework Opinion</span>
+                    <h2 class="slide-title">Ceremony to Strip vs. The 5 Non-Negotiables</h2>
+                    <div class="slide-subtitle">Most public frameworks mix 30% essential mechanics with 70% Agile theatre. Keep only what carries load at L3/L4.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols">
+                        <div class="col">
+                            <div class="info-panel warning">
+                                <div class="panel-title"><span class="badge-icon red">✕</span>Strip Out: Process Opinion &amp; Ceremony</div>
+                                <ul class="custom-list">
+                                    <li><strong>1. Multi-Persona Agile Roleplay (BMAD 21 Personas):</strong>
+                                        <span class="desc">Passing prose from AI Scrum Master &rarr; AI PO &rarr; AI UX &rarr; AI Dev causes telephone-game drift. Even AWS AI-DLC v2.0 killed specialist chains for <em>"Small Mob, Broad Agents."</em></span>
+                                    </li>
+                                    <li><strong>2. 30+ Intermediate Human Approval Gates:</strong>
+                                        <span class="desc">Clicking "Approve" on 15 markdown artifacts induces <strong>Gate Fatigue</strong> (rubber-stamping). Collapse human gates to <strong>Gate 0 (Spec)</strong> and <strong>Gate 3 (Merge)</strong>.</span>
+                                    </li>
+                                    <li><strong>3. Bloated Auto-Generated <code>AGENTS.md</code> Files:</strong>
+                                        <span class="desc"><em>ETH Zurich (Gloaguen et al., Feb 2026)</em> proved <code>/init</code> context files <strong>reduce task success</strong> and raise token cost &gt;20%. Put code style in <code>ruff</code>/<code>eslint</code> and enforce <code>AGENTS.md &lt; 80 lines</code> via a 3-line Python check in <code>verify.sh</code>.</span>
+                                    </li>
+                                    <li><strong>4. Monolithic Specs for Small Brownfield Edits:</strong>
+                                        <span class="desc">Writing a 4-file greenfield constitution for a 3-file bugfix guarantees engineers bypass it. Use <strong>OpenSpec Delta Specs</strong> (<code>ADDED / MODIFIED / REMOVED</code>).</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <div class="panel-title"><span class="badge-icon green">★</span>Keep: The 5 Load-Bearing L3/L4 Primitives</div>
+                                <ul class="custom-list">
+                                    <li><strong>1. Elephant vs. Goldfish Context Isolation (Dave Rensin):</strong>
+                                        <span class="desc">High-context Elephants plan specs; zero-context Goldfish check specs for blind spots and execute atomic tasks in fresh windows.</span>
+                                    </li>
+                                    <li><strong>2. Single Abstracted <code>verify()</code> Tool + Hard Stop Gate:</strong>
+                                        <span class="desc">Expose one <code>verify()</code> script (build + lint + test) returning concise errors, enforced by a deterministic <code>Stop</code> gate that blocks early exit.</span>
+                                    </li>
+                                    <li><strong>3. Independent Critic &amp; External Holdout Tests (<code>.holdouts/</code>):</strong>
+                                        <span class="desc">A fresh Critic checks <code>spec.md</code> + <code>git diff</code>, while <strong>Holdouts</strong> (<a href="https://github.com/strongdm/attractor" target="_blank">StrongDM Attractor</a>) store end-to-end acceptance tests in a separate directory <em>outside</em> the agent's Git worktree (e.g., <code>../project-holdouts/</code>) executed by CI/the outer harness <em>after</em> coding finishes—so the agent can never read or edit the test assertions.</span>
+                                    </li>
+                                    <li><strong>4. Right-Sized Codebase Context (Scaled by Repo Complexity):</strong>
+                                        <span class="desc">Start with minimal <code>AGENTS.md</code> (&lt;80 lines) + subfolder <code>AGENTS.md</code>; add <strong>OKF</strong> for cross-cutting domain/data rules, and <strong>GraphDB</strong> call graphs only for large monoliths.</span>
+                                    </li>
+                                    <li><strong>5. Ephemeral Worktree &amp; Clean-Room Sandboxes:</strong>
+                                        <span class="desc">Run parallel builders in isolated Git worktrees/containers where legacy source and holdout tests are never mounted into the builder's workspace.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://arxiv.org/abs/2602.11988" target="_blank">Gloaguen et al., ETH Zurich (Feb 2026, arXiv:2602.11988 — Evaluating AGENTS.md)</a> | <a href="https://asdlc.io/practices/agents-md-spec/" target="_blank">ASDLC.io AGENTS.md Spec</a> | <a href="https://github.com/bmad-code-org/BMAD-METHOD" target="_blank">BMAD-METHOD</a> | <a href="https://github.com/awslabs/aidlc-workflows" target="_blank">AWS AI-DLC v2.0</a> | <a href="https://github.com/Fission-AI/OpenSpec" target="_blank">OpenSpec</a> | <a href="https://github.com/strongdm/attractor" target="_blank">StrongDM Attractor</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Cognitive Architecture: Elephants, Goldfish & Avoiding the Dumb Zone -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">04 // Cognitive Architecture (Dave Rensin &amp; Dex Horthy)</span>
+                    <h2 class="slide-title">Elephants, Goldfish &amp; Avoiding the "Dumb Zone"</h2>
+                    <div class="slide-subtitle">Decoupling high-context planning from zero-context spec checks and fresh subagent execution.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="diagram-box">
+                        <svg width="1140" height="176" viewBox="0 0 1140 176" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="arrow-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#1a73e8"/>
+                                </marker>
+                                <marker id="arrow-green" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#34a853"/>
+                                </marker>
+                                <marker id="arrow-red" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#ea4335"/>
+                                </marker>
+                            </defs>
+                            <!-- Step 1: Socratic Loop -->
+                            <rect x="10" y="10" width="245" height="114" rx="10" fill="#e8f0fe" stroke="#1a73e8" stroke-width="2"/>
+                            <text x="132" y="34" text-anchor="middle" font-family="Outfit" font-size="13" font-weight="700" fill="#1a73e8">1. THE ELEPHANT (PLANNER)</text>
+                            <text x="132" y="54" text-anchor="middle" font-family="Roboto" font-size="11.5" font-weight="600" fill="#202124">15-Min Socratic Interrogation</text>
+                            <text x="132" y="73" text-anchor="middle" font-family="Roboto" font-size="10.8" fill="#5f6368">"Ask me what is missing or ambiguous"</text>
+                            <text x="132" y="91" text-anchor="middle" font-family="Roboto" font-size="10.8" fill="#5f6368">Holds deep history &amp; trade-offs</text>
+                            <text x="132" y="111" text-anchor="middle" font-family="Outfit" font-size="10.5" font-weight="700" fill="#ea4335">NEVER WRITES PRODUCTION CODE</text>
+
+                            <path d="M257 67 L296 67" stroke="#1a73e8" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+
+                            <!-- Step 2: Goldfish Blind-Spot Check -->
+                            <rect x="300" y="10" width="265" height="114" rx="10" fill="#fef7e0" stroke="#fbbc05" stroke-width="2"/>
+                            <text x="432" y="34" text-anchor="middle" font-family="Outfit" font-size="13" font-weight="700" fill="#b06000">2. GOLDFISH SPEC CHECK</text>
+                            <text x="432" y="54" text-anchor="middle" font-family="Roboto" font-size="11.5" font-weight="600" fill="#202124">Check for Blind Spots (Auto Gate 1)</text>
+                            <text x="432" y="73" text-anchor="middle" font-family="Roboto" font-size="10.8" fill="#5f6368">0 KB chat history; reads ONLY spec</text>
+                            <text x="432" y="91" text-anchor="middle" font-family="Roboto" font-size="10.8" fill="#5f6368">Exposes implicit Elephant chat blindspots</text>
+                            <text x="432" y="111" text-anchor="middle" font-family="Outfit" font-size="10.5" font-weight="700" fill="#34a853">🔒 HUMAN GATE 0 SIGN-OFF</text>
+
+                            <path d="M567 67 L606 67" stroke="#34a853" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+
+                            <!-- Step 3: Goldfish Builder Swarm -->
+                            <rect x="610" y="10" width="250" height="114" rx="10" fill="#e6f4ea" stroke="#34a853" stroke-width="2"/>
+                            <text x="735" y="34" text-anchor="middle" font-family="Outfit" font-size="13" font-weight="700" fill="#34a853">3. GOLDFISH BUILDER SWARM</text>
+                            <text x="735" y="54" text-anchor="middle" font-family="Roboto" font-size="11.5" font-weight="600" fill="#202124">Sandboxed Build &amp; Test (Auto Gate 2)</text>
+                            <text x="735" y="73" text-anchor="middle" font-family="Roboto" font-size="10.8" fill="#5f6368">New subagent per task in Git worktree</text>
+                            <text x="735" y="91" text-anchor="middle" font-family="Roboto" font-size="10.8" fill="#5f6368">Stays &lt;200k ("Dumb Zone" ceiling)</text>
+                            <text x="735" y="111" text-anchor="middle" font-family="Outfit" font-size="10.2" font-weight="700" fill="#1a73e8">FRESH SUBAGENT HANDOFF (DISK STATE)</text>
+
+                            <path d="M862 67 L906 67" stroke="#ea4335" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+                            <text x="884" y="59" text-anchor="middle" font-family="Outfit" font-size="9.5" font-weight="700" fill="#ea4335">Adrift</text>
+
+                            <!-- Step 4: Undo When Adrift / Outer Loop Cap -->
+                            <rect x="910" y="10" width="220" height="114" rx="10" fill="#fce8e6" stroke="#ea4335" stroke-width="2"/>
+                            <text x="1020" y="34" text-anchor="middle" font-family="Outfit" font-size="13" font-weight="700" fill="#ea4335">4. "UNDO WHEN ADRIFT"</text>
+                            <text x="1020" y="54" text-anchor="middle" font-family="Roboto" font-size="11.5" font-weight="600" fill="#202124">Reset &amp; Fix Spec (Don't Argue)</text>
+                            <text x="1020" y="73" text-anchor="middle" font-family="Roboto" font-size="10.8" fill="#5f6368">L3: Human/Turn cap; L4: Outer loop</text>
+                            <text x="1020" y="91" text-anchor="middle" font-family="Roboto" font-size="10.8" fill="#5f6368">git reset --hard &rarr; Fix Spec</text>
+                            <text x="1020" y="111" text-anchor="middle" font-family="Outfit" font-size="10.5" font-weight="700" fill="#ea4335">SPAWN FRESH GOLDFISH</text>
+
+                            <!-- Return Feedback Path cleanly below all boxes with dedicated pill label -->
+                            <path d="M1020 124 L1020 146 L132 146 L132 128" stroke="#ea4335" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrow-red)"/>
+                            <path d="M432 124 L432 146" stroke="#ea4335" stroke-width="1.8" stroke-dasharray="5,4"/>
+                            <text x="576" y="166" text-anchor="middle" font-family="Outfit" font-size="10" font-weight="700" fill="#ea4335">↺ SPEC DEFECT LOOP: PATCH SPEC AMBIGUITY IN ELEPHANT PLANNER &amp; RE-RUN COLD GOLDFISH</text>
+                        </svg>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-num blue">15 min</div>
+                            <div class="metric-label">Socratic Pre-Design Rule</div>
+                            <div class="metric-desc">Force the Elephant to interview you on edge cases and contradictions before writing any plan (<code>/grill-me</code>).</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-num yellow">0 KB</div>
+                            <div class="metric-label">Zero-Context Spec Check</div>
+                            <div class="metric-desc">Hand the written spec to a fresh Goldfish with zero chat history. If it has to guess, the spec has a blind spot.</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-num green">&lt;200k</div>
+                            <div class="metric-label">The "Dumb Zone" (Dex Horthy)</div>
+                            <div class="metric-desc">Reasoning degrades past ~200k tokens. Handing disk state to a fresh subagent beats chat compaction (<strong>100% vs. 35%</strong> task completion, <em>InfiAgent</em>).</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-num red">Outer Cap</div>
+                            <div class="metric-label">"Undo When Adrift" (Who Counts?)</div>
+                            <div class="metric-desc"><code>verify.sh</code> is stateless. In L3, humans undo when adrift (Rensin); in L4, the <strong>outer harness</strong> caps retries (ASDLC <code>max_execution_loops</code>).</div>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> Dave Rensin (Google), <a href="https://drensin.medium.com/elephants-goldfish-and-the-new-golden-age-of-software-engineering-c33641a48874" target="_blank"><em>Elephants, Goldfish, and the New Golden Age of Software Engineering</em> (2026)</a> | Dex Horthy (HumanLayer), <a href="https://www.youtube.com/watch?v=rmvDxxNubIg" target="_blank"><em>"No Vibes Allowed" / The Dumb Zone</em></a> | <a href="https://arxiv.org/abs/2601.03204" target="_blank">Yu et al., <em>InfiAgent</em> (arXiv:2601.03204 — 100% vs. 34.6% on 80-step horizon)</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Scaling Codebase Context by Repo Size: AGENTS.md -> OKF -> GraphDB -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">05 // Scaling Codebase Context by Repo Complexity</span>
+                    <h2 class="slide-title">Scaling Codebase Context: <code>AGENTS.md</code> &rarr; <code>OKF</code> &rarr; <code>GraphDB</code></h2>
+                    <div class="slide-subtitle">Match how agents discover repository and domain context to the size and coupling of your codebase.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols" style="margin-bottom: 10px;">
+                        <div class="col">
+                            <div class="info-panel highlight">
+                                <div class="panel-title"><span class="badge-icon blue">1</span>Tier 1: Root &amp; Folder <code>AGENTS.md</code></div>
+                                <p style="font-size: 12px; color: var(--google-blue); font-weight: 600; margin: 0 0 8px 0;">
+                                    SMALL / MODULAR REPOS: Greenfield &amp; Bounded Services
+                                </p>
+                                <ul class="custom-list">
+                                    <li><strong>Root <code>AGENTS.md</code> (&lt;80 Lines):</strong> Holds only universal build/test commands (<code>./scripts/verify.sh</code>) and hard repo boundaries.</li>
+                                    <li><strong>Scoped Subfolder <code>AGENTS.md</code>:</strong> Both <code>agy</code> and Claude Code auto-load subfolder <code>AGENTS.md</code> / <code>CLAUDE.md</code> files only when the agent touches files in that directory.</li>
+                                    <li><strong>Where It Hits a Wall:</strong> Folder docs map 1:1 to code directories—they cannot express cross-cutting domain rules spanning multiple services, staleness SLAs, or when legacy folders are deleted in a rewrite.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <div class="panel-title"><span class="badge-icon green">2</span>Tier 2: Open Knowledge Format (OKF v0.2)</div>
+                                <p style="font-size: 12px; color: var(--google-green); font-weight: 600; margin: 0 0 8px 0;">
+                                    MEDIUM / DOMAIN-HEAVY REPOS: Cross-Cutting Rules &amp; Schemas
+                                </p>
+                                <ul class="custom-list">
+                                    <li><strong>Progressive Discovery via <code>index.md</code> &amp; Links:</strong> Agents read a lightweight root <code>index.md</code>, scan YAML frontmatter (<code>title</code>, <code>description</code>, <code>tags</code>), and follow standard Markdown links (<code>[customers](/tables/customers.md)</code>) on demand.</li>
+                                    <li><strong>First-Class Provenance &amp; Freshness:</strong> Every concept tracks <code>sources</code>, trust tier (<code>verified: {by: human:id}</code>), and expiration (<code>stale_after</code>).</li>
+                                    <li><strong>Decoupled from Code Folders:</strong> Captures portable business logic, SQL schemas, and playbooks that survive even when legacy code is thrown away.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel yellow">
+                                <div class="panel-title"><span class="badge-icon yellow">3</span>Tier 3: GraphDB (Structural &amp; Semantic Graph)</div>
+                                <p style="font-size: 12px; color: #b06000; font-weight: 600; margin: 0 0 8px 0;">
+                                    LARGE / TANGLED MONOLITHS: Deep Call-Chains &amp; Extraction
+                                </p>
+                                <ul class="custom-list">
+                                    <li><strong>Auto-Extracted Call &amp; Feature Map:</strong> Parses AST call graphs + DB schemas and clusters functions by semantic verb-object descriptors into a Neo4j graph.</li>
+                                    <li><strong>Instant Blast-Radius &amp; Risk Scoring:</strong> Queries upstream callers (<code>impact</code>) and composite risk (fan-in, I/O volatility, git churn) in milliseconds without reading 50 files.</li>
+                                    <li><strong>Automated Seam Discovery:</strong> Pinpoints Michael Feathers' <em>Object Seams</em> and clean-room refactoring slices to feed into OKF specs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="motto-banner" style="padding: 8px 14px; margin-top: 4px;">
+                        <p class="motto-text" style="font-size: 13.5px;"><strong>Progressive Scaling Rule:</strong> Use <strong>Root + Subfolder <code>AGENTS.md</code></strong> for folder-local code rules &rarr; Add <strong><code>OKF</code></strong> (with <code>index.md</code> link traversal) for cross-cutting domain/data schemas &rarr; Add <strong><code>GraphDB</code></strong> when monolith call-chains outgrow grep/LSP.</p>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://arxiv.org/abs/2602.11988" target="_blank">ETH Zurich AGENTS.md Study</a> | <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md" target="_blank">GoogleCloudPlatform OKF v0.2 Spec (§3 <code>index.md</code> Progressive Disclosure &amp; §6 Cross-Linking)</a> | <a href="https://github.com/jjdelorme/graphdb-skill/blob/main/GRAPHDB_OVERVIEW.md" target="_blank">jjdelorme/graphdb-skill</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Lessons from Production Frontiers: Google, Spotify, AWS & StrongDM -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">06 // Production Frontier Case Studies</span>
+                    <h2 class="slide-title">Learned Practice at Scale: Google, Spotify, AWS &amp; StrongDM</h2>
+                    <div class="slide-subtitle">Convergent architectural patterns from four industry pioneers of agentic software engineering.</div>
+                </div>
+                <div class="slide-body">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px;">
+                        <div class="info-panel highlight" style="padding: 12px 16px;">
+                            <div class="panel-title" style="margin-bottom: 6px;"><span class="badge-icon blue">G</span>Google ("Elephants &amp; Goldfish" &amp; OKF)</div>
+                            <ul class="custom-list" style="font-size: 12.8px;">
+                                <li><strong>Elephant vs. Goldfish Split (Dave Rensin):</strong> Spend 15+ minutes in a Socratic Elephant session debating edge cases; hand the written spec to a zero-context Goldfish to expose blind spots before coding.</li>
+                                <li><strong>"Undo When Adrift" &amp; Shift Verification Left:</strong> Never argue with a drifting agent in chat—<code>git reset --hard</code>, fix the spec, and run fast local builds/unit tests instead of slow end-stage UI tests.</li>
+                                <li><strong>Open Knowledge Format (OKF v0.2):</strong> Git-native Markdown + YAML provenance (<code>verified</code>, <code>stale_after</code>) with progressive <code>index.md</code> link discovery.</li>
+                            </ul>
+                        </div>
+                        <div class="info-panel red" style="padding: 12px 16px; border-left: 4px solid var(--google-red); background: #fff8f7;">
+                            <div class="panel-title" style="margin-bottom: 6px;"><span class="badge-icon red">S</span>Spotify ("Honk" &amp; Fleetshift)</div>
+                            <ul class="custom-list" style="font-size: 12.8px;">
+                                <li><strong>Solving the 70/30 Wall:</strong> AST codemods (OpenRewrite) handle 70% of mechanical upgrades; Honk (Claude Code in K8s pods) solves the <strong>30% semantic tail</strong> (1,500+ PRs; 60–90% time saved).</li>
+                                <li><strong>4 Prompt Engineering Rules:</strong> (1) Declarative end-state over steps, (2) Explicit <em>"When NOT to Act"</em> preconditions, (3) Few-shot <code>git diff</code> examples, (4) One atomic change per run.</li>
+                                <li><strong>Single <code>verify()</code> MCP Tool:</strong> Hides raw Maven/Gradle/Docker logs behind one tool returning concise errors + <strong>Independent Judge</strong> blocking out-of-scope diffs.</li>
+                            </ul>
+                        </div>
+                        <div class="info-panel yellow" style="padding: 12px 16px;">
+                            <div class="panel-title" style="margin-bottom: 6px;"><span class="badge-icon yellow">A</span>AWS (AI-DLC v2.0 Workflows)</div>
+                            <ul class="custom-list" style="font-size: 12.8px;">
+                                <li><strong>"Small Mob, Broad Agents":</strong> v2.0 replaced fragmented specialist handoffs with 11 broad agents + deterministic Bun/TS state engine (93 tools, 19 hooks) to stop context loss.</li>
+                                <li><strong>Cryptographic <code>codekb</code> Scope Diffing:</strong> Brownfield reverse-engineering hashes touched modules to auto-select <em>Reuse KB (0s)</em>, <em>Focused Scan</em>, or <em>Full Rescan</em>.</li>
+                                <li><strong>Adaptive Depth Over Ceremony:</strong> Skip the 33-stage default profile; use <code>bugfix</code> (9 stages) or <code>express</code> (10 stages) + <strong>6 Brownfield Safeguards</strong>.</li>
+                            </ul>
+                        </div>
+                        <div class="info-panel success" style="padding: 12px 16px;">
+                            <div class="panel-title" style="margin-bottom: 6px;"><span class="badge-icon green">D</span>StrongDM (Attractor) &amp; Superpowers</div>
+                            <ul class="custom-list" style="font-size: 12.8px;">
+                                <li><strong>External Holdout Scenarios (<code>.holdouts/</code>):</strong> Originated by <strong>StrongDM Attractor</strong>—acceptance tests live in a separate directory outside the builder's Git worktree so agents cannot read or game them.</li>
+                                <li><strong>Superpowers Iron Law TDD:</strong> Enforces strict <em>Red &rarr; Green &rarr; Refactor</em> where no production code is permitted until a reproduction/spec test fails first.</li>
+                                <li><strong>Walking Skeleton First (U1):</strong> Build and verify Unit 1 (scaffold, DB migration, auth, CI, <code>verify()</code> gate) before fanning out parallel wave swarms.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> Dave Rensin (Google), <a href="https://drensin.medium.com/elephants-goldfish-and-the-new-golden-age-of-software-engineering-c33641a48874" target="_blank"><em>Elephants &amp; Goldfish</em></a> &amp; <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md" target="_blank">GCP OKF v0.2</a> | Spotify Honk: <a href="https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1" target="_blank">Pt 1</a>–<a href="https://engineering.atspotify.com/2026/04/migrations-on-the-fleet-with-honk/" target="_blank">Pt 4</a> | <a href="https://github.com/awslabs/aidlc-workflows" target="_blank">AWS AI-DLC v2.0</a> | <a href="https://github.com/strongdm/attractor" target="_blank">StrongDM Attractor</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Execution Harnesses & Automated Gate Decisions (Jev) -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">07 // Execution Harnesses &amp; Gate Decisions</span>
+                    <h2 class="slide-title">Execution Harnesses &amp; Fast Gate Decisions (<code>Jev</code>)</h2>
+                    <div class="slide-subtitle">Selecting the right runtime harness (<code>claude</code>, <code>agy</code>, Python SDK) and using System One <code>Jev</code> for 100ms gate decisions.</div>
+                </div>
+                <div class="slide-body">
+                    <table class="google-table" style="margin-bottom: 12px;">
+                        <thead>
+                            <tr>
+                                <th style="width: 18%;">Dimension</th>
+                                <th style="width: 27%;">Claude Code (<code>claude</code> / <code>ultracode</code>)</th>
+                                <th class="focus" style="width: 28%;">Antigravity CLI (<code>agy</code>)</th>
+                                <th style="width: 27%;">Antigravity Python SDK (<code>google-antigravity</code>)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Orchestration Engine</strong></td>
+                                <td><code>.claude/workflows/*.js</code> isolated JS VM (<code>agent()</code>, <code>parallel()</code>, <code>pipeline()</code>)</td>
+                                <td class="focus">Agent Skills (<code>SKILL.md</code>) + Subagents + 8 native commands (<code>/grill-me</code>, <code>/plan</code>, <code>/boost</code>, <code>/teamwork-preview</code>, <code>/goal</code>, <code>/learn</code>, <code>/compact</code>, <code>/schedule</code>)</td>
+                                <td>Python 3.11+ custom harness (<code>from google.antigravity import Agent, LocalAgentConfig, CapabilitiesConfig</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Who Owns Task &amp; Retry State?</strong></td>
+                                <td><strong>JS Host Script:</strong> Outer JS workflow loop holds retry counters &amp; caches completed <code>agent()</code> steps</td>
+                                <td class="focus"><strong>L3 Interactive / Prompt-Driven:</strong> Agent updates <code>plan.md</code> checkboxes; bounded by CLI <code>max_turns</code> &amp; human <em>"Undo When Adrift"</em></td>
+                                <td><strong>100% Deterministic Python State:</strong> Python script owns <code>tasks.json</code> DAG &amp; retry counter in memory; LLM cannot mark itself done</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Verification &amp; Guardrails</strong></td>
+                                <td><code>settings.json</code> lifecycle hooks + outer workflow script checks</td>
+                                <td class="focus">Worktree isolation + <code>.agents/hooks.json</code> lifecycle hooks + end-of-task <code>./scripts/verify.sh</code></td>
+                                <td>Python <code>subprocess.run(["./scripts/verify.sh"])</code> outside LLM + <code>@hooks.pre_turn</code> / <code>policy.deny</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Primary Sweet Spot</strong></td>
+                                <td>CI/CD batch fleet migrations &amp; deterministic JS-scripted multi-agent pipelines</td>
+                                <td class="focus">Interactive &amp; team-scale L3/L4 engineering across Brownfield &amp; Greenfield repos</td>
+                                <td>Enterprise L4 Modernization factories &amp; custom GraphDB + OKF + Jev pipelines</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="roadmap-grid">
+                        <div class="roadmap-card blue">
+                            <span class="roadmap-num">GATE 0 // ELICIT</span>
+                            <div class="roadmap-title"><code>/grill-me</code> &amp; <code>/compact</code></div>
+                            <div class="roadmap-desc"><code>/grill-me</code> runs the 15-min Socratic Elephant loop; <code>/compact</code> trims Elephant session before the Dumb Zone (&lt;200k tokens).</div>
+                        </div>
+                        <div class="roadmap-card yellow">
+                            <span class="roadmap-num">GATE 0 // SPEC</span>
+                            <div class="roadmap-title"><code>/plan</code></div>
+                            <div class="roadmap-desc">4-phase read-only spec generator (Explore &rarr; Design &rarr; Review &rarr; Finalize) before coding.</div>
+                        </div>
+                        <div class="roadmap-card red">
+                            <span class="roadmap-num">L3 // HARD BUGS</span>
+                            <div class="roadmap-title"><code>/boost</code></div>
+                            <div class="roadmap-desc">Spawns <code>DeepInvestigator</code> + parallel <code>DeepCoder</code> worktree tournament for race conditions.</div>
+                        </div>
+                        <div class="roadmap-card green">
+                            <span class="roadmap-num">L4 // WAVE SWARM</span>
+                            <div class="roadmap-title"><code>/teamwork-preview</code></div>
+                            <div class="roadmap-desc">6-role org: Orchestrator, Workers, Challenger &amp; Auditor (enforces <code>Integrity Mode</code>).</div>
+                        </div>
+                        <div class="roadmap-card blue">
+                            <span class="roadmap-num">LOOP &amp; MEMORY</span>
+                            <div class="roadmap-title"><code>/goal</code>, <code>/learn</code>, <code>/schedule</code></div>
+                            <div class="roadmap-desc"><code>/goal</code> loops until verified; <code>/learn</code> proposes <code>AGENTS.md</code> &amp; <code>SKILL.md</code> updates; <code>/schedule</code> runs cron audits.</div>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://code.claude.com/docs/en/workflows" target="_blank">Claude Code Workflows</a> &amp; <a href="https://code.claude.com/docs/en/hooks" target="_blank">Hooks</a> | <a href="https://antigravity.google/docs/cli/features" target="_blank">Antigravity CLI Docs</a>, <a href="https://antigravity.google/docs/rules-workflows" target="_blank">Rules &amp; Workflows</a>, <a href="https://antigravity.google/docs/hooks" target="_blank">Hooks</a> | <a href="https://github.com/google-antigravity/antigravity-sdk-python" target="_blank">Antigravity Python SDK (<code>google-antigravity</code>)</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Post-Execution Memory Consolidation: "Dreaming" with /learn -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">08 // Post-Merge Memory Consolidation ("Dreaming")</span>
+                    <h2 class="slide-title">Post-Merge Memory: "Dreaming" with <code>/learn</code></h2>
+                    <div class="slide-subtitle">Consolidating execution lessons into <code>AGENTS.md</code>, <code>SKILL.md</code>, and <code>verify.sh</code> outside the coding loop.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="process-track" style="margin-bottom: 12px;">
+                        <div class="process-step active">
+                            <div class="step-num">1</div>
+                            <div class="step-title">Awake Execution</div>
+                            <div class="step-desc">L3/L4 session completes or human corrects an agent mistake during PR review / debugging.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step gate">
+                            <div class="step-num">2</div>
+                            <div class="step-title">Invoke <code>/learn</code> ("Dreaming")</div>
+                            <div class="step-desc">Run post-PR (interactive) or nightly across failed trajectories to extract reusable patterns.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step active">
+                            <div class="step-num">3</div>
+                            <div class="step-title">Update <code>AGENTS.md</code> &amp; <code>SKILL.md</code></div>
+                            <div class="step-desc"><code>/learn</code> proposes concise edits to <code>AGENTS.md</code> (<code>GEMINI.md</code>) &amp; new domain <code>SKILL.md</code> workflows.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step gate">
+                            <div class="step-num">4</div>
+                            <div class="step-title">Graduate to <code>verify.sh</code></div>
+                            <div class="step-desc">Promote mechanical rules into custom linter checks or <code>verify.sh</code> assertions to keep <code>AGENTS.md &lt; 80 lines</code>.</div>
+                        </div>
+                    </div>
+
+                    <div class="flex-cols">
+                        <div class="col">
+                            <div class="info-panel highlight">
+                                <div class="panel-title"><span class="badge-icon blue">☾</span>Why "Dreaming" Happens Outside the Inner Loop</div>
+                                <ul class="custom-list">
+                                    <li><strong>Don't Mutate Rules Mid-Flight:</strong> During L3/L4 execution, Goldfish builders need frozen, deterministic instructions. Updating memory mid-task causes rule drift.</li>
+                                    <li><strong>When to Invoke in L3 (Interactive):</strong> Run <code>/learn</code> <em>after</em> you nudge an agent, fix a subtle environment quirk, or merge a complex PR so no team member repeats that debugging session.</li>
+                                    <li><strong>When to Invoke in L4 (Factory "Dreaming"):</strong> After a nightly wave swarm or fleet run finishes, an automated post-mortem pass inspects aborted/failed builder runs and runs <code>/learn</code> to propose systemic fixes.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <div class="panel-title"><span class="badge-icon green">✓</span>What <code>/learn</code> Actually Writes (And How to Prevent Bloat)</div>
+                                <ul class="custom-list">
+                                    <li><strong>1. Root &amp; Folder <code>AGENTS.md</code> Updates:</strong> Proposes high-signal environment/build commands or directory-specific architectural boundaries discovered during the session.</li>
+                                    <li><strong>2. New Reusable <code>SKILL.md</code> Packages:</strong> Proposes dedicated skills (<code>.agents/skills/&lt;name&gt;/SKILL.md</code> + helper scripts) loaded <em>on-demand</em> only when relevant—keeping base context near zero.</li>
+                                    <li><strong>3. The Graduation Rule:</strong> If a proposed <code>AGENTS.md</code> bullet can be checked mechanically (e.g., banned imports, SQL patterns, or line limits), convert it into a linter rule or <code>verify.sh</code> check so <code>AGENTS.md</code> never exceeds 80 lines.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://antigravity.google/docs/cli/features" target="_blank">Antigravity <code>/learn</code> Command</a> &amp; <a href="https://antigravity.google/docs/skills" target="_blank">Agent Skills (<code>SKILL.md</code>)</a> | <a href="https://asdlc.io/patterns/compound-loop/" target="_blank">ASDLC.io Compound Loop Pattern</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Scenario 1 Blueprint — Application Modernization -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">09 // Scenario 1 Implementation Blueprint (Level 4 Twilight Factory)</span>
+                    <h2 class="slide-title">Scenario 1: Legacy Application Modernization</h2>
+                    <div class="slide-subtitle">Extracting legacy code, DB schemas, and reports into OKF specs and Characterization Tests for a clean-room rewrite.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="process-track">
+                        <div class="process-step active">
+                            <div class="step-num">1</div>
+                            <div class="step-title">Graph, DB &amp; Proc Scan</div>
+                            <div class="step-desc">Run <code>graphdb build-all</code> (call graph + functional slices + seams) &amp; ingest DB DDL, triggers &amp; stored procs.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step active">
+                            <div class="step-num">2</div>
+                            <div class="step-title">OKF Specs &amp; Characterization</div>
+                            <div class="step-desc">Codify domain rules in OKF (<code>Knowledge Concept</code>) &amp; capture legacy I/O + SQL outputs in Characterization Tests.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step gate">
+                            <div class="step-num">3</div>
+                            <div class="step-title">🔒 Gate 0 &amp; 1: Blind-Spot Check</div>
+                            <div class="step-desc">Zero-Context Goldfish checks spec for blind spots + Jev rubric scores completeness. Architect signs off (<code>verified: human</code>).</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step active">
+                            <div class="step-num">4</div>
+                            <div class="step-title">Clean-Room Wave Build</div>
+                            <div class="step-desc">Build U1 Walking Skeleton; Python harness runs waves in isolated worktrees. <strong><code>legacy_src/</code> excluded!</strong></div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step gate">
+                            <div class="step-num">5</div>
+                            <div class="step-title">🔒 Gate 3: Parity Merge</div>
+                            <div class="step-desc">Run Michael Feathers Characterization Tests &amp; SQL/Dataset Parity diffs in <code>verify.sh</code>. 100% match required to merge.</div>
+                        </div>
+                    </div>
+
+                    <div class="flex-cols" style="margin-top: 10px;">
+                        <div class="col">
+                            <div class="info-panel highlight">
+                                <div class="panel-title"><span class="badge-icon blue">★</span>Clean-Room Worktree Isolation &amp; Human UX</div>
+                                <p style="font-size: 13.5px; color: var(--google-gray-dark); line-height: 1.45; margin: 0;">
+                                    <strong>No Expensive Per-Tool Hooks Needed:</strong> Each Goldfish builder runs in a clean-room Git worktree containing <em>only</em> the new target repo and approved OKF specs—<code>legacy_src/</code> and <code>.holdouts/</code> aren't even mounted. <strong>Human UX:</strong> Architects review specs interactively in <code>agy</code> at <strong>Gate 0</strong>, kick off the background Python wave harness, and review the PR + Verification Receipt at <strong>Gate 3</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <div class="panel-title"><span class="badge-icon green">✓</span>Michael Feathers' Characterization Tests</div>
+                                <p style="font-size: 13.5px; color: var(--google-gray-dark); line-height: 1.45; margin: 0;">
+                                    Following <strong>Michael Feathers' <em>Working Effectively with Legacy Code</em></strong>, we identify <strong>Object Seams</strong> via GraphDB and lock existing behavior using <strong>Characterization Tests</strong> (capturing actual legacy inputs, SQL query results, and report outputs across golden seed data). At <strong>Step 5 (Parity Merge)</strong>, <code>verify.sh</code> diffs the new service's outputs against the legacy golden dataset to prove 100% behavioral parity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> Michael Feathers, <em>Working Effectively with Legacy Code</em> (Seams &amp; Characterization Tests) | <a href="https://github.com/jjdelorme/graphdb-skill/blob/main/GRAPHDB_OVERVIEW.md" target="_blank">GraphDB Skill</a> | <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md" target="_blank">OKF v0.2 Specification</a> | <a href="../practical-agentic-sdlc-playbook.md" target="_blank">Playbook Section 4.1</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 11: Scenario 2 Blueprint — Brownfield Extension & Bug-Fixing -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">10 // Scenario 2 Implementation Blueprint (Level 3 Light Factory)</span>
+                    <h2 class="slide-title">Scenario 2: Brownfield Extension &amp; Bug-Fixing</h2>
+                    <div class="slide-subtitle">Surgical delivery in existing codebases using blast-radius checks, OpenSpec Deltas, and TDD.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="process-track">
+                        <div class="process-step active">
+                            <div class="step-num">1</div>
+                            <div class="step-title">Blast-Radius Recon</div>
+                            <div class="step-desc"><strong>Large Monolith:</strong> Run <code>graphdb query --type impact</code> &amp; <code>hotspots</code>. <strong>Modular Repo:</strong> Standard AST/grep + test baseline.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step gate">
+                            <div class="step-num">2</div>
+                            <div class="step-title">🔒 Gate 0: Tiered Delta</div>
+                            <div class="step-desc"><strong>Leaf Bugfix (30s):</strong> Approve failing test. <strong>Seam Feature (3m):</strong> <code>/grill-me</code> &rarr; <code>/plan</code> 1-page OpenSpec Delta.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step active">
+                            <div class="step-num">3</div>
+                            <div class="step-title">Sandboxed TDD Loop</div>
+                            <div class="step-desc">Use <code>/boost</code> (hard bugs) or <code>/goal</code> in a Git worktree: Red (failing test) &rarr; Green &rarr; Refactor + <code>verify.sh</code> gate.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step gate">
+                            <div class="step-num">4</div>
+                            <div class="step-title">🔒 Gate 2 &amp; 3: Critic + Merge</div>
+                            <div class="step-desc">Auto Gate 2 (Fresh Critic + 100ms Jev diff audit) verifies no weakened tests before Human Gate 3 merge.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step active">
+                            <div class="step-num">5</div>
+                            <div class="step-title">Post-Merge <code>/learn</code></div>
+                            <div class="step-desc">Archive OpenSpec delta &amp; run <code>/learn</code> to propose updates to <code>AGENTS.md</code> (<code>GEMINI.md</code>) &amp; new <code>SKILL.md</code> skills.</div>
+                        </div>
+                    </div>
+
+                    <div class="flex-cols" style="margin-top: 10px;">
+                        <div class="col">
+                            <div class="info-panel highlight">
+                                <div class="panel-title"><span class="badge-icon blue">⚡</span>Interactive Repo Work &amp; The 6 Brownfield Safeguards</div>
+                                <ul class="custom-list">
+                                    <li><strong>Antigravity <code>/boost</code> vs. <code>/goal</code>:</strong> Use <code>/boost</code> for race conditions (<code>DeepInvestigator</code> + competing worktree <code>DeepCoder</code> tournament); use <code>/goal</code> + Superpowers TDD for standard features.</li>
+                                    <li><strong>6 AWS AI-DLC Brownfield Safeguards:</strong> (1) Blast-Radius Cap, (2) Pre-Change Test Baseline, (3) API/Schema Backward Compatibility, (4) DB Migration Rollback Script, (5) Feature-Flag Wrapping, (6) Characterization Test before Seam Edits.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel yellow">
+                                <div class="panel-title"><span class="badge-icon yellow">⚙</span>Multi-Repo Fleet Updates: Spotify Honk Pattern</div>
+                                <ul class="custom-list">
+                                    <li><strong>70% Deterministic / 30% Agentic:</strong> Run AST codemods first; dispatch headless Claude Code workflows or SDK agents only on the 30% semantic tail.</li>
+                                    <li><strong>4-Rule Migration Prompt:</strong> State declarative target + explicit <em>"When NOT to Act"</em> abort rules + 2 few-shot diffs + single atomic change per PR.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://github.com/Fission-AI/OpenSpec" target="_blank">OpenSpec Delta Format</a> | <a href="https://github.com/awslabs/aidlc-workflows" target="_blank">AWS AI-DLC Brownfield Safeguards</a> | <a href="https://engineering.atspotify.com/2025/12/context-engineering-background-coding-agents-part-2" target="_blank">Spotify Honk Context Engineering</a> | <a href="https://asdlc.io/patterns/compound-loop/" target="_blank">ASDLC Compound Loop</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: Scenario 3 Blueprint — Agentically Engineered Greenfield -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">11 // Scenario 3 Implementation Blueprint (Level 3 &rarr; 4 Factory)</span>
+                    <h2 class="slide-title">Scenario 3: Agentically Engineered Greenfield</h2>
+                    <div class="slide-subtitle">Building net-new systems with Socratic specs, Walking Skeletons, and External Holdouts.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="process-track">
+                        <div class="process-step active">
+                            <div class="step-num">1</div>
+                            <div class="step-title">Socratic Spec &amp; Task DAG</div>
+                            <div class="step-desc">Run <code>/grill-me</code> + <code>/plan</code> (or SpecKit) to author domain contracts, phased task DAG &amp; minimal <code>AGENTS.md</code> (&lt;80 lines).</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step gate">
+                            <div class="step-num">2</div>
+                            <div class="step-title">🔒 Gate 0: Blind Check + Holdouts</div>
+                            <div class="step-desc">Zero-Context Goldfish checks spec for blind spots + lock acceptance tests in external <code>.holdouts/</code> (StrongDM Attractor).</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step active">
+                            <div class="step-num">3</div>
+                            <div class="step-title">Walking Skeleton (U1)</div>
+                            <div class="step-desc">Sequentially build scaffold, strict linter/types, DB migrations, and single <code>./scripts/verify.sh</code> script.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step active">
+                            <div class="step-num">4</div>
+                            <div class="step-title">Wave Swarm Execution</div>
+                            <div class="step-desc">Orchestrator dispatches DAG waves to isolated worktree Workers; <code>verify.sh</code> checks task scope &amp; test integrity at wave end.</div>
+                        </div>
+                        <div class="process-arrow">&rarr;</div>
+                        <div class="process-step gate">
+                            <div class="step-num">5</div>
+                            <div class="step-title">🔒 Gate 3: Holdout Merge</div>
+                            <div class="step-desc">CI/Outer harness runs locked <code>.holdouts/</code> suite + Jev rubric against built app. Human Change Owner approves merge.</div>
+                        </div>
+                    </div>
+
+                    <div class="flex-cols" style="margin-top: 10px;">
+                        <div class="col">
+                            <div class="info-panel warning">
+                                <div class="panel-title"><span class="badge-icon red">!</span>Who Actually Manages the Task DAG (<code>plan.md</code> vs. <code>tasks.json</code>)?</div>
+                                <ul class="custom-list">
+                                    <li><strong>In L3 CLI (Non-Deterministic):</strong> In interactive CLIs (<code>agy /plan</code>, SpecKit, OpenSpec), the LLM updates Markdown checkboxes (<code>- [x]</code>) in <code>plan.md</code> via prompt instructions. Convenient, but an agent can prematurely tick its own box.</li>
+                                    <li><strong>In L4 Harness (100% Deterministic):</strong> The LLM writes <code>tasks.json</code> <em>once</em> at Gate 0. During execution, <strong>Python</strong> parses the DAG (<code>graphlib.TopologicalSorter</code>) and <strong>only Python</strong> marks a task <code>"COMPLETED"</code> in <code>tasks.json</code> after <code>verify.sh</code> exits <code>0</code>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="info-panel success">
+                                <div class="panel-title"><span class="badge-icon green">★</span>How External Holdouts (<code>.holdouts/</code>) Actually Work</div>
+                                <ul class="custom-list">
+                                    <li><strong>Separate Directory Outside the Worktree:</strong> Acceptance tests live in a sibling directory or separate repo (e.g., <code>../project-holdouts/</code>) that is never mounted into the coding agent's Git worktree.</li>
+                                    <li><strong>Outer CI Execution at Gate 3:</strong> After the builder finishes and passes unit tests in <code>verify.sh</code>, the outer harness or CI runs <code>pytest ../project-holdouts</code> against the built app so agents can never inspect or game the acceptance assertions.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://github.com/github/spec-kit" target="_blank">GitHub Spec Kit</a> | <a href="https://github.com/strongdm/attractor" target="_blank">StrongDM External Holdouts (Attractor)</a> | <a href="https://docs.python.org/3/library/graphlib.html" target="_blank">Python <code>graphlib.TopologicalSorter</code></a> | <a href="https://antigravity.google/docs/cli/features" target="_blank">Antigravity <code>/plan</code> &amp; <code>/teamwork-preview</code></a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Reference Code Architecture & Human-in-the-Loop UX -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">12 // Reference Harness Code &amp; Human-in-the-Loop UX</span>
+                    <h2 class="slide-title">Reference L4 Harness: Host Loop Owns DAG &amp; Retries</h2>
+                    <div class="slide-subtitle">Why deterministic retry caps and DAG state live in the outer runner (<code>factory_harness.py</code>)—not inside <code>verify.sh</code>.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="flex-cols">
+                        <div class="col" style="flex: 1.32;">
+                            <div class="terminal-window">
+                                <div class="terminal-header">
+                                    <div class="terminal-dots">
+                                        <div class="terminal-dot red"></div>
+                                        <div class="terminal-dot yellow"></div>
+                                        <div class="terminal-dot green"></div>
+                                    </div>
+                                    <div class="terminal-title">factory_harness.py — Python owns tasks.json DAG &amp; retry counter</div>
+                                </div>
+                                <div class="terminal-body">
+<pre><code class="language-python">import subprocess, jev  # TypeSafe System One (100ms calibrated gate)
+from google.antigravity import Agent, LocalAgentConfig, CapabilitiesConfig
+
+async def run_goldfish_unit(spec_path: str, worktree_dir: str) -> str:
+    spec = open(spec_path).read()
+    # Gate 1: Zero-Context Goldfish Blind-Spot Spec Check
+    check = await Agent(
+        model="gemini-4-argon",
+        config=LocalAgentConfig(workspace=worktree_dir,
+            capabilities=CapabilitiesConfig(can_write_files=False, can_run_commands=False))
+    ).query(f"Reply AMBIGUOUS: &lt;gaps&gt; or CLEAR:\n{spec}")
+    if "AMBIGUOUS:" in check.text:
+        raise RuntimeError(f"Gate 1 Blind-Spot Check Failed:\n{check.text}")
+
+    # Gate 2A: PYTHON holds `attempt` in memory &amp; runs verify.sh OUTSIDE the LLM
+    feedback = ""
+    for attempt in range(1, 3):  # Deterministic outer loop cap (ASDLC max_execution_loops)
+        await Agent(model="gemini-4-argon",
+            config=LocalAgentConfig(workspace=worktree_dir)).query(
+            f"Implement via TDD in this worktree:\n{spec}\n{feedback}")
+        res = subprocess.run(["./scripts/verify.sh"], cwd=worktree_dir, capture_output=True, text=True)
+        if res.returncode == 0:
+            break  # Python now marks task COMPLETED in tasks.json
+        feedback = f"Attempt {attempt} verify.sh failed:\n{res.stderr[-1000:]}"
+        if attempt == 2:
+            subprocess.run(["git", "reset", "--hard", "HEAD"], cwd=worktree_dir)
+            raise RuntimeError("Max Attempts Failed: Reverted worktree; fix spec")
+
+    # Gate 2B: 100ms System One (Jev) Audit before opening Human Gate 3 PR
+    diff = subprocess.run(["git", "diff", "HEAD~1"], cwd=worktree_dir, capture_output=True, text=True).stdout
+    v = await jev.AsyncClient().evaluate(state={"spec": spec, "diff": diff}, questions={
+        "tampered": jev.boolean("Did the diff delete or weaken any test?"),
+        "parity": jev.score("Spec parity", levels={0: "Low", 100: "Full"})})
+    if v["tampered"].prob &gt; 0.15 or v["parity"].value &lt; 85:
+        raise RuntimeError(f"Blocked by Gate 2B: {v}")
+    return "OPEN_PR_WITH_VERIFICATION_RECEIPT"</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" style="flex: 0.68;">
+                            <div class="info-panel highlight">
+                                <div class="panel-title"><span class="badge-icon blue">⚙</span>Why State Lives in the Outer Runner</div>
+                                <ul class="custom-list">
+                                    <li><strong><code>verify.sh</code> Is Stateless:</strong> A shell script only returns exit code <code>0</code> or <code>1</code>. To cap retries deterministically (like ASDLC.io's <code>max_execution_loops</code>), the <strong>outer Python/JS runner</strong> holds the loop counter in memory and calls <code>verify.sh</code> outside the LLM.</li>
+                                    <li><strong>Who Mutates <code>tasks.json</code>?</strong> Python's <code>TopologicalSorter</code> reads <code>tasks.json</code>, dispatches waves, and updates <code>"status": "COMPLETED"</code> on disk <em>only</em> after <code>res.returncode == 0</code>.</li>
+                                    <li><strong>Human UX (Gate 0 &amp; Gate 3):</strong> Architects lock the spec in <code>agy</code> at Gate 0, run <code>factory_harness.py</code> in the background, and review the PR + Verification Receipt at Gate 3.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footnote">
+                        * <strong>Sources:</strong> <a href="https://asdlc.io/concepts/levels-of-autonomy/" target="_blank">ASDLC.io L3 Harness Config (<code>max_execution_loops</code>)</a> | <a href="https://github.com/google-antigravity/antigravity-sdk-python" target="_blank">Antigravity Python SDK</a> | <a href="https://docs.typesafe.ai/" target="_blank">TypeSafe Jev SDK Docs</a>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Executive Workload-to-Harness & Context Threshold Matrix -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">13 // Executive Decision &amp; Threshold Matrix</span>
+                    <h2 class="slide-title">Workload-to-Context &amp; Harness Matrix</h2>
+                    <div class="slide-subtitle">Matching codebase context tiers (<code>AGENTS.md</code>, <code>OKF</code>, <code>GraphDB</code>) and harnesses to workload scale.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="info-panel warning" style="padding: 8px 14px; margin-bottom: 10px;">
+                        <p style="font-size: 13px; color: var(--google-gray-dark); margin: 0; line-height: 1.4;">
+                            <strong>⚠️ Note on Codebase Size Numbers (Rough Order-of-Magnitude "Lines in the Sand"):</strong> The LOC brackets below (<code>&lt;50k</code>, <code>50k–250k</code>, <code>250k+ LOC</code>) are <strong>illustrative orders of magnitude, not hard empirical thresholds</strong>—meant only to show when flat context starts pushing agents toward the Dumb Zone and domain/graph indexing pays for its setup cost.
+                        </p>
+                    </div>
+                    <table class="google-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 21%;">Scenario &amp; Rough Scale (~LOC)</th>
+                                <th style="width: 12%;">Target Level</th>
+                                <th style="width: 27%;">Codebase Context Sources (By Repo Scale)</th>
+                                <th class="focus" style="width: 22%;">Recommended Harness &amp; Flow</th>
+                                <th style="width: 18%;">Gates &amp; Decisions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>3. Greenfield &amp; Small Services</strong><br><span class="pill-tag red">&lt;~50k LOC (Order of Magnitude)</span></td>
+                                <td><strong>Level 3 &rarr; 4</strong><br>(Light-to-Twilight)</td>
+                                <td><strong>Root &amp; Subfolder <code>AGENTS.md</code> + <code>/plan</code> DAG + <code>.holdouts/</code></strong><br><em>(No GraphDB; add OKF only if cross-cutting domain/SQL schemas)</em></td>
+                                <td class="focus"><strong>Antigravity CLI (<code>agy</code>):</strong> <code>/grill-me</code> &rarr; <code>/plan</code> &rarr; Blind Check &rarr; <code>/teamwork-preview</code></td>
+                                <td><strong>Gate 0:</strong> Lock Spec &amp; Holdouts<br><strong>Gate 3:</strong> Holdout Merge</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2A. Brownfield Service / Monolith</strong><br><span class="pill-tag green">~50k–250k vs. 250k+ LOC (Est.)</span></td>
+                                <td><strong>Level 3</strong><br>(Light Factory)</td>
+                                <td><strong>~50k–250k LOC:</strong> <code>AGENTS.md</code> + <strong>OKF</strong> (domain/schema) + <strong>OpenSpec Delta</strong><br><strong>~250k+ LOC Monolith:</strong> Add <strong>GraphDB</strong> (<code>impact</code>/<code>seams</code>)</td>
+                                <td class="focus"><strong>Antigravity CLI (<code>agy</code>):</strong> <code>/grill-me</code> &rarr; <code>/plan</code> &rarr; <code>/boost</code> (hard bugs) or <code>/goal</code> &rarr; <code>/learn</code></td>
+                                <td><strong>Gate 0:</strong> 3-min Delta Spec<br><strong>Gate 2/3:</strong> Critic + Jev + Merge</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2B. Fleet-Wide Migration</strong><br><span class="pill-tag yellow">100s of Repos / Deps</span></td>
+                                <td><strong>Level 4</strong><br>(Twilight Factory)</td>
+                                <td><strong>AST Codemods (70%)</strong> + <strong>Spotify Honk 4-Rule Prompt (30%)</strong> + Single <code>verify()</code> script</td>
+                                <td class="focus"><strong>Claude Code Workflows (<code>ultracode</code>)</strong> or <strong>SDK Batch Runner</strong> in K8s pods</td>
+                                <td><strong>Gate 0:</strong> Pilot Campaign Sign-Off<br><strong>Gate 3:</strong> Exception PR Merge</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1. Legacy App Modernization</strong><br><span class="pill-tag blue">~250k+ LOC Rewrite (Est.)</span></td>
+                                <td><strong>Level 4</strong><br>(Twilight Factory)</td>
+                                <td><strong>Bridge Case (Input &rarr; Output):</strong><br><strong>GraphDB</strong> extracts legacy monolith <em>into</em> portable <strong>OKF v0.2</strong> specs + <strong>Characterization Tests</strong></td>
+                                <td class="focus"><strong>Antigravity Python SDK Harness</strong> + isolated clean-room worktrees (<code>legacy_src/</code> excluded)</td>
+                                <td><strong>Gate 0:</strong> OKF Domain Sign-Off<br><strong>Gate 2/3:</strong> Jev + 100% Parity Merge</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="motto-banner" style="padding: 8px 14px; margin-top: 8px;">
+                        <p class="motto-text" style="font-size: 13.5px;">Context Rule of Thumb: Start every repo with <code>AGENTS.md</code> (&lt;80 lines). Add <code>OKF</code> when cross-cutting domain rules/schemas outgrow folder docs; add <code>GraphDB</code> when monolith coupling outgrows grep/LSP.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 15: Monday-Morning Executive Rollout Plan -->
+            <section>
+                <div class="slide-header">
+                    <span class="slide-tracker">14 // Action Plan</span>
+                    <h2 class="slide-title">Monday-Morning Rollout: Moving Teams from L2 to L3/L4</h2>
+                    <div class="slide-subtitle">Five concrete steps engineering leadership can execute immediately without boiling the ocean.</div>
+                </div>
+                <div class="slide-body">
+                    <div class="roadmap-grid">
+                        <div class="roadmap-card blue">
+                            <span class="roadmap-num">STEP 01 // TRIM</span>
+                            <div class="roadmap-title">Prune <code>AGENTS.md</code> &amp; Build <code>verify.sh</code></div>
+                            <div class="roadmap-desc">Cut root <code>AGENTS.md</code> under 80 lines (enforced via a 3-line check in <code>verify.sh</code>) and wrap build, lint, and tests behind one script.</div>
+                        </div>
+                        <div class="roadmap-card yellow">
+                            <span class="roadmap-num">STEP 02 // GATE 0 &amp; 1</span>
+                            <div class="roadmap-title">Mandate Socratic + Blind-Spot Check</div>
+                            <div class="roadmap-desc">Require <code>/grill-me</code> + <code>/plan</code> (or OpenSpec Delta) and pass every spec through a zero-context Goldfish validator to check for blind spots before coding.</div>
+                        </div>
+                        <div class="roadmap-card green">
+                            <span class="roadmap-num">STEP 03 // RIGHT-SIZE</span>
+                            <div class="roadmap-title">Deploy OKF or GraphDB by Scale</div>
+                            <div class="roadmap-desc">Keep Greenfield on <code>AGENTS.md</code> + <code>.holdouts/</code>. Add <code>OKF</code> for cross-cutting domain rules and <code>GraphDB</code> on large monoliths.</div>
+                        </div>
+                        <div class="roadmap-card red">
+                            <span class="roadmap-num">STEP 04 // GATE 2 &amp; 3</span>
+                            <div class="roadmap-title">Enforce Worktree Isolation &amp; Jev Gate</div>
+                            <div class="roadmap-desc">Run builders in isolated worktrees with an outer Python retry/DAG loop, Fresh Critic, and 100ms Jev diff audit before human PR merge.</div>
+                        </div>
+                        <div class="roadmap-card blue">
+                            <span class="roadmap-num">STEP 05 // DREAMING</span>
+                            <div class="roadmap-title">Institutionalize Post-Merge <code>/learn</code></div>
+                            <div class="roadmap-desc">Run <code>/learn</code> after PR merges or failed builder runs to propose <code>AGENTS.md</code> and <code>SKILL.md</code> updates, graduating mechanical rules to <code>verify.sh</code>.</div>
+                        </div>
+                    </div>
+
+                    <p style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: var(--google-blue); margin-top: 22px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">
+                        Full Companion Report &amp; Step-by-Step Guide: <a href="../practical-agentic-sdlc-playbook.md" target="_blank" style="color: var(--google-blue); text-decoration: underline;">docs/practical-agentic-sdlc-playbook.md</a>
+                    </p>
+
+                    <div class="footnote">
+                        *Companion Artifacts: <a href="../practical-agentic-sdlc-playbook.md" target="_blank">The Practical Agentic SDLC Playbook (Markdown)</a> | <a href="../agentic-sdlc-frameworks-comparison.md" target="_blank">Agentic SDLC Frameworks Landscape Comparison</a> | <a href="../index.html">Back to Presentation Library</a>.
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js & Plugins scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+
+    <script>
+        Reveal.initialize({
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            center: false,
+            hash: true,
+            slideNumber: 'c/t',
+            transition: 'fade',
+            plugins: [ RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
