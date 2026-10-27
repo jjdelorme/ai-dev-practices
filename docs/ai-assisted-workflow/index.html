@@ -547,6 +547,19 @@
             text-decoration: underline;
         }
 
+        /* Keep Reveal.js controls and slide number above the persistent footer */
+        .reveal .controls {
+            bottom: 60px !important;
+            right: 70px !important;
+            z-index: 1001 !important;
+        }
+
+        .reveal .slide-number {
+            bottom: 66px !important;
+            right: 20px !important;
+            z-index: 1001 !important;
+        }
+
     </style>
 </head>
 <body>
@@ -571,11 +584,9 @@
         </div>
 
         <div class="slides">
-        <div class="slides">
             <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'Outfit', sans-serif; color: var(--google-gray-medium);">
                 <h3>Loading Presentation Slides...</h3>
             </div>
-        </div>
         </div>
     </div>
 
@@ -585,7 +596,7 @@
     
     <script>
         // Total slides variable for GEMINI.md system rule compliance
-        const totalSlides = 13;
+        const totalSlides = 14;
 
         // Async function to load all slides in parallel
         async function loadAndInitializeSlides() {
