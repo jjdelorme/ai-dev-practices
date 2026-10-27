@@ -31,8 +31,7 @@
     <circle r="8" cx="0" cy="-120" fill="#c678dd"/>
   </g>
 
-  <text x="960" y="600" class="title">Mastering the AI-Assisted</text>
-  <text x="960" y="690" class="title">Development Workflow</text>
+  <text x="960" y="640" class="title">Agentic Engineering</text>
   
   <text x="960" y="800" class="subtitle">From Tool to Teammate: Strategies for High-Velocity Engineering</text>
   

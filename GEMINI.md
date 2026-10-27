@@ -1,7 +1,7 @@
 # Project Context: AI Dev Practices Presentation
 
 ## Overview
-This project contains a browser-based presentation deck titled "Mastering the AI-Assisted Development Workflow". It is a static site designed to be hosted on GitHub Pages (served from the `docs/` directory).
+This project contains a browser-based presentation deck titled "Agentic Engineering" (located at `docs/ai-assisted-workflow/`). It is a static site designed to be hosted on GitHub Pages (served from the `docs/` directory).
 
 The presentation engine is a lightweight, custom HTML/JS viewer that renders SVG files as slides. This allows for high-quality, scalable graphics and easy editing of individual slides as code.
 

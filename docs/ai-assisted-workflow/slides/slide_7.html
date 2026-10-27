@@ -13,8 +13,8 @@
                                      <span class="desc">Isolate core business intent, data structures, and edge cases from old, dusty frameworks.</span>
                                  </li>
                                  <li>
-                                     <strong>Human-in-the-Loop Verification:</strong> Review the extracted rules before writing new code.
-                                     <span class="desc">A human developer confirms the business intent, stripping away accidental legacy bugs or dead code path assumptions.</span>
+                                     <strong>Parallel Run:</strong> Run the old and new systems and systematically compare until they match.
+                                     <span class="desc">Execute legacy and new systems side-by-side, systematically diffing outputs and telemetry until behavior aligns completely.</span>
                                  </li>
                                  <li>
                                      <strong>Executable BDD Specs:</strong> Codify verified rules into behavior-driven Gherkin tests.
@@ -57,16 +57,16 @@
                                              <text x="0" y="-40" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-blue)" text-anchor="middle">LLM Deconstruct</text>
                                          </g>
                                          
-                                         <!-- Step 3: Human Verification Checkpoint (Center) -->
+                                         <!-- Step 3: Parallel Run Checkpoint (Center) -->
                                          <g transform="translate(0, 40)">
                                              <!-- Outer glowing shield -->
                                              <circle cx="0" cy="0" r="32" fill="rgba(52, 168, 83, 0.1)" stroke="var(--google-green)" stroke-width="2" stroke-dasharray="4 2"/>
-                                             <!-- Human profile + Checkmark -->
-                                             <circle cx="0" cy="-5" r="10" fill="none" stroke="var(--google-green)" stroke-width="2.5"/>
-                                             <path d="M-15 15 C-15 5, 15 5, 15 15" fill="none" stroke="var(--google-green)" stroke-width="2.5"/>
-                                             <circle cx="12" cy="5" r="7" fill="var(--google-green)"/>
-                                             <path d="M9 5 L11 7 L15 3" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                             <text x="0" y="52" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-green)" text-anchor="middle">Human Verify</text>
+                                             <!-- Parallel comparison tracks + Checkmark -->
+                                             <line x1="-14" y1="-7" x2="6" y2="-7" stroke="var(--google-green)" stroke-width="3" stroke-linecap="round"/>
+                                             <line x1="-14" y1="5" x2="6" y2="5" stroke="var(--google-green)" stroke-width="3" stroke-linecap="round"/>
+                                             <circle cx="13" cy="2" r="7" fill="var(--google-green)"/>
+                                             <path d="M10 2 L12 4 L16 0" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                             <text x="0" y="52" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-green)" text-anchor="middle">Parallel Run</text>
                                          </g>
                                          
                                          <!-- Step 4: Greenfield Output Node (Right) -->
