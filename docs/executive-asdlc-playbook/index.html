@@ -1157,40 +1157,35 @@
                 <div class="slide-header">
                     <span class="slide-tracker">07 // Execution Harnesses &amp; Gate Decisions</span>
                     <h2 class="slide-title">Execution Harnesses &amp; Fast Gate Decisions (<code>Jev</code>)</h2>
-                    <div class="slide-subtitle">Selecting the right runtime harness (<code>claude</code>, <code>agy</code>, Python SDK) and using System One <code>Jev</code> for 100ms gate decisions.</div>
+                    <div class="slide-subtitle">Selecting the right runtime harness (<code>agy</code>, Python SDK) and using System One <code>Jev</code> for 100ms gate decisions.</div>
                 </div>
                 <div class="slide-body">
                     <table class="google-table" style="margin-bottom: 12px;">
                         <thead>
                             <tr>
-                                <th style="width: 18%;">Dimension</th>
-                                <th style="width: 27%;">Claude Code (<code>claude</code> / <code>ultracode</code>)</th>
-                                <th class="focus" style="width: 28%;">Antigravity CLI (<code>agy</code>)</th>
-                                <th style="width: 27%;">Antigravity Python SDK (<code>google-antigravity</code>)</th>
+                                <th style="width: 22%;">Dimension</th>
+                                <th class="focus" style="width: 39%;">Antigravity CLI (<code>agy</code>)</th>
+                                <th style="width: 39%;">Antigravity Python SDK (<code>google-antigravity</code>)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>Orchestration Engine</strong></td>
-                                <td><code>.claude/workflows/*.js</code> isolated JS VM (<code>agent()</code>, <code>parallel()</code>, <code>pipeline()</code>)</td>
                                 <td class="focus">Agent Skills (<code>SKILL.md</code>) + Subagents + 8 native commands (<code>/grill-me</code>, <code>/plan</code>, <code>/boost</code>, <code>/teamwork-preview</code>, <code>/goal</code>, <code>/learn</code>, <code>/compact</code>, <code>/schedule</code>)</td>
                                 <td>Python 3.11+ custom harness (<code>from google.antigravity import Agent, LocalAgentConfig, CapabilitiesConfig</code>)</td>
                             </tr>
                             <tr>
                                 <td><strong>Who Owns Task &amp; Retry State?</strong></td>
-                                <td><strong>JS Host Script:</strong> Outer JS workflow loop holds retry counters &amp; caches completed <code>agent()</code> steps</td>
                                 <td class="focus"><strong>L3 Interactive / Prompt-Driven:</strong> Agent updates <code>plan.md</code> checkboxes; bounded by CLI <code>max_turns</code> &amp; human <em>"Undo When Adrift"</em></td>
                                 <td><strong>100% Deterministic Python State:</strong> Python script owns <code>tasks.json</code> DAG &amp; retry counter in memory; LLM cannot mark itself done</td>
                             </tr>
                             <tr>
                                 <td><strong>Verification &amp; Guardrails</strong></td>
-                                <td><code>settings.json</code> lifecycle hooks + outer workflow script checks</td>
                                 <td class="focus">Worktree isolation + <code>.agents/hooks.json</code> lifecycle hooks + end-of-task <code>./scripts/verify.sh</code></td>
                                 <td>Python <code>subprocess.run(["./scripts/verify.sh"])</code> outside LLM + <code>@hooks.pre_turn</code> / <code>policy.deny</code></td>
                             </tr>
                             <tr>
                                 <td><strong>Primary Sweet Spot</strong></td>
-                                <td>CI/CD batch fleet migrations &amp; deterministic JS-scripted multi-agent pipelines</td>
                                 <td class="focus">Interactive &amp; team-scale L3/L4 engineering across Brownfield &amp; Greenfield repos</td>
                                 <td>Enterprise L4 Modernization factories &amp; custom GraphDB + OKF + Jev pipelines</td>
                             </tr>
@@ -1225,7 +1220,7 @@
                         </div>
                     </div>
                     <div class="footnote">
-                        * <strong>Sources:</strong> <a href="https://code.claude.com/docs/en/workflows" target="_blank">Claude Code Workflows</a> &amp; <a href="https://code.claude.com/docs/en/hooks" target="_blank">Hooks</a> | <a href="https://antigravity.google/docs/cli/features" target="_blank">Antigravity CLI Docs</a>, <a href="https://antigravity.google/docs/rules-workflows" target="_blank">Rules &amp; Workflows</a>, <a href="https://antigravity.google/docs/hooks" target="_blank">Hooks</a> | <a href="https://github.com/google-antigravity/antigravity-sdk-python" target="_blank">Antigravity Python SDK (<code>google-antigravity</code>)</a>.
+                        * <strong>Sources:</strong> <a href="https://antigravity.google/docs/cli/features" target="_blank">Antigravity CLI Docs</a>, <a href="https://antigravity.google/docs/rules-workflows" target="_blank">Rules &amp; Workflows</a>, <a href="https://antigravity.google/docs/hooks" target="_blank">Hooks</a> | <a href="https://github.com/google-antigravity/antigravity-sdk-python" target="_blank">Antigravity Python SDK (<code>google-antigravity</code>)</a>.
                     </div>
                 </div>
             </section>

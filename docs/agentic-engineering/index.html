@@ -187,8 +187,10 @@
         }
 
         /* Lists */
-        ul.custom-list {
-            list-style: none;
+        .reveal ul.custom-list,
+        .reveal ul.custom-list ul {
+            list-style: none !important;
+            list-style-type: none !important;
             margin: 0;
             padding: 0;
         }
@@ -221,6 +223,29 @@
             display: block;
             font-size: 14px;
             margin-top: 2px;
+        }
+
+        ul.custom-list ul.custom-list {
+            margin-top: 10px;
+            padding-left: 6px;
+        }
+
+        ul.custom-list ul.custom-list li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            padding-left: 26px;
+        }
+
+        ul.custom-list ul.custom-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        ul.custom-list ul.custom-list li::before {
+            content: "◦";
+            color: var(--google-blue);
+            font-size: 20px;
+            left: 6px;
+            top: -3px;
         }
 
         /* Column Splits */
@@ -596,7 +621,7 @@
     
     <script>
         // Total slides variable for GEMINI.md system rule compliance
-        const totalSlides = 14;
+        const totalSlides = 23;
 
         // Async function to load all slides in parallel
         async function loadAndInitializeSlides() {
