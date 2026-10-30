@@ -2,7 +2,7 @@
                 <div class="slide-header">
                     <span class="slide-tracker">THE COMMAND SPECTRUM</span>
                     <h2 class="slide-title">Choosing the Right Agentic Workflow</h2>
-                    <div class="slide-subtitle">Tier 1: Single-Agent Control Loops &bull; Tier 2: Multi-Agent Orchestration</div>
+                    <div class="slide-subtitle">Tier 1: Single-Agent Control Loops &bull; Tier 2: Multi-Agent &amp; Custom Orchestration</div>
                 </div>
                 <div class="slide-body" style="gap: 16px;">
                     <!-- Top Row: 3 Single-Agent Workflows (Clarify -> Plan -> Persist) -->
@@ -53,35 +53,50 @@
                         </div>
                     </div>
 
-                    <!-- Bottom Row: 2 Multi-Agent Orchestration Workflows -->
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; width: 100%;">
+                    <!-- Bottom Row: 3 Multi-Agent & Custom Orchestration Workflows -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: 100%;">
                         <!-- /boost -->
-                        <div class="info-panel" style="padding: 16px 22px; border-top: 4px solid var(--google-yellow);">
+                        <div class="info-panel" style="padding: 16px 20px; border-top: 4px solid var(--google-yellow);">
                             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
                                 <code style="font-family: 'Fira Code', monospace; font-size: 18px; font-weight: 600; color: #b06000; background: var(--google-yellow-light); padding: 3px 10px; border-radius: 6px;">/boost</code>
                                 <span style="font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; color: #b06000; text-transform: uppercase; letter-spacing: 0.8px;">2-Layer Multi-Agent</span>
                             </div>
-                            <div class="panel-title" style="margin-bottom: 6px; font-size: 16px;">4. Adversarial Worker + Critic Pipeline</div>
+                            <div class="panel-title" style="margin-bottom: 6px; font-size: 16px;">4. Adversarial Worker + Critic</div>
                             <p style="font-size: 13px; color: var(--google-gray-dark); line-height: 1.42; margin: 0 0 8px 0;">
-                                Dispatches a worker subagent followed immediately by an adversarial reviewer subagent that stress-tests, verifies, and fixes the result with zero upfront interview.
+                                Dispatches a worker subagent followed immediately by an adversarial reviewer subagent that stress-tests, verifies, and fixes the result.
                             </p>
                             <p style="font-size: 12px; color: var(--google-gray-medium); line-height: 1.38; margin: auto 0 0 0;">
-                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Tackling a gnarly bug, root-cause investigation, or tricky single-PR feature that needs extra rigor on the first try.
+                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Gnarly bugs, root-cause investigations, or tricky single-PR features needing extra rigor.
                             </p>
                         </div>
 
                         <!-- /teamwork -->
-                        <div class="info-panel warning" style="padding: 16px 22px;">
+                        <div class="info-panel warning" style="padding: 16px 20px;">
                             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
                                 <code style="font-family: 'Fira Code', monospace; font-size: 18px; font-weight: 600; color: var(--google-red); background: var(--google-red-light); padding: 3px 10px; border-radius: 6px;">/teamwork</code>
-                                <span style="font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; color: var(--google-red); text-transform: uppercase; letter-spacing: 0.8px;">Multi-Hour Multi-Agent</span>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; color: var(--google-red); text-transform: uppercase; letter-spacing: 0.8px;">Multi-Hour Squad</span>
                             </div>
                             <div class="panel-title" style="margin-bottom: 6px; font-size: 16px;">5. Autonomous Project Squad</div>
                             <p style="font-size: 13px; color: var(--google-gray-dark); line-height: 1.42; margin: 0 0 8px 0;">
-                                Runs a structured scoping interview to lock acceptance criteria, then launches an autonomous multi-agent team with progress tracking and an independent auditor.
+                                Runs a structured scoping interview to lock acceptance criteria, then launches an autonomous multi-agent team with an independent auditor.
                             </p>
                             <p style="font-size: 12px; color: var(--google-gray-medium); line-height: 1.38; margin: auto 0 0 0;">
-                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Delegating large, multi-component migrations, greenfield builds, or hours-long projects end-to-end.
+                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Large migrations, greenfield builds, or hours-long multi-component projects.
+                            </p>
+                        </div>
+
+                        <!-- /your-own-custom -->
+                        <div class="info-panel" style="padding: 16px 20px; border-top: 4px dashed var(--google-blue); background: linear-gradient(180deg, #ffffff 0%, var(--google-gray-bg) 100%);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                                <code style="font-family: 'Fira Code', monospace; font-size: 16px; font-weight: 600; color: var(--google-blue); background: var(--google-blue-light); padding: 3px 10px; border-radius: 6px;">/your-own-custom</code>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; color: var(--google-blue); text-transform: uppercase; letter-spacing: 0.8px;">Extensible Harness</span>
+                            </div>
+                            <div class="panel-title" style="margin-bottom: 6px; font-size: 16px;">6. Custom Subagents &amp; Skills</div>
+                            <p style="font-size: 13px; color: var(--google-gray-dark); line-height: 1.42; margin: 0 0 8px 0;">
+                                Define and orchestrate your own specialized subagents, skills, hooks, and slash commands tailored to your team's architecture and domain.
+                            </p>
+                            <p style="font-size: 12px; color: var(--google-gray-medium); line-height: 1.38; margin: auto 0 0 0;">
+                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Codifying domain-specific pipelines, custom verification gates, or bespoke agent teams.
                             </p>
                         </div>
                     </div>
