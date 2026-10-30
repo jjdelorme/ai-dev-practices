@@ -1,83 +1,54 @@
 <section>
                 <div class="slide-header">
-                    <span class="slide-tracker">UNDER THE HOOD</span>
-                    <h2 class="slide-title">Specialized Roles &amp; Clean Context Handoffs</h2>
-                    <div class="slide-subtitle">Separating Planning, Coding, and Verification Without Chat Bloat</div>
+                    <span class="slide-tracker">THE /TEAMWORK WORKFLOW</span>
+                    <h2 class="slide-title">How <code>/teamwork</code> Executes</h2>
+                    <div class="slide-subtitle">Three Structured Phases from Alignment to Verified Delivery</div>
                 </div>
                 <div class="slide-body">
-                    <div class="flex-cols">
-                        <div class="col" style="flex: 1.2; display: flex; flex-direction: column; justify-content: center;">
-                            <ul class="custom-list">
-                                <li>
-                                    <strong>Specialized Role Separation:</strong> Strictly separates planning, coding, and verification.
-                                    <span class="desc">A <strong>Team Coordinator</strong> spawns dedicated <strong>Explorers</strong>, <strong>Builders</strong>, and <strong>Adversarial Critics</strong>.</span>
-                                </li>
-                                <li>
-                                    <strong>Independent Final Auditor:</strong> Unbiased end-to-end verification.
-                                    <span class="desc">Once milestones complete, a fresh <strong>Independent Auditor</strong> steps in to validate every acceptance criterion.</span>
-                                </li>
-                                <li>
-                                    <strong>Clean Context via File Handoffs:</strong> Zero chat-history bloat across agents.
-                                    <span class="desc">Subagents share concise Markdown reports on disk instead of dumping raw tool logs into a shared conversation.</span>
-                                </li>
-                                <li>
-                                    <strong>Retire After Each Milestone:</strong> Every phase starts fresh.
-                                    <span class="desc">Subagents terminate once their milestone report is written, ensuring the next phase launches with a clean context window.</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col" style="flex: 0.8; display: flex; align-items: center; justify-content: center;">
-                            <div class="info-panel highlight" style="width: 100%; display: flex; align-items: center; justify-content: center;">
-                                <svg width="270" height="270" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
-                                    <g transform="translate(160, 160)">
-                                        <!-- Coordinator (Top) -->
-                                        <g transform="translate(0, -115)">
-                                            <rect x="-75" y="-20" width="150" height="38" rx="8" fill="var(--google-blue)" />
-                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="600" font-size="13" fill="#ffffff" text-anchor="middle">Team Coordinator</text>
-                                        </g>
-
-                                        <!-- Arrows to Subagents -->
-                                        <line x1="-45" y1="-77" x2="-90" y2="-44" stroke="var(--google-blue)" stroke-width="2"/>
-                                        <line x1="0" y1="-77" x2="0" y2="-44" stroke="var(--google-blue)" stroke-width="2"/>
-                                        <line x1="45" y1="-77" x2="90" y2="-44" stroke="var(--google-blue)" stroke-width="2"/>
-
-                                        <!-- Subagents Row (Explorer, Builder, Critic) -->
-                                        <g transform="translate(-95, -25)">
-                                            <rect x="-42" y="-18" width="84" height="36" rx="6" fill="#ffffff" stroke="var(--google-blue)" stroke-width="2"/>
-                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Explorer</text>
-                                        </g>
-                                        <g transform="translate(0, -25)">
-                                            <rect x="-42" y="-18" width="84" height="36" rx="6" fill="#ffffff" stroke="var(--google-yellow)" stroke-width="2.5"/>
-                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Builder</text>
-                                        </g>
-                                        <g transform="translate(95, -25)">
-                                            <rect x="-42" y="-18" width="84" height="36" rx="6" fill="#ffffff" stroke="var(--google-red)" stroke-width="2"/>
-                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Critic</text>
-                                        </g>
-
-                                        <!-- Arrows to Disk Handoff -->
-                                        <line x1="-80" y1="-7" x2="-35" y2="26" stroke="var(--google-gray-medium)" stroke-width="1.8" stroke-dasharray="4 3"/>
-                                        <line x1="0" y1="-7" x2="0" y2="26" stroke="var(--google-gray-medium)" stroke-width="1.8" stroke-dasharray="4 3"/>
-                                        <line x1="80" y1="-7" x2="35" y2="26" stroke="var(--google-gray-medium)" stroke-width="1.8" stroke-dasharray="4 3"/>
-
-                                        <!-- Markdown File Handoff on Disk (Middle) -->
-                                        <g transform="translate(0, 48)">
-                                            <rect x="-95" y="-22" width="190" height="44" rx="8" fill="var(--google-gray-bg)" stroke="var(--google-gray-medium)" stroke-width="2"/>
-                                            <text x="0" y="-3" font-family="'Fira Code', monospace" font-weight="600" font-size="11" fill="var(--google-gray-dark)" text-anchor="middle">handoff_report.md</text>
-                                            <text x="0" y="13" font-family="'Outfit', sans-serif" font-size="10" fill="var(--google-gray-medium)" text-anchor="middle">Disk Handoff • Subagents Retire</text>
-                                        </g>
-
-                                        <!-- Arrow to Independent Auditor -->
-                                        <line x1="0" y1="70" x2="0" y2="96" stroke="var(--google-green)" stroke-width="2.5"/>
-
-                                        <!-- Independent Auditor (Bottom) -->
-                                        <g transform="translate(0, 116)">
-                                            <rect x="-85" y="-20" width="170" height="38" rx="8" fill="var(--google-green-light)" stroke="var(--google-green)" stroke-width="2.5"/>
-                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="700" font-size="12.5" fill="var(--google-green)" text-anchor="middle">✓ Independent Auditor</text>
-                                        </g>
-                                    </g>
-                                </svg>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; align-items: stretch;">
+                        <!-- Step 1 -->
+                        <div class="info-panel highlight" style="padding: 28px 24px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; color: var(--google-blue); background: var(--google-blue-light); padding: 4px 12px; border-radius: 20px; letter-spacing: 1px;">STEP 1</span>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 700; color: var(--google-blue); opacity: 0.25;">01</span>
                             </div>
+                            <div class="panel-title" style="font-size: 22px; margin-bottom: 12px;">Scope &amp; Approve</div>
+                            <p style="font-size: 15px; color: var(--google-gray-dark); line-height: 1.55; margin: 0 0 12px 0;">
+                                Runs a structured scoping interview to lock requirements, acceptance criteria, and milestone boundaries upfront.
+                            </p>
+                            <p style="font-size: 13.5px; color: var(--google-gray-medium); line-height: 1.45; margin: auto 0 0 0; padding-top: 12px; border-top: 1px solid var(--google-gray-light);">
+                                <strong style="color: var(--google-gray-dark);">Gate:</strong> Human signs off on the scope before the autonomous squad launches.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="info-panel" style="padding: 28px 24px; border-top: 4px solid var(--google-yellow);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; color: #b06000; background: var(--google-yellow-light); padding: 4px 12px; border-radius: 20px; letter-spacing: 1px;">STEP 2</span>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 700; color: var(--google-yellow); opacity: 0.35;">02</span>
+                            </div>
+                            <div class="panel-title" style="font-size: 22px; margin-bottom: 12px;">Build &amp; Challenge</div>
+                            <p style="font-size: 15px; color: var(--google-gray-dark); line-height: 1.55; margin: 0 0 12px 0;">
+                                Coordinator dispatches explorers and builders across milestones while adversarial critics challenge every change.
+                            </p>
+                            <p style="font-size: 13.5px; color: var(--google-gray-medium); line-height: 1.45; margin: auto 0 0 0; padding-top: 12px; border-top: 1px solid var(--google-gray-light);">
+                                <strong style="color: var(--google-gray-dark);">Loop:</strong> Critics stress-test edge cases and reject weak implementations automatically.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="info-panel success" style="padding: 28px 24px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; color: var(--google-green); background: var(--google-green-light); padding: 4px 12px; border-radius: 20px; letter-spacing: 1px;">STEP 3</span>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 700; color: var(--google-green); opacity: 0.25;">03</span>
+                            </div>
+                            <div class="panel-title" style="font-size: 22px; margin-bottom: 12px;">Audit &amp; Deliver</div>
+                            <p style="font-size: 15px; color: var(--google-gray-dark); line-height: 1.55; margin: 0 0 12px 0;">
+                                An independent auditor verifies the complete build, test suite, and traceability against the original spec.
+                            </p>
+                            <p style="font-size: 13.5px; color: var(--google-gray-medium); line-height: 1.45; margin: auto 0 0 0; padding-top: 12px; border-top: 1px solid var(--google-gray-light);">
+                                <strong style="color: var(--google-gray-dark);">Output:</strong> Verified code + clean completion report ready for review.
+                            </p>
                         </div>
                     </div>
                 </div>

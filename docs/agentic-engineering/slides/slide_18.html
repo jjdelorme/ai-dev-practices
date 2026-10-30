@@ -1,73 +1,84 @@
 <section>
                 <div class="slide-header">
-                    <span class="slide-tracker">SPEC-DRIVEN MULTI-AGENT PLUGIN</span>
-                    <h2 class="slide-title">The Elephant-Goldfish Model (EGM)</h2>
-                    <div class="slide-subtitle">“Design with an Elephant. Review with a Goldfish.”</div>
+                    <span class="slide-tracker">UNDER THE HOOD</span>
+                    <h2 class="slide-title">Specialized Roles &amp; Clean Context Handoffs</h2>
+                    <div class="slide-subtitle">Separating Planning, Coding, and Verification Without Chat Bloat</div>
                 </div>
                 <div class="slide-body">
                     <div class="flex-cols">
-                        <div class="col" style="flex: 1.22; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="col" style="flex: 1.2; display: flex; flex-direction: column; justify-content: center;">
                             <ul class="custom-list">
                                 <li>
-                                    <strong>The Elephant (Full Context):</strong> Deep-context architect that never forgets.
-                                    <span class="desc">Loads repo history, architecture, and boundaries to run structured brainstorming and draft living specs under <code>docs/designs/</code>.</span>
+                                    <strong>Specialized Role Separation:</strong> Strictly separates planning, coding, and verification.
+                                    <span class="desc">A <strong>Team Coordinator</strong> spawns dedicated <strong>Explorers</strong>, <strong>Builders</strong>, and <strong>Adversarial Critics</strong>.</span>
                                 </li>
                                 <li>
-                                    <strong>The Goldfish Swarm (Zero Context):</strong> Stateless critics with fresh eyes.
-                                    <span class="desc">Isolated subagents read <em>only</em> the draft spec and live code—zero conversation bias—to stress-test assumptions before code is written.</span>
+                                    <strong>Independent Final Auditor:</strong> Unbiased end-to-end verification.
+                                    <span class="desc">Once milestones complete, a fresh <strong>Independent Auditor</strong> steps in to validate every acceptance criterion.</span>
                                 </li>
                                 <li>
-                                    <strong>Structured Skill Workflow:</strong>
-                                    <ul class="custom-list">
-                                        <li><code>/egm-brainstorm</code> &amp; <code>/egm-draft</code> — Turn rough ideas into living design docs.</li>
-                                        <li><code>/egm-review</code> &amp; <code>/egm-resolve</code> — 5-stage zero-context adversarial review loop.</li>
-                                        <li><code>/egm-drift-report</code> — Audits post-implementation code against the spec for divergence.</li>
-                                    </ul>
+                                    <strong>Clean Context via File Handoffs:</strong> Zero chat-history bloat across agents.
+                                    <span class="desc">Subagents share concise Markdown reports on disk instead of dumping raw tool logs into a shared conversation.</span>
+                                </li>
+                                <li>
+                                    <strong>Retire After Each Milestone:</strong> Every phase starts fresh.
+                                    <span class="desc">Subagents terminate once their milestone report is written, ensuring the next phase launches with a clean context window.</span>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col" style="flex: 0.78; display: flex; flex-direction: column; gap: 16px; justify-content: center;">
-                            <!-- Elephant vs Goldfish Visual Panel -->
-                            <div class="info-panel highlight" style="padding: 20px 22px; height: auto;">
-                                <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
-                                    <svg viewBox="1.5 1.5 21.0 21.0" width="44" height="44" aria-hidden="true" style="flex-shrink: 0;">
-                                        <g>
-                                            <path d="M10.30,6.80 A5.20,5.20 0 0 0 10.30,17.20 A1.20,1.20 0 0 0 11.50,16.00 L11.50,8.00 A1.20,1.20 0 0 0 10.30,6.80Z" fill="#4285F4"></path>
-                                            <path d="M7.20,12.00 C6.80,14.60 3.40,14.70 3.20,12.60 C3.10,11.20 3.30,10.20 3.60,9.40" fill="none" stroke="#4285F4" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <div class="col" style="flex: 0.8; display: flex; align-items: center; justify-content: center;">
+                            <div class="info-panel highlight" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="270" height="270" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                                    <g transform="translate(160, 160)">
+                                        <!-- Coordinator (Top) -->
+                                        <g transform="translate(0, -115)">
+                                            <rect x="-75" y="-20" width="150" height="38" rx="8" fill="var(--google-blue)" />
+                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="600" font-size="13" fill="#ffffff" text-anchor="middle">Team Coordinator</text>
                                         </g>
-                                        <g>
-                                            <path d="M13.70,6.80 A5.20,5.20 0 0 1 13.70,17.20 A1.20,1.20 0 0 1 12.50,16.00 L12.50,8.00 A1.20,1.20 0 0 1 13.70,6.80Z" fill="#FBBC05"></path>
-                                            <path d="M16.80,12.00 L18.00,12.00 C18.80,12.00 19.40,10.60 20.90,9.40 M18.00,12.00 C18.80,12.00 19.40,13.40 20.90,14.60" fill="none" stroke="#FBBC05" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"></path>
+
+                                        <!-- Arrows to Subagents -->
+                                        <line x1="-45" y1="-77" x2="-90" y2="-44" stroke="var(--google-blue)" stroke-width="2"/>
+                                        <line x1="0" y1="-77" x2="0" y2="-44" stroke="var(--google-blue)" stroke-width="2"/>
+                                        <line x1="45" y1="-77" x2="90" y2="-44" stroke="var(--google-blue)" stroke-width="2"/>
+
+                                        <!-- Subagents Row (Explorer, Builder, Critic) -->
+                                        <g transform="translate(-95, -25)">
+                                            <rect x="-42" y="-18" width="84" height="36" rx="6" fill="#ffffff" stroke="var(--google-blue)" stroke-width="2"/>
+                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Explorer</text>
                                         </g>
-                                    </svg>
-                                    <div>
-                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 17px; color: var(--google-gray-dark);">Context Asymmetry by Design</div>
-                                        <div style="font-size: 12.5px; color: var(--google-gray-medium);">Dave Rensin • Open-Source Agent Plugin</div>
-                                    </div>
-                                </div>
+                                        <g transform="translate(0, -25)">
+                                            <rect x="-42" y="-18" width="84" height="36" rx="6" fill="#ffffff" stroke="var(--google-yellow)" stroke-width="2.5"/>
+                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Builder</text>
+                                        </g>
+                                        <g transform="translate(95, -25)">
+                                            <rect x="-42" y="-18" width="84" height="36" rx="6" fill="#ffffff" stroke="var(--google-red)" stroke-width="2"/>
+                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Critic</text>
+                                        </g>
 
-                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                                    <div style="background: var(--google-blue-light); border-left: 4px solid var(--google-blue); padding: 10px 14px; border-radius: 6px;">
-                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px; color: var(--google-blue);">Elephant • Deep Context</div>
-                                        <div style="font-size: 12.5px; color: var(--google-gray-dark);">Holds full repo memory to author the spec</div>
-                                    </div>
-                                    <div style="text-align: center; font-family: 'Fira Code', monospace; font-size: 11px; color: var(--google-gray-medium);">
-                                        ▼ docs/designs/*.md (File Handoff) ▼
-                                    </div>
-                                    <div style="background: var(--google-yellow-light); border-left: 4px solid var(--google-yellow); padding: 10px 14px; border-radius: 6px;">
-                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px; color: #b06000;">Goldfish Swarm • Zero Context</div>
-                                        <div style="font-size: 12.5px; color: var(--google-gray-dark);">Blank-slate subagents attack blind spots</div>
-                                    </div>
-                                </div>
+                                        <!-- Arrows to Disk Handoff -->
+                                        <line x1="-80" y1="-7" x2="-35" y2="26" stroke="var(--google-gray-medium)" stroke-width="1.8" stroke-dasharray="4 3"/>
+                                        <line x1="0" y1="-7" x2="0" y2="26" stroke="var(--google-gray-medium)" stroke-width="1.8" stroke-dasharray="4 3"/>
+                                        <line x1="80" y1="-7" x2="35" y2="26" stroke="var(--google-gray-medium)" stroke-width="1.8" stroke-dasharray="4 3"/>
 
-                                <div style="margin-top: 14px; background: #202124; color: #ffffff; padding: 10px 14px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 11px; overflow-x: auto;">
-                                    <span style="color: var(--google-green);">$</span> agy plugin install https://github.com/google/elephant-goldfish-model
-                                </div>
+                                        <!-- Markdown File Handoff on Disk (Middle) -->
+                                        <g transform="translate(0, 48)">
+                                            <rect x="-95" y="-22" width="190" height="44" rx="8" fill="var(--google-gray-bg)" stroke="var(--google-gray-medium)" stroke-width="2"/>
+                                            <text x="0" y="-3" font-family="'Fira Code', monospace" font-weight="600" font-size="11" fill="var(--google-gray-dark)" text-anchor="middle">handoff_report.md</text>
+                                            <text x="0" y="13" font-family="'Outfit', sans-serif" font-size="10" fill="var(--google-gray-medium)" text-anchor="middle">Disk Handoff • Subagents Retire</text>
+                                        </g>
+
+                                        <!-- Arrow to Independent Auditor -->
+                                        <line x1="0" y1="70" x2="0" y2="96" stroke="var(--google-green)" stroke-width="2.5"/>
+
+                                        <!-- Independent Auditor (Bottom) -->
+                                        <g transform="translate(0, 116)">
+                                            <rect x="-85" y="-20" width="170" height="38" rx="8" fill="var(--google-green-light)" stroke="var(--google-green)" stroke-width="2.5"/>
+                                            <text x="0" y="4" font-family="'Outfit', sans-serif" font-weight="700" font-size="12.5" fill="var(--google-green)" text-anchor="middle">✓ Independent Auditor</text>
+                                        </g>
+                                    </g>
+                                </svg>
                             </div>
                         </div>
-                    </div>
-                    <div class="footnote">
-                        Plugin &amp; Docs: <a href="https://egm.dev/" target="_blank">egm.dev</a> • <a href="https://github.com/google/elephant-goldfish-model" target="_blank">github.com/google/elephant-goldfish-model</a>
                     </div>
                 </div>
             </section>

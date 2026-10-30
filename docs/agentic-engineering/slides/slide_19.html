@@ -1,70 +1,73 @@
 <section>
                 <div class="slide-header">
-                    <span class="slide-tracker">THE COMMAND SPECTRUM</span>
-                    <h2 class="slide-title">Choosing the Right Agentic Workflow</h2>
-                    <div class="slide-subtitle">From Interactive Single-Agent Alignment to Autonomous Multi-Agent Squads</div>
+                    <span class="slide-tracker">SPEC-DRIVEN MULTI-AGENT PLUGIN</span>
+                    <h2 class="slide-title">The Elephant-Goldfish Model (EGM)</h2>
+                    <div class="slide-subtitle">“Design with an Elephant. Review with a Goldfish.”</div>
                 </div>
                 <div class="slide-body">
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%;">
-                        <!-- /grill-me -->
-                        <div class="info-panel success" style="padding: 20px 24px;">
-                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                                <code style="font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 600; color: var(--google-green); background: var(--google-green-light); padding: 4px 12px; border-radius: 6px;">/grill-me</code>
-                                <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; letter-spacing: 1px;">Single Agent</span>
-                            </div>
-                            <div class="panel-title" style="margin-bottom: 6px; font-size: 17px;">Interactive Design Interview</div>
-                            <p style="font-size: 14px; color: var(--google-gray-dark); line-height: 1.45; margin: 0 0 8px 0;">
-                                Interviews you one question at a time (with recommended defaults) to resolve requirements and design trade-offs before any work starts.
-                            </p>
-                            <p style="font-size: 13px; color: var(--google-gray-medium); line-height: 1.4; margin: 0;">
-                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Requirements are fuzzy or underspecified and you want to flesh out edge cases interactively.
-                            </p>
+                    <div class="flex-cols">
+                        <div class="col" style="flex: 1.22; display: flex; flex-direction: column; justify-content: center;">
+                            <ul class="custom-list">
+                                <li>
+                                    <strong>The Elephant (Full Context):</strong> Deep-context architect that never forgets.
+                                    <span class="desc">Loads repo history, architecture, and boundaries to run structured brainstorming and draft living specs under <code>docs/designs/</code>.</span>
+                                </li>
+                                <li>
+                                    <strong>The Goldfish Swarm (Zero Context):</strong> Stateless critics with fresh eyes.
+                                    <span class="desc">Isolated subagents read <em>only</em> the draft spec and live code—zero conversation bias—to stress-test assumptions before code is written.</span>
+                                </li>
+                                <li>
+                                    <strong>Structured Skill Workflow:</strong>
+                                    <ul class="custom-list">
+                                        <li><code>/egm-brainstorm</code> &amp; <code>/egm-draft</code> — Turn rough ideas into living design docs.</li>
+                                        <li><code>/egm-review</code> &amp; <code>/egm-resolve</code> — 5-stage zero-context adversarial review loop.</li>
+                                        <li><code>/egm-drift-report</code> — Audits post-implementation code against the spec for divergence.</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
+                        <div class="col" style="flex: 0.78; display: flex; flex-direction: column; gap: 16px; justify-content: center;">
+                            <!-- Elephant vs Goldfish Visual Panel -->
+                            <div class="info-panel highlight" style="padding: 20px 22px; height: auto;">
+                                <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+                                    <svg viewBox="1.5 1.5 21.0 21.0" width="44" height="44" aria-hidden="true" style="flex-shrink: 0;">
+                                        <g>
+                                            <path d="M10.30,6.80 A5.20,5.20 0 0 0 10.30,17.20 A1.20,1.20 0 0 0 11.50,16.00 L11.50,8.00 A1.20,1.20 0 0 0 10.30,6.80Z" fill="#4285F4"></path>
+                                            <path d="M7.20,12.00 C6.80,14.60 3.40,14.70 3.20,12.60 C3.10,11.20 3.30,10.20 3.60,9.40" fill="none" stroke="#4285F4" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </g>
+                                        <g>
+                                            <path d="M13.70,6.80 A5.20,5.20 0 0 1 13.70,17.20 A1.20,1.20 0 0 1 12.50,16.00 L12.50,8.00 A1.20,1.20 0 0 1 13.70,6.80Z" fill="#FBBC05"></path>
+                                            <path d="M16.80,12.00 L18.00,12.00 C18.80,12.00 19.40,10.60 20.90,9.40 M18.00,12.00 C18.80,12.00 19.40,13.40 20.90,14.60" fill="none" stroke="#FBBC05" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </g>
+                                    </svg>
+                                    <div>
+                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 17px; color: var(--google-gray-dark);">Context Asymmetry by Design</div>
+                                        <div style="font-size: 12.5px; color: var(--google-gray-medium);">Dave Rensin • Open-Source Agent Plugin</div>
+                                    </div>
+                                </div>
 
-                        <!-- /plan -->
-                        <div class="info-panel highlight" style="padding: 20px 24px;">
-                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                                <code style="font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 600; color: var(--google-blue); background: var(--google-blue-light); padding: 4px 12px; border-radius: 6px;">/plan</code>
-                                <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; letter-spacing: 1px;">Single Agent</span>
-                            </div>
-                            <div class="panel-title" style="margin-bottom: 6px; font-size: 17px;">Spec-First Approval Gate</div>
-                            <p style="font-size: 14px; color: var(--google-gray-dark); line-height: 1.45; margin: 0 0 8px 0;">
-                                Researches the codebase and drafts a structured implementation &amp; verification plan artifact (<em>Proceed</em> to approve) before touching code.
-                            </p>
-                            <p style="font-size: 13px; color: var(--google-gray-medium); line-height: 1.4; margin: 0;">
-                                <strong style="color: var(--google-gray-dark);">When to use:</strong> You know what you want to build and want human sign-off on the technical design before execution.
-                            </p>
-                        </div>
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div style="background: var(--google-blue-light); border-left: 4px solid var(--google-blue); padding: 10px 14px; border-radius: 6px;">
+                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px; color: var(--google-blue);">Elephant • Deep Context</div>
+                                        <div style="font-size: 12.5px; color: var(--google-gray-dark);">Holds full repo memory to author the spec</div>
+                                    </div>
+                                    <div style="text-align: center; font-family: 'Fira Code', monospace; font-size: 11px; color: var(--google-gray-medium);">
+                                        ▼ docs/designs/*.md (File Handoff) ▼
+                                    </div>
+                                    <div style="background: var(--google-yellow-light); border-left: 4px solid var(--google-yellow); padding: 10px 14px; border-radius: 6px;">
+                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px; color: #b06000;">Goldfish Swarm • Zero Context</div>
+                                        <div style="font-size: 12.5px; color: var(--google-gray-dark);">Blank-slate subagents attack blind spots</div>
+                                    </div>
+                                </div>
 
-                        <!-- /boost -->
-                        <div class="info-panel" style="padding: 20px 24px; border-top: 4px solid var(--google-yellow);">
-                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                                <code style="font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 600; color: #b06000; background: var(--google-yellow-light); padding: 4px 12px; border-radius: 6px;">/boost</code>
-                                <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; letter-spacing: 1px;">2-Layer Multi-Agent</span>
+                                <div style="margin-top: 14px; background: #202124; color: #ffffff; padding: 10px 14px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 11px; overflow-x: auto;">
+                                    <span style="color: var(--google-green);">$</span> agy plugin install https://github.com/google/elephant-goldfish-model
+                                </div>
                             </div>
-                            <div class="panel-title" style="margin-bottom: 6px; font-size: 17px;">Adversarial Worker + Critic Pipeline</div>
-                            <p style="font-size: 14px; color: var(--google-gray-dark); line-height: 1.45; margin: 0 0 8px 0;">
-                                Dispatches a worker subagent followed immediately by an adversarial reviewer subagent that stress-tests, verifies, and fixes the result with zero upfront interview.
-                            </p>
-                            <p style="font-size: 13px; color: var(--google-gray-medium); line-height: 1.4; margin: 0;">
-                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Tackling a gnarly bug, root-cause investigation, or tricky single-PR feature that needs extra rigor on the first try.
-                            </p>
                         </div>
-
-                        <!-- /teamwork -->
-                        <div class="info-panel warning" style="padding: 20px 24px;">
-                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                                <code style="font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 600; color: var(--google-red); background: var(--google-red-light); padding: 4px 12px; border-radius: 6px;">/teamwork</code>
-                                <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; letter-spacing: 1px;">Multi-Hour Multi-Agent</span>
-                            </div>
-                            <div class="panel-title" style="margin-bottom: 6px; font-size: 17px;">Autonomous Project Squad</div>
-                            <p style="font-size: 14px; color: var(--google-gray-dark); line-height: 1.45; margin: 0 0 8px 0;">
-                                Runs a structured scoping interview to lock acceptance criteria, then launches an autonomous multi-agent team with progress tracking and an independent auditor.
-                            </p>
-                            <p style="font-size: 13px; color: var(--google-gray-medium); line-height: 1.4; margin: 0;">
-                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Delegating large, multi-component migrations, greenfield builds, or hours-long projects end-to-end.
-                            </p>
-                        </div>
+                    </div>
+                    <div class="footnote">
+                        Plugin &amp; Docs: <a href="https://egm.dev/" target="_blank">egm.dev</a> • <a href="https://github.com/google/elephant-goldfish-model" target="_blank">github.com/google/elephant-goldfish-model</a>
                     </div>
                 </div>
             </section>
