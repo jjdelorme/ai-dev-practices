@@ -1,72 +1,101 @@
 <section>
                 <div class="slide-header">
-                    <span class="slide-tracker">PERSISTENT EXECUTION</span>
-                    <h2 class="slide-title">The “Ralph Loop” &amp; <code>/goal</code></h2>
-                    <div class="slide-subtitle">Relentless Autonomous Iteration Against Deterministic Verification Gates</div>
+                    <span class="slide-tracker">RECURSIVE HARNESSING</span>
+                    <h2 class="slide-title">Harness²: Recursive Agent Harnessing</h2>
+                    <div class="slide-subtitle">Optimizing the System Around a Frozen Model for an Open World</div>
                 </div>
                 <div class="slide-body">
                     <div class="flex-cols">
                         <div class="col" style="flex: 1.2; display: flex; flex-direction: column; justify-content: center;">
                             <ul class="custom-list">
                                 <li>
-                                    <strong>The “Ralph Wiggum Loop”:</strong> Coined by Geoffrey Huntley (<code>while :; do cat PROMPT.md | agent ; done</code>).
-                                    <span class="desc">A dead-simple outer loop that repeatedly re-runs the agent until objective reality—not the model's optimism—confirms the job is finished.</span>
+                                    <strong>Evolving the Harness, Not the Weights:</strong> 8 editable components around a fixed model.
+                                    <span class="desc">Exposes <strong>system prompt, guardrails, memory, skills, tool guidance, subagents, scripts, and plugins</strong> as editable artifacts controlling context, tools, delegation, and middleware.</span>
                                 </li>
                                 <li>
-                                    <strong>Why Single-Turn Agents Quit Early:</strong> Models suffer from premature completion bias.
-                                    <span class="desc">Left unchecked, an agent often stops after the first plausible edit or partial test pass instead of grinding through all edge cases.</span>
+                                    <strong>Task-Level Recursion (Propose–Probe–Compose):</strong> Zero-label contrastive refinement.
+                                    <span class="desc">For unseen open-world tasks, an editor proposes invariant and domain edits, candidate probes execute them, and a composer synthesizes a refined harness from behavioral contrasts—without ground-truth feedback.</span>
                                 </li>
                                 <li>
-                                    <strong><code>/goal</code> as a Native Harness Loop:</strong> Productizes the Ralph Loop inside the agent runtime.
-                                    <span class="desc">Intercepts normal turn termination, evaluates completion against explicit goal criteria, and forces continuation until 100% achieved.</span>
+                                    <strong>Harnessing-Level Recursion:</strong> Persistent cross-task meta-learning.
+                                    <span class="desc">An experience reflector distills adopted harnesses and evidence-backed lessons into a persistent <em>improvement harness</em> that accelerates future task adaptations.</span>
                                 </li>
                                 <li>
-                                    <strong>Fueled by Verification Gates:</strong> Only works when paired with a strong harness.
-                                    <span class="desc">Compilers, test suites, and linters provide the deterministic feedback signal that guides each iteration toward convergence—even overnight.</span>
+                                    <strong>Parallel &amp; Sequential Scaling (<code>--k</code>):</strong> Explore wider or refine deeper.
+                                    <span class="desc">Scale test-time harness search in parallel or sequential steps across OpenCode and Codex executors—boosting Gemini 3.5 Flash &amp; GLM-5 by up to <strong>+11.5 pts</strong> on WorkBuddy-Bench and <strong>+11.8%</strong> on LAB.</span>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col" style="flex: 0.8; display: flex; flex-direction: column; gap: 16px; justify-content: center;">
-                            <div class="info-panel highlight" style="padding: 22px; height: auto; align-items: center; text-align: center;">
-                                <!-- /goal Command Pill -->
-                                <div style="background: #202124; border-radius: 12px; padding: 14px 32px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border: 1px solid #3c4043; display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                                    <span style="font-family: 'Fira Code', monospace; font-size: 28px; font-weight: 600; color: var(--google-blue);">&gt;</span>
-                                    <span style="font-family: 'Fira Code', monospace; font-size: 36px; font-weight: 500; color: #ffffff;">/goal</span>
+                        <div class="col" style="flex: 0.8; display: flex; flex-direction: column; justify-content: center;">
+                            <div class="info-panel highlight" style="padding: 20px; height: auto;">
+                                <div class="panel-title" style="justify-content: center; margin-bottom: 12px;">
+                                    <span class="badge-icon blue">H²</span> Two-Level Recursive Architecture
                                 </div>
 
-                                <!-- Classic Ralph Bash Snippet -->
-                                <div style="width: 100%; background: var(--google-gray-bg); border: 1px solid var(--google-gray-light); border-radius: 8px; padding: 10px 12px; font-family: 'Fira Code', monospace; font-size: 11px; color: var(--google-gray-dark); text-align: left; margin-bottom: 16px; box-sizing: border-box;">
-                                    <span style="color: var(--google-gray-medium);"># The Classic "Ralph Loop"</span><br>
-                                    <span style="color: var(--google-red);">while</span> :; <span style="color: var(--google-red);">do</span> cat PROMPT.md | agent; <span style="color: var(--google-red);">done</span>
-                                </div>
+                                <!-- Two-Level Recursion SVG Diagram -->
+                                <svg width="100%" height="185" viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" style="background: transparent; margin-bottom: 10px;">
+                                    <!-- Level 1: Task-Level Recursion Box -->
+                                    <rect x="8" y="8" width="304" height="96" rx="10" fill="var(--google-blue-light)" opacity="0.45" stroke="var(--google-blue)" stroke-width="1.5" stroke-dasharray="5 3"/>
+                                    <text x="20" y="25" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="var(--google-blue)" letter-spacing="0.8">LEVEL 1: TASK-LEVEL RECURSION (CONTRASTIVE)</text>
 
-                                <!-- Loop SVG Diagram -->
-                                <svg width="260" height="150" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
-                                    <!-- Execute Box -->
-                                    <rect x="15" y="20" width="105" height="42" rx="8" fill="#ffffff" stroke="var(--google-blue)" stroke-width="2.5"/>
-                                    <text x="67" y="45" font-family="'Outfit', sans-serif" font-weight="600" font-size="13" fill="var(--google-gray-dark)" text-anchor="middle">1. Execute</text>
+                                    <!-- 1. Propose -->
+                                    <rect x="18" y="36" width="82" height="52" rx="7" fill="#ffffff" stroke="var(--google-blue)" stroke-width="2"/>
+                                    <text x="59" y="57" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-gray-dark)" text-anchor="middle">1. Propose</text>
+                                    <text x="59" y="73" font-family="'Roboto', sans-serif" font-size="9.5" fill="var(--google-gray-medium)" text-anchor="middle">Candidate Edits</text>
 
-                                    <!-- Arrow Execute -> Verify -->
-                                    <line x1="120" y1="41" x2="155" y2="41" stroke="var(--google-blue)" stroke-width="2.5"/>
-                                    <polygon points="158,41 150,36 150,46" fill="var(--google-blue)"/>
+                                    <!-- Arrow 1 -> 2 -->
+                                    <line x1="100" y1="62" x2="114" y2="62" stroke="var(--google-blue)" stroke-width="2"/>
+                                    <polygon points="118,62 111,58 111,66" fill="var(--google-blue)"/>
 
-                                    <!-- Verify Gate Box -->
-                                    <rect x="160" y="20" width="105" height="42" rx="8" fill="#ffffff" stroke="var(--google-yellow)" stroke-width="2.5"/>
-                                    <text x="212" y="45" font-family="'Outfit', sans-serif" font-weight="600" font-size="13" fill="var(--google-gray-dark)" text-anchor="middle">2. Verify Gate</text>
+                                    <!-- 2. Probe -->
+                                    <rect x="119" y="36" width="82" height="52" rx="7" fill="#ffffff" stroke="var(--google-yellow)" stroke-width="2"/>
+                                    <text x="160" y="57" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-gray-dark)" text-anchor="middle">2. Probe</text>
+                                    <text x="160" y="73" font-family="'Roboto', sans-serif" font-size="9.5" fill="var(--google-gray-medium)" text-anchor="middle">Run &amp; Contrast</text>
 
-                                    <!-- Loop Back Arrow (Not Met -> Force Continue) -->
-                                    <path d="M 212 62 L 212 105 Q 212 118 199 118 L 80 118 Q 67 118 67 105 L 67 66" fill="none" stroke="var(--google-red)" stroke-width="2.5" stroke-dasharray="5 3"/>
-                                    <polygon points="67,62 62,70 72,70" fill="var(--google-red)"/>
-                                    <rect x="85" y="104" width="110" height="24" rx="12" fill="var(--google-red-light)"/>
-                                    <text x="140" y="120" font-family="'Fira Code', monospace" font-weight="600" font-size="10.5" fill="var(--google-red)" text-anchor="middle">↻ force_continue</text>
+                                    <!-- Arrow 2 -> 3 -->
+                                    <line x1="201" y1="62" x2="215" y2="62" stroke="var(--google-blue)" stroke-width="2"/>
+                                    <polygon points="219,62 212,58 212,66" fill="var(--google-blue)"/>
 
-                                    <!-- Goal Met Badge -->
-                                    <line x1="212" y1="62" x2="255" y2="128" stroke="var(--google-green)" stroke-width="2.5"/>
-                                    <rect x="195" y="125" width="75" height="26" rx="6" fill="var(--google-green)"/>
-                                    <text x="232" y="142" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">✓ DONE</text>
+                                    <!-- 3. Compose -->
+                                    <rect x="220" y="36" width="82" height="52" rx="7" fill="#ffffff" stroke="var(--google-green)" stroke-width="2"/>
+                                    <text x="261" y="57" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-gray-dark)" text-anchor="middle">3. Compose</text>
+                                    <text x="261" y="73" font-family="'Roboto', sans-serif" font-size="9.5" fill="var(--google-gray-medium)" text-anchor="middle">Refined Harness</text>
+
+                                    <!-- Downward Arrow from Compose to Level 2 -->
+                                    <path d="M 261 88 L 261 122" fill="none" stroke="var(--google-green)" stroke-width="2"/>
+                                    <polygon points="261,126 257,119 265,119" fill="var(--google-green)"/>
+
+                                    <!-- Level 2: Harnessing-Level Recursion Box -->
+                                    <rect x="8" y="126" width="304" height="56" rx="10" fill="var(--google-green-light)" opacity="0.6" stroke="var(--google-green)" stroke-width="1.5"/>
+                                    <text x="20" y="143" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="var(--google-green)" letter-spacing="0.8">LEVEL 2: HARNESSING-LEVEL RECURSION</text>
+                                    <text x="160" y="166" font-family="'Roboto', sans-serif" font-weight="500" font-size="10.5" fill="var(--google-gray-dark)" text-anchor="middle">Experience Reflector ➔ Persistent Improvement Harness</text>
+
+                                    <!-- Upward Feedback Arrow from Level 2 to Propose -->
+                                    <path d="M 59 126 L 59 94" fill="none" stroke="var(--google-blue)" stroke-width="2" stroke-dasharray="4 2"/>
+                                    <polygon points="59,90 55,97 63,97" fill="var(--google-blue)"/>
                                 </svg>
+
+                                <!-- 8 Component Pills Summary -->
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 12px;">
+                                    <span style="background: var(--google-gray-light); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">System Prompt</span>
+                                    <span style="background: var(--google-gray-light); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">Guardrails</span>
+                                    <span style="background: var(--google-gray-light); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">Memory</span>
+                                    <span style="background: var(--google-gray-light); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">Skills</span>
+                                    <span style="background: var(--google-gray-light); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">Tool Guidance</span>
+                                    <span style="background: var(--google-gray-light); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">Subagents</span>
+                                    <span style="background: var(--google-gray-light); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">Scripts</span>
+                                    <span style="background: var(--google-gray-light); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">Plugins</span>
+                                </div>
+
+                                <!-- CLI Snippet -->
+                                <div style="background: #202124; color: #ffffff; padding: 9px 12px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 11px; overflow-x: auto;">
+                                    <span style="color: var(--google-green);">$</span> harness2 --bench jb --k 1 --mode parallel
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="footnote">
+                        Source: <a href="https://github.com/google-research/harness2" target="_blank">github.com/google-research/harness2</a> • <a href="https://harness2.github.io" target="_blank">harness2.github.io</a> • <a href="https://arxiv.org/abs/2610.14224" target="_blank">arXiv:2610.14224</a>
                     </div>
                 </div>
             </section>

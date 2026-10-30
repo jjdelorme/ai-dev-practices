@@ -1,86 +1,70 @@
 <section>
-    <div class="slide-header">
-        <span class="slide-tracker">THE AUTONOMY SPECTRUM</span>
-        <h2 class="slide-title">The Software Factory</h2>
-        <div class="slide-subtitle">Dan Shapiro's Five Levels: From Spicy Autocomplete to the Dark Factory</div>
-    </div>
-    <div class="slide-body">
-        <div class="flex-cols">
-            <div class="col" style="flex: 1.25;">
-                <ul class="custom-list" style="font-size: 14.5px;">
-                    <li style="margin-bottom: 10px;">
-                        <strong>Level 1 — The Coding Intern:</strong> Discrete task execution.
-                        <span class="desc">Offload isolated tasks (tests, docstrings); developer drives every core line at typing speed. (Level 0 = Spicy Autocomplete).</span>
-                    </li>
-                    <li style="margin-bottom: 10px;">
-                        <strong>Level 2 — The Junior Developer:</strong> Multi-file pair programmer.
-                        <span class="desc">Active collaborative flow on features; where 90% of "AI-native" developers currently plateau.</span>
-                    </li>
-                    <li style="margin-bottom: 10px;">
-                        <strong>Level 3 — The Manager:</strong> Human-in-the-loop diff reviewer.
-                        <span class="desc">AI writes the implementation while the developer shifts into a tech lead reviewing pull requests and diffs across tabs.</span>
-                    </li>
-                    <li style="margin-bottom: 10px;">
-                        <strong>Level 4 — Spec-Driven (PM):</strong> Asynchronous execution from blueprints.
-                        <span class="desc">Developer writes and debates specs, crafts skills, and steps away for hours while agent swarms build and test.</span>
-                    </li>
-                    <li style="margin-bottom: 10px;">
-                        <strong>Level 5 — The Dark Software Factory:</strong> Lights-out autonomous production.
-                        <span class="desc">A black box converting specs directly into verified software—where humans neither write nor review code.</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="col" style="flex: 0.75; display: flex; align-items: stretch; justify-content: center;">
-                <div class="info-panel highlight" style="width: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 16px;">
-                    <div style="display: flex; justify-content: center;">
-                        <svg width="270" height="210" viewBox="0 0 320 230" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
-                            <!-- Tier 5: Dark Factory -->
-                            <rect x="20" y="10" width="280" height="34" rx="6" fill="#202124" stroke="var(--google-yellow)" stroke-width="2"/>
-                            <text x="35" y="32" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="var(--google-yellow)">L5</text>
-                            <text x="65" y="32" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Dark Factory</text>
-                            <text x="285" y="32" font-family="'Roboto', sans-serif" font-size="11" fill="#9aa0a6" text-anchor="end">Lights-Out</text>
-
-                            <line x1="160" y1="44" x2="160" y2="52" stroke="var(--google-gray-medium)" stroke-width="1.5" stroke-dasharray="2 2"/>
-
-                            <!-- Tier 4: Spec-Driven PM -->
-                            <rect x="20" y="52" width="280" height="34" rx="6" fill="var(--google-green-light)" stroke="var(--google-green)" stroke-width="1.5"/>
-                            <text x="35" y="74" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="var(--google-green)">L4</text>
-                            <text x="65" y="74" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" fill="var(--google-gray-dark)">Spec-Driven (PM)</text>
-                            <text x="285" y="74" font-family="'Roboto', sans-serif" font-size="11" fill="var(--google-green)" text-anchor="end">Async Waves</text>
-
-                            <line x1="160" y1="86" x2="160" y2="94" stroke="var(--google-gray-medium)" stroke-width="1.5" stroke-dasharray="2 2"/>
-
-                            <!-- Tier 3: The Manager -->
-                            <rect x="20" y="94" width="280" height="34" rx="6" fill="var(--google-yellow-light)" stroke="var(--google-yellow)" stroke-width="1.5"/>
-                            <text x="35" y="116" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#b06000">L3</text>
-                            <text x="65" y="116" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" fill="var(--google-gray-dark)">The Manager</text>
-                            <text x="285" y="116" font-family="'Roboto', sans-serif" font-size="11" fill="#b06000" text-anchor="end">PR &amp; Diff Review</text>
-
-                            <line x1="160" y1="128" x2="160" y2="136" stroke="var(--google-gray-medium)" stroke-width="1.5" stroke-dasharray="2 2"/>
-
-                            <!-- Tier 2: Junior Dev (Pair) -->
-                            <rect x="20" y="136" width="280" height="34" rx="6" fill="var(--google-blue-light)" stroke="var(--google-blue)" stroke-width="1.5"/>
-                            <text x="35" y="158" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="var(--google-blue)">L2</text>
-                            <text x="65" y="158" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" fill="var(--google-gray-dark)">Junior Developer</text>
-                            <text x="285" y="158" font-family="'Roboto', sans-serif" font-size="11" fill="var(--google-blue)" text-anchor="end">90% Plateau</text>
-
-                            <line x1="160" y1="170" x2="160" y2="178" stroke="var(--google-gray-medium)" stroke-width="1.5" stroke-dasharray="2 2"/>
-
-                            <!-- Tier 1: Coding Intern / L0 -->
-                            <rect x="20" y="178" width="280" height="34" rx="6" fill="var(--google-gray-light)" stroke="var(--google-gray-medium)" stroke-width="1.5"/>
-                            <text x="35" y="200" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="var(--google-gray-medium)">L1</text>
-                            <text x="65" y="200" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" fill="var(--google-gray-dark)">Coding Intern</text>
-                            <text x="285" y="200" font-family="'Roboto', sans-serif" font-size="11" fill="var(--google-gray-medium)" text-anchor="end">Tasks / Autocomplete</text>
-                        </svg>
-                    </div>
-                    <blockquote class="google-quote" style="margin: 8px 0 0 0; padding: 10px 14px; border-left-color: var(--google-yellow);">
-                        <p style="font-size: 14.5px !important; line-height: 1.4 !important; margin-bottom: 4px !important;">
-                            "Level 2 feels like you are done. But you are not done."
-                        </p>
-                        <cite style="font-size: 11px;">— Dan Shapiro &bull; The Five Levels</cite>
-                    </blockquote>
+                <div class="slide-header">
+                    <span class="slide-tracker">THE COMMAND SPECTRUM</span>
+                    <h2 class="slide-title">Choosing the Right Agentic Workflow</h2>
+                    <div class="slide-subtitle">From Interactive Single-Agent Alignment to Autonomous Multi-Agent Squads</div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+                <div class="slide-body">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%;">
+                        <!-- /grill-me -->
+                        <div class="info-panel success" style="padding: 20px 24px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                                <code style="font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 600; color: var(--google-green); background: var(--google-green-light); padding: 4px 12px; border-radius: 6px;">/grill-me</code>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; letter-spacing: 1px;">Single Agent</span>
+                            </div>
+                            <div class="panel-title" style="margin-bottom: 6px; font-size: 17px;">Interactive Design Interview</div>
+                            <p style="font-size: 14px; color: var(--google-gray-dark); line-height: 1.45; margin: 0 0 8px 0;">
+                                Interviews you one question at a time (with recommended defaults) to resolve requirements and design trade-offs before any work starts.
+                            </p>
+                            <p style="font-size: 13px; color: var(--google-gray-medium); line-height: 1.4; margin: 0;">
+                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Requirements are fuzzy or underspecified and you want to flesh out edge cases interactively.
+                            </p>
+                        </div>
+
+                        <!-- /plan -->
+                        <div class="info-panel highlight" style="padding: 20px 24px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                                <code style="font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 600; color: var(--google-blue); background: var(--google-blue-light); padding: 4px 12px; border-radius: 6px;">/plan</code>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; letter-spacing: 1px;">Single Agent</span>
+                            </div>
+                            <div class="panel-title" style="margin-bottom: 6px; font-size: 17px;">Spec-First Approval Gate</div>
+                            <p style="font-size: 14px; color: var(--google-gray-dark); line-height: 1.45; margin: 0 0 8px 0;">
+                                Researches the codebase and drafts a structured implementation &amp; verification plan artifact (<em>Proceed</em> to approve) before touching code.
+                            </p>
+                            <p style="font-size: 13px; color: var(--google-gray-medium); line-height: 1.4; margin: 0;">
+                                <strong style="color: var(--google-gray-dark);">When to use:</strong> You know what you want to build and want human sign-off on the technical design before execution.
+                            </p>
+                        </div>
+
+                        <!-- /boost -->
+                        <div class="info-panel" style="padding: 20px 24px; border-top: 4px solid var(--google-yellow);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                                <code style="font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 600; color: #b06000; background: var(--google-yellow-light); padding: 4px 12px; border-radius: 6px;">/boost</code>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; letter-spacing: 1px;">2-Layer Multi-Agent</span>
+                            </div>
+                            <div class="panel-title" style="margin-bottom: 6px; font-size: 17px;">Adversarial Worker + Critic Pipeline</div>
+                            <p style="font-size: 14px; color: var(--google-gray-dark); line-height: 1.45; margin: 0 0 8px 0;">
+                                Dispatches a worker subagent followed immediately by an adversarial reviewer subagent that stress-tests, verifies, and fixes the result with zero upfront interview.
+                            </p>
+                            <p style="font-size: 13px; color: var(--google-gray-medium); line-height: 1.4; margin: 0;">
+                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Tackling a gnarly bug, root-cause investigation, or tricky single-PR feature that needs extra rigor on the first try.
+                            </p>
+                        </div>
+
+                        <!-- /teamwork -->
+                        <div class="info-panel warning" style="padding: 20px 24px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                                <code style="font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 600; color: var(--google-red); background: var(--google-red-light); padding: 4px 12px; border-radius: 6px;">/teamwork</code>
+                                <span style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; color: var(--google-gray-medium); text-transform: uppercase; letter-spacing: 1px;">Multi-Hour Multi-Agent</span>
+                            </div>
+                            <div class="panel-title" style="margin-bottom: 6px; font-size: 17px;">Autonomous Project Squad</div>
+                            <p style="font-size: 14px; color: var(--google-gray-dark); line-height: 1.45; margin: 0 0 8px 0;">
+                                Runs a structured scoping interview to lock acceptance criteria, then launches an autonomous multi-agent team with progress tracking and an independent auditor.
+                            </p>
+                            <p style="font-size: 13px; color: var(--google-gray-medium); line-height: 1.4; margin: 0;">
+                                <strong style="color: var(--google-gray-dark);">When to use:</strong> Delegating large, multi-component migrations, greenfield builds, or hours-long projects end-to-end.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
