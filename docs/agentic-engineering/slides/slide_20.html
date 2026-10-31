@@ -8,29 +8,33 @@
                     <div class="flex-cols">
                         <div class="col" style="flex: 1.22; display: flex; flex-direction: column; justify-content: center;">
                             <ul class="custom-list">
-                                <li>
+                                <li style="margin-bottom: 11px;">
                                     <strong>The Elephant (Full Context):</strong> Deep-context architect that never forgets.
                                     <span class="desc">Loads repo history, architecture, and boundaries to run structured brainstorming and draft living specs under <code>docs/designs/</code>.</span>
                                 </li>
-                                <li>
+                                <li style="margin-bottom: 11px;">
                                     <strong>The Goldfish Swarm (Zero Context):</strong> Stateless critics with fresh eyes.
                                     <span class="desc">Isolated subagents read <em>only</em> the draft spec and live code—zero conversation bias—to stress-test assumptions before code is written.</span>
                                 </li>
-                                <li>
+                                <li style="margin-bottom: 11px;">
+                                    <strong>Strict Design-Only Scope:</strong> Stops at the Design &amp; Review boundary.
+                                    <span class="desc">Has no TDD construction or code-execution engine—agents are strictly forbidden from writing, modifying, or building production code (<code>.h</code>, <code>.cc</code>, <code>.py</code>, <code>.go</code>).</span>
+                                </li>
+                                <li style="margin-bottom: 0;">
                                     <strong>Structured Skill Workflow:</strong>
-                                    <ul class="custom-list">
-                                        <li><code>/egm-brainstorm</code> &amp; <code>/egm-draft</code> — Turn rough ideas into living design docs.</li>
-                                        <li><code>/egm-review</code> &amp; <code>/egm-resolve</code> — 5-stage zero-context adversarial review loop.</li>
+                                    <ul class="custom-list" style="margin-top: 6px;">
+                                        <li style="margin-bottom: 6px;"><code>/egm-brainstorm</code> &amp; <code>/egm-draft</code> — Turn rough ideas into living design docs.</li>
+                                        <li style="margin-bottom: 6px;"><code>/egm-review</code> &amp; <code>/egm-resolve</code> — 5-stage zero-context adversarial review loop.</li>
                                         <li><code>/egm-drift-report</code> — Audits post-implementation code against the spec for divergence.</li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col" style="flex: 0.78; display: flex; flex-direction: column; gap: 16px; justify-content: center;">
+                        <div class="col" style="flex: 0.78; display: flex; flex-direction: column; gap: 14px; justify-content: center;">
                             <!-- Elephant vs Goldfish Visual Panel -->
-                            <div class="info-panel highlight" style="padding: 20px 22px; height: auto;">
-                                <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
-                                    <svg viewBox="1.5 1.5 21.0 21.0" width="44" height="44" aria-hidden="true" style="flex-shrink: 0;">
+                            <div class="info-panel highlight" style="padding: 18px 20px; height: auto;">
+                                <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+                                    <svg viewBox="1.5 1.5 21.0 21.0" width="42" height="42" aria-hidden="true" style="flex-shrink: 0;">
                                         <g>
                                             <path d="M10.30,6.80 A5.20,5.20 0 0 0 10.30,17.20 A1.20,1.20 0 0 0 11.50,16.00 L11.50,8.00 A1.20,1.20 0 0 0 10.30,6.80Z" fill="#4285F4"></path>
                                             <path d="M7.20,12.00 C6.80,14.60 3.40,14.70 3.20,12.60 C3.10,11.20 3.30,10.20 3.60,9.40" fill="none" stroke="#4285F4" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -41,26 +45,35 @@
                                         </g>
                                     </svg>
                                     <div>
-                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 17px; color: var(--google-gray-dark);">Context Asymmetry by Design</div>
-                                        <div style="font-size: 12.5px; color: var(--google-gray-medium);">Dave Rensin • Open-Source Agent Plugin</div>
+                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 16.5px; color: var(--google-gray-dark);">Context Asymmetry by Design</div>
+                                        <div style="font-size: 12px; color: var(--google-gray-medium);">Dave Rensin • Open-Source Agent Plugin</div>
                                     </div>
                                 </div>
 
-                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                                    <div style="background: var(--google-blue-light); border-left: 4px solid var(--google-blue); padding: 10px 14px; border-radius: 6px;">
-                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px; color: var(--google-blue);">Elephant • Deep Context</div>
-                                        <div style="font-size: 12.5px; color: var(--google-gray-dark);">Holds full repo memory to author the spec</div>
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <div style="background: var(--google-blue-light); border-left: 4px solid var(--google-blue); padding: 8px 12px; border-radius: 6px;">
+                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 13.5px; color: var(--google-blue);">Elephant • Deep Context</div>
+                                        <div style="font-size: 12px; color: var(--google-gray-dark);">Holds full repo memory to author the spec</div>
                                     </div>
-                                    <div style="text-align: center; font-family: 'Fira Code', monospace; font-size: 11px; color: var(--google-gray-medium);">
+                                    <div style="text-align: center; font-family: 'Fira Code', monospace; font-size: 10.5px; color: var(--google-gray-medium);">
                                         ▼ docs/designs/*.md (File Handoff) ▼
                                     </div>
-                                    <div style="background: var(--google-yellow-light); border-left: 4px solid var(--google-yellow); padding: 10px 14px; border-radius: 6px;">
-                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px; color: #b06000;">Goldfish Swarm • Zero Context</div>
-                                        <div style="font-size: 12.5px; color: var(--google-gray-dark);">Blank-slate subagents attack blind spots</div>
+                                    <div style="background: var(--google-yellow-light); border-left: 4px solid var(--google-yellow); padding: 8px 12px; border-radius: 6px;">
+                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 13.5px; color: #b06000;">Goldfish Swarm • Zero Context</div>
+                                        <div style="font-size: 12px; color: var(--google-gray-dark);">Blank-slate subagents attack blind spots</div>
+                                    </div>
+                                    <div style="background: var(--google-red-light); border-left: 4px solid var(--google-red); padding: 8px 12px; border-radius: 6px; margin-top: 2px;">
+                                        <div style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 12.5px; color: var(--google-red);">Design-Only Boundary • No Execution Engine</div>
+                                        <div style="font-size: 11.5px; color: var(--google-gray-dark); font-style: italic; line-height: 1.35; margin-top: 2px;">
+                                            “You are strictly forbidden from writing, modifying, or building any production implementation files (e.g., .h, .cc, .py, .go) in the source tree.”
+                                        </div>
+                                        <div style="font-family: 'Fira Code', monospace; font-size: 10px; color: var(--google-gray-medium); margin-top: 3px;">
+                                            — resources/execution_instructions.md
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div style="margin-top: 14px; background: #202124; color: #ffffff; padding: 10px 14px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 11px; overflow-x: auto;">
+                                <div style="margin-top: 10px; background: #202124; color: #ffffff; padding: 9px 12px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 10.5px; overflow-x: auto;">
                                     <span style="color: var(--google-green);">$</span> agy plugin install https://github.com/google/elephant-goldfish-model
                                 </div>
                             </div>
