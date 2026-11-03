@@ -1,0 +1,78 @@
+<section>
+    <div class="slide-header">
+        <span class="slide-tracker">PHASE III &bull; PROVE PARITY &amp; SCALE</span>
+        <h2 class="slide-title">Step 3: Iterative Parallel Run &amp; Playbook Flywheel</h2>
+        <div class="slide-subtitle">Stateless "Goldfish" Subagents Verify Scenario-by-Scenario Behavioral Parity</div>
+    </div>
+    <div class="slide-body">
+        <div class="flex-cols">
+            <div class="col" style="flex: 1.18; display: flex; flex-direction: column; justify-content: center;">
+                <ul class="custom-list">
+                    <li>
+                        <strong>Side-by-Side <code>Parallel Run</code>:</strong> Run characterization tests against both apps.
+                        <span class="desc">Executes Step 0 scenarios across the legacy and modernized versions simultaneously, diffing outputs, state, and workflows.</span>
+                    </li>
+                    <li>
+                        <strong>"Goldfish" Clean-Context Subagents:</strong> One scenario per fresh context window.
+                        <span class="desc">Each test runs in an isolated, zero-history "goldfish" subagent—eliminating context pollution and premature completion bias.</span>
+                    </li>
+                    <li>
+                        <strong>ASDLC Resolve &amp; Re-Test Loop:</strong> Closed-loop parity convergence.
+                        <span class="desc">Goldfish agents report discrepancies back to the ASDLC team to fix differences and re-test iteratively until parity holds.</span>
+                    </li>
+                    <li>
+                        <strong>Codify the Playbook:</strong> Modernize App #1 together, then scale.
+                        <span class="desc">Turn proven prompts into reusable skills, keep MCP tool counts lean (search + get), and enforce hard gates in CI.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col" style="flex: 0.82; display: flex; align-items: center; justify-content: center;">
+                <div class="info-panel highlight" style="width: 100%; padding: 18px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <svg width="330" height="315" viewBox="0 0 340 325" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                        <!-- Top: Characterization Test Scenarios -->
+                        <rect x="45" y="10" width="250" height="38" rx="8" fill="#202124"/>
+                        <text x="170" y="33" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Step 0 Characterization Scenarios</text>
+
+                        <!-- Split Arrows to Legacy & Modernized -->
+                        <line x1="120" y1="48" x2="85" y2="74" stroke="var(--google-gray-medium)" stroke-width="2"/>
+                        <line x1="220" y1="48" x2="255" y2="74" stroke="var(--google-gray-medium)" stroke-width="2"/>
+
+                        <!-- Dual App Boxes -->
+                        <rect x="18" y="76" width="136" height="44" rx="8" fill="#ffffff" stroke="var(--google-red)" stroke-width="2"/>
+                        <text x="86" y="96" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-red)" text-anchor="middle">Legacy App</text>
+                        <text x="86" y="111" font-family="'Roboto', sans-serif" font-size="10" fill="var(--google-gray-medium)" text-anchor="middle">Lower Environment</text>
+
+                        <rect x="186" y="76" width="136" height="44" rx="8" fill="#ffffff" stroke="var(--google-blue)" stroke-width="2"/>
+                        <text x="254" y="96" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-blue)" text-anchor="middle">Modernized App</text>
+                        <text x="254" y="111" font-family="'Roboto', sans-serif" font-size="10" fill="var(--google-gray-medium)" text-anchor="middle">Clean-Room Build</text>
+
+                        <!-- Converge into Goldfish Subagent -->
+                        <line x1="86" y1="120" x2="135" y2="148" stroke="var(--google-yellow)" stroke-width="2.2"/>
+                        <line x1="254" y1="120" x2="205" y2="148" stroke="var(--google-yellow)" stroke-width="2.2"/>
+
+                        <rect x="30" y="150" width="280" height="52" rx="10" fill="var(--google-yellow-light)" stroke="var(--google-yellow)" stroke-width="2.5"/>
+                        <text x="170" y="172" font-family="'Outfit', sans-serif" font-weight="700" font-size="12.5" fill="#b06000" text-anchor="middle">Goldfish Subagent (1 Scenario / Clean Window)</text>
+                        <text x="170" y="190" font-family="'Roboto', sans-serif" font-size="10.5" fill="var(--google-gray-dark)" text-anchor="middle">Compares responses, state &amp; behavior without chat bias</text>
+
+                        <!-- Left Branch: Diff Found -> ASDLC Team Loop -->
+                        <line x1="110" y1="202" x2="90" y2="232" stroke="var(--google-red)" stroke-width="2"/>
+                        <rect x="16" y="234" width="154" height="56" rx="8" fill="var(--google-red-light)" stroke="var(--google-red)" stroke-width="2"/>
+                        <text x="93" y="254" font-family="'Outfit', sans-serif" font-weight="700" font-size="11.5" fill="var(--google-red)" text-anchor="middle">↻ Report Diff to ASDLC</text>
+                        <text x="93" y="270" font-family="'Roboto', sans-serif" font-size="10" fill="var(--google-gray-dark)" text-anchor="middle">Team resolves &amp; re-tests</text>
+                        <text x="93" y="283" font-family="'Roboto', sans-serif" font-size="10" fill="var(--google-gray-medium)" text-anchor="middle">in fresh Goldfish run</text>
+
+                        <!-- Loop-back dashed line from ASDLC Fix & Re-Test to Scenario Runner -->
+                        <path d="M 16 262 Q 6 262 6 145 L 6 29 L 40 29" fill="none" stroke="var(--google-red)" stroke-width="1.8" stroke-dasharray="4 3"/>
+                        <polygon points="44,29 37,25 37,33" fill="var(--google-red)"/>
+
+                        <!-- Right Branch: Parity Verified -> Deploy -->
+                        <line x1="230" y1="202" x2="250" y2="232" stroke="var(--google-green)" stroke-width="2.5"/>
+                        <rect x="184" y="234" width="142" height="56" rx="8" fill="var(--google-green)" />
+                        <text x="255" y="256" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">✓ Parity Proven</text>
+                        <text x="255" y="274" font-family="'Roboto', sans-serif" font-size="10.5" fill="#ffffff" text-anchor="middle">CI Gates &rarr; Cloud Deploy</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

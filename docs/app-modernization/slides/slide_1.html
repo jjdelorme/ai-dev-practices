@@ -1,0 +1,101 @@
+<section data-transition="fade">
+    <div class="slide-body" style="justify-content: space-between;">
+        <div class="title-slide-container" style="margin-top: 8px;">
+            <div class="title-text-box">
+                <div class="google-color-stack">
+                    <div class="color-dot blue"></div>
+                    <div class="color-dot red"></div>
+                    <div class="color-dot yellow"></div>
+                    <div class="color-dot green"></div>
+                </div>
+                <h1 style="font-family: 'Outfit', sans-serif; font-size: 52px; font-weight: 700; color: var(--google-gray-dark); line-height: 1.12; margin: 0 0 14px 0; text-transform: none; letter-spacing: -1.5px;">
+                    Application Modernization<br><span style="color: var(--google-blue);">with Antigravity</span>
+                </h1>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 400; color: var(--google-gray-medium); margin: 0 0 18px 0; text-transform: none; line-height: 1.35;">
+                    Clean-Room Playbook for Low-to-Moderate Complexity Applications
+                </h2>
+                <p style="font-size: 15px; color: var(--google-gray-dark); line-height: 1.55; margin: 0; max-width: 680px;">
+                    <strong>Process Over Model:</strong> Models evolve rapidly—invest in a repeatable, spec-driven process with one clear goal per run.
+                </p>
+            </div>
+            <div class="title-visual-box">
+                <svg width="290" height="235" viewBox="0 0 320 250" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+                    <defs>
+                        <filter id="glow-mod-title" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="5" result="blur"/>
+                            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                        </filter>
+                    </defs>
+                    <g transform="translate(160, 125)" filter="url(#glow-mod-title)">
+                        <!-- Flow track -->
+                        <path d="M-105 18 C-60 18, -60 -38, 0 -38 C60 -38, 60 38, 105 38" fill="none" stroke="var(--google-gray-medium)" stroke-dasharray="6 4" stroke-width="2"/>
+
+                        <!-- Legacy Node -->
+                        <g transform="translate(-105, 18)">
+                            <rect x="-32" y="-32" width="64" height="64" rx="7" fill="#ffffff" stroke="var(--google-red)" stroke-width="3" transform="rotate(-7)"/>
+                            <line x1="-18" y1="-9" x2="18" y2="-13" stroke="var(--google-red)" stroke-width="2" transform="rotate(-7)"/>
+                            <line x1="-14" y1="9" x2="14" y2="5" stroke="var(--google-red)" stroke-width="2" transform="rotate(-7)"/>
+                            <text x="0" y="50" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-red)" text-anchor="middle">Legacy App</text>
+                        </g>
+
+                        <!-- OKF Spec Node -->
+                        <g transform="translate(0, -38)">
+                            <circle cx="0" cy="0" r="30" fill="#ffffff" stroke="var(--google-blue)" stroke-width="3"/>
+                            <path d="M0 -14 L4 -4 L14 -4 L6 3 L9 13 L0 7 L-9 13 L-6 3 L-14 -4 L-4 -4 Z" fill="var(--google-blue)"/>
+                            <text x="0" y="-40" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-blue)" text-anchor="middle">OKF Spec</text>
+                        </g>
+
+                        <!-- Parallel Run Node -->
+                        <g transform="translate(0, 42)">
+                            <circle cx="0" cy="0" r="29" fill="var(--google-green-light)" stroke="var(--google-green)" stroke-width="2.2" stroke-dasharray="4 2"/>
+                            <line x1="-13" y1="-6" x2="5" y2="-6" stroke="var(--google-green)" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="-13" y1="5" x2="5" y2="5" stroke="var(--google-green)" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="12" cy="1" r="6.5" fill="var(--google-green)"/>
+                            <path d="M9.5 1 L11.5 3 L14.5 -1" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="0" y="47" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="var(--google-green)" text-anchor="middle">Parallel Run</text>
+                        </g>
+
+                        <!-- Clean-Room Build Node -->
+                        <g transform="translate(105, 38)">
+                            <rect x="-27" y="-27" width="54" height="54" rx="9" fill="#ffffff" stroke="var(--google-yellow)" stroke-width="3.5" transform="rotate(45)"/>
+                            <circle cx="0" cy="0" r="8" fill="var(--google-yellow)"/>
+                            <text x="0" y="51" font-family="'Outfit', sans-serif" font-weight="600" font-size="12" fill="#b06000" text-anchor="middle">Clean-Room App</text>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 4-Stage End-to-End Walkthrough Bar -->
+        <div style="margin-top: 24px;">
+            <div style="font-family: 'Outfit', sans-serif; font-size: 11.5px; font-weight: 700; color: var(--google-blue); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">
+                End-to-End Walkthrough &bull; Steps 0–3
+            </div>
+            <div class="process-track" style="margin-top: 0;">
+                <div class="process-step step-blue">
+                    <div class="step-num" style="background: var(--google-blue);">0</div>
+                    <div class="step-title">Pre-requisites</div>
+                    <div class="step-desc">Lower-env legacy access &amp; characterization test suite</div>
+                </div>
+                <div class="process-arrow">&rarr;</div>
+                <div class="process-step step-green">
+                    <div class="step-num" style="background: var(--google-green);">1</div>
+                    <div class="step-title">OKF Capability Spec</div>
+                    <div class="step-desc">Tech-agnostic DDD, Gherkin scenarios &amp; user stories</div>
+                </div>
+                <div class="process-arrow">&rarr;</div>
+                <div class="process-step step-yellow">
+                    <div class="step-num" style="background: #f9ab00;">2</div>
+                    <div class="step-title">Clean-Room Rebuild</div>
+                    <div class="step-desc">Multi-agent squad, vertical-slice TDD &amp; E2E browser tests</div>
+                </div>
+                <div class="process-arrow">&rarr;</div>
+                <div class="process-step step-red">
+                    <div class="step-num" style="background: var(--google-red);">3</div>
+                    <div class="step-title">Iterative Parallel Run</div>
+                    <div class="step-desc">"Goldfish" clean-context parity checks &amp; ASDLC fix loop</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

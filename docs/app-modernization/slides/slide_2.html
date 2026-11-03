@@ -1,0 +1,66 @@
+<section>
+    <div class="slide-header" style="margin-bottom: 16px;">
+        <span class="slide-tracker">PHASE I &bull; CAPTURE &amp; SPECIFY</span>
+        <h2 class="slide-title">Steps 0 &amp; 1: Baseline Tests &amp; OKF Specification</h2>
+        <div class="slide-subtitle">Lock Down Legacy Behavior First, Then Extract Tech-Agnostic Business Capabilities</div>
+    </div>
+    <div class="slide-body" style="justify-content: flex-start;">
+        <div class="flex-cols" style="gap: 24px;">
+            <!-- Step 0 Card -->
+            <div class="col">
+                <div class="info-panel highlight" style="padding: 20px 24px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                        <span style="font-family: 'Outfit', sans-serif; font-size: 12.5px; font-weight: 700; color: var(--google-blue); background: var(--google-blue-light); padding: 4px 12px; border-radius: 20px; letter-spacing: 1px;">STEP 0 &bull; PRE-REQUISITES</span>
+                        <span style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 700; color: var(--google-blue); opacity: 0.25;">00</span>
+                    </div>
+                    <div class="panel-title" style="font-size: 20px; margin-bottom: 10px;">Behavioral Baseline in a Lower Env</div>
+                    <ul class="custom-list" style="margin-bottom: 10px;">
+                        <li style="margin-bottom: 10px; font-size: 15px;">
+                            <strong>Lower-Environment Access:</strong> Stand up the running legacy app where agents can safely inspect workflows.
+                            <span class="desc" style="font-size: 13.5px;">Gives the team an executable ground-truth oracle before touching code.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; font-size: 15px;">
+                            <strong>Characterization Test Suite:</strong> Capture real inputs, outputs, and edge cases across core scenarios.
+                            <span class="desc" style="font-size: 13.5px;">Locks down existing behavior to drive Step 3 parity verification.</span>
+                        </li>
+                        <li style="margin-bottom: 0; font-size: 15px;">
+                            <strong>Product &amp; App Owner Alignment:</strong> Clarify intent with stakeholders in the room.
+                            <span class="desc" style="font-size: 13.5px;">Decide early where to match vs. reimagine UI and merge duplicate flows.</span>
+                        </li>
+                    </ul>
+                    <p style="font-size: 12.5px; color: var(--google-gray-medium); line-height: 1.4; margin: auto 0 0 0; padding-top: 10px; border-top: 1px solid var(--google-gray-light);">
+                        <strong style="color: var(--google-gray-dark);">Exit Gate:</strong> Running lower-env instance + executable characterization scenarios.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 1 Card -->
+            <div class="col">
+                <div class="info-panel success" style="padding: 20px 24px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                        <span style="font-family: 'Outfit', sans-serif; font-size: 12.5px; font-weight: 700; color: var(--google-green); background: var(--google-green-light); padding: 4px 12px; border-radius: 20px; letter-spacing: 1px;">STEP 1 &bull; SPECIFICATION</span>
+                        <span style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 700; color: var(--google-green); opacity: 0.25;">01</span>
+                    </div>
+                    <div class="panel-title" style="font-size: 20px; margin-bottom: 10px;">Business Capabilities in OKF</div>
+                    <ul class="custom-list" style="margin-bottom: 10px;">
+                        <li style="margin-bottom: 10px; font-size: 15px;">
+                            <strong>Tech-Agnostic OKF:</strong> Document pure business capabilities in Open Knowledge Format.
+                            <span class="desc" style="font-size: 13.5px;">Deliberately elide legacy frameworks, libraries, and implementation details.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; font-size: 15px;">
+                            <strong>Domain-Driven Design (DDD):</strong> Model the domain cleanly from first principles.
+                            <span class="desc" style="font-size: 13.5px;">Define bounded contexts, core entities, invariants, and capabilities.</span>
+                        </li>
+                        <li style="margin-bottom: 0; font-size: 15px;">
+                            <strong>Gherkin &amp; User Stories:</strong> Express behavior as verifiable user stories and Gherkin BDD scenarios.
+                            <span class="desc" style="font-size: 13.5px;">Version OKF in Git on every PR—right-sizing context without graph drift.</span>
+                        </li>
+                    </ul>
+                    <p style="font-size: 12.5px; color: var(--google-gray-medium); line-height: 1.4; margin: auto 0 0 0; padding-top: 10px; border-top: 1px solid var(--google-gray-light);">
+                        <strong style="color: var(--google-gray-dark);">Exit Gate:</strong> Approved, framework-free OKF spec read piece-by-piece on demand.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
