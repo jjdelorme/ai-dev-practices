@@ -2,7 +2,7 @@
     <div class="slide-header">
         <span class="slide-tracker">PHASE III &bull; PROVE PARITY &amp; SCALE</span>
         <h2 class="slide-title">Step 3: Iterative Parallel Run &amp; Playbook Flywheel</h2>
-        <div class="slide-subtitle">Stateless "Goldfish" Subagents Verify Scenario-by-Scenario Parity on the Audited Release Candidate</div>
+        <div class="slide-subtitle">Stateless Subagents Verify Scenario-by-Scenario Parity on the Audited Release Candidate</div>
     </div>
     <div class="slide-body">
         <div class="flex-cols">
@@ -13,12 +13,12 @@
                         <span class="desc">Executes characterization scenarios against legacy and the EA-audited release candidate simultaneously, diffing outputs, state, and workflows.</span>
                     </li>
                     <li>
-                        <strong>"Goldfish" Clean-Context Subagents:</strong> One scenario per fresh context window.
-                        <span class="desc">Each test runs in an isolated, zero-history "goldfish" subagent—eliminating context pollution and premature completion bias.</span>
+                        <strong>Stateless Clean-Context Subagents:</strong> One scenario per fresh context window.
+                        <span class="desc">Each test runs in an isolated, zero-history stateless subagent—eliminating context pollution and premature completion bias.</span>
                     </li>
                     <li>
                         <strong>ASDLC Resolve &amp; Re-Test Loop:</strong> Closed-loop parity convergence.
-                        <span class="desc">Goldfish agents report discrepancies back to the ASDLC team to fix differences and re-test iteratively until parity holds.</span>
+                        <span class="desc">Stateless agents report discrepancies back to the ASDLC team to fix differences and re-test iteratively until parity holds.</span>
                     </li>
                     <li>
                         <strong>Codify the Playbook:</strong> Modernize App #1 together, then scale.
@@ -46,12 +46,12 @@
                         <text x="254" y="96" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-blue)" text-anchor="middle">Modernized App</text>
                         <text x="254" y="111" font-family="'Roboto', sans-serif" font-size="9.5" fill="#137333" text-anchor="middle">✓ EA-Audited Candidate</text>
 
-                        <!-- Converge into Goldfish Subagent -->
+                        <!-- Converge into Stateless Subagent -->
                         <line x1="86" y1="120" x2="135" y2="148" stroke="var(--google-yellow)" stroke-width="2.2"/>
                         <line x1="254" y1="120" x2="205" y2="148" stroke="var(--google-yellow)" stroke-width="2.2"/>
 
                         <rect x="30" y="150" width="280" height="52" rx="10" fill="var(--google-yellow-light)" stroke="var(--google-yellow)" stroke-width="2.5"/>
-                        <text x="170" y="172" font-family="'Outfit', sans-serif" font-weight="700" font-size="12.5" fill="#b06000" text-anchor="middle">Goldfish Subagent (1 Scenario / Clean Window)</text>
+                        <text x="170" y="172" font-family="'Outfit', sans-serif" font-weight="700" font-size="12.5" fill="#b06000" text-anchor="middle">Stateless Subagent (1 Scenario / Clean Window)</text>
                         <text x="170" y="190" font-family="'Roboto', sans-serif" font-size="10.5" fill="var(--google-gray-dark)" text-anchor="middle">Compares responses, state &amp; behavior without chat bias</text>
 
                         <!-- Left Branch: Diff Found -> ASDLC Team Loop -->
@@ -59,7 +59,7 @@
                         <rect x="16" y="234" width="154" height="56" rx="8" fill="var(--google-red-light)" stroke="var(--google-red)" stroke-width="2"/>
                         <text x="93" y="254" font-family="'Outfit', sans-serif" font-weight="700" font-size="11.5" fill="var(--google-red)" text-anchor="middle">↻ Report Diff to ASDLC</text>
                         <text x="93" y="270" font-family="'Roboto', sans-serif" font-size="10" fill="var(--google-gray-dark)" text-anchor="middle">Team resolves &amp; re-tests</text>
-                        <text x="93" y="283" font-family="'Roboto', sans-serif" font-size="10" fill="var(--google-gray-medium)" text-anchor="middle">in fresh Goldfish run</text>
+                        <text x="93" y="283" font-family="'Roboto', sans-serif" font-size="10" fill="var(--google-gray-medium)" text-anchor="middle">in fresh clean-context run</text>
 
                         <!-- Loop-back dashed line from ASDLC Fix & Re-Test to Scenario Runner -->
                         <path d="M 16 262 Q 6 262 6 145 L 6 29 L 40 29" fill="none" stroke="var(--google-red)" stroke-width="1.8" stroke-dasharray="4 3"/>
