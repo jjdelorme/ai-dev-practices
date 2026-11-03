@@ -1,8 +1,8 @@
 <section>
     <div class="slide-header">
-        <span class="slide-tracker">PHASE II &bull; CLEAN-ROOM CONSTRUCTION</span>
-        <h2 class="slide-title">Step 2: Clean-Room Multi-Agent Rebuild</h2>
-        <div class="slide-subtitle">Vertical-Slice TDD Execution from the OKF Spec — Zero Legacy Code Visibility</div>
+        <span class="slide-tracker">PHASE II &bull; CLEAN-ROOM CONSTRUCTION &amp; AUDIT</span>
+        <h2 class="slide-title">Step 2: Clean-Room Multi-Agent Rebuild &amp; EA Audit</h2>
+        <div class="slide-subtitle">Vertical-Slice TDD, Deterministic Tooling &amp; Enterprise Architecture Audit Gate</div>
     </div>
     <div class="slide-body">
         <div class="flex-cols">
@@ -10,19 +10,19 @@
                 <ul class="custom-list">
                     <li>
                         <strong>Strict Clean-Room Sandbox:</strong> Zero visibility into the old codebase.
-                        <span class="desc">Subagents read <em>only</em> the OKF spec and concise org-unique rules (auth, approved DBs, logging)—preventing legacy tech debt from leaking in.</span>
+                        <span class="desc">Subagents read <em>only</em> the OKF spec and foundational stack requirements (approved target runtime &amp; DB)—preventing legacy tech debt from leaking in.</span>
                     </li>
                     <li>
-                        <strong>Specialized Squad:</strong> Planner, Architect, Engineer &amp; Adversarial Critics.
-                        <span class="desc">Proposes a plan for human approval, routes models by task, and challenges every phase with adversarial reviewers.</span>
+                        <strong>Specialized Squad &amp; Vertical Slices:</strong> Planner, Architect, Engineer &amp; Adversarial Critics.
+                        <span class="desc">Breaks bounded contexts down slice by slice, executing independently and completing <em>only</em> when all vertical slices are built.</span>
                     </li>
                     <li>
-                        <strong>Vertical Slice by Vertical Slice:</strong> End-to-end feature increments.
-                        <span class="desc">Breaks down bounded contexts slice by slice, completing <em>only</em> when all vertical slices are built and verified.</span>
+                        <strong>Deterministic Tooling &amp; TDD Loop:</strong> <code>Red &rarr; Green &rarr; Refactor</code> with zero-hallucination tools.
+                        <span class="desc">Enforces deterministic linters, static analysis, type checking, and SAST alongside unit, Gherkin, and E2E browser tests on every slice.</span>
                     </li>
                     <li>
-                        <strong>TDD + E2E Browser Verification:</strong> <code>Red &rarr; Green &rarr; Refactor</code> from the ground up.
-                        <span class="desc">Delivers unit, Gherkin, and end-to-end browser tests alongside synthetic seed data and a user guide—applying secondary NFRs in a clean remediation pass.</span>
+                        <strong>Enterprise Architecture (EA) Audit Gate:</strong> Standards remediation before parallel runs.
+                        <span class="desc">Post-build audit verifying non-functional requirements (NFRs): auth interceptors, approved logging schemas, telemetry, and dependency policies.</span>
                     </li>
                 </ul>
             </div>
@@ -30,60 +30,66 @@
                 <div class="info-panel caution" style="width: 100%; padding: 18px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                     <svg width="330" height="315" viewBox="0 0 340 325" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
                         <!-- Top Inputs: OKF Allowed vs Legacy Blocked -->
-                        <rect x="12" y="10" width="154" height="44" rx="8" fill="var(--google-green-light)" stroke="var(--google-green)" stroke-width="2"/>
-                        <text x="89" y="29" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-green)" text-anchor="middle">✓ OKF Spec + Org Rules</text>
-                        <text x="89" y="43" font-family="'Roboto', sans-serif" font-size="9.5" fill="var(--google-gray-dark)" text-anchor="middle">DDD • Gherkin • Org Standards</text>
+                        <rect x="12" y="8" width="154" height="42" rx="8" fill="var(--google-green-light)" stroke="var(--google-green)" stroke-width="2"/>
+                        <text x="89" y="26" font-family="'Outfit', sans-serif" font-weight="700" font-size="11.5" fill="var(--google-green)" text-anchor="middle">✓ OKF + Target Stack</text>
+                        <text x="89" y="40" font-family="'Roboto', sans-serif" font-size="9" fill="var(--google-gray-dark)" text-anchor="middle">DDD • Gherkin • Stack Rules</text>
 
-                        <rect x="178" y="10" width="148" height="44" rx="8" fill="var(--google-red-light)" stroke="var(--google-red)" stroke-width="2" stroke-dasharray="5 3"/>
-                        <text x="252" y="29" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-red)" text-anchor="middle">⊘ Legacy Source Blocked</text>
-                        <text x="252" y="44" font-family="'Roboto', sans-serif" font-size="10" fill="var(--google-gray-dark)" text-anchor="middle">No Visibility in Sandbox</text>
+                        <rect x="178" y="8" width="148" height="42" rx="8" fill="var(--google-red-light)" stroke="var(--google-red)" stroke-width="2" stroke-dasharray="5 3"/>
+                        <text x="252" y="26" font-family="'Outfit', sans-serif" font-weight="700" font-size="11.5" fill="var(--google-red)" text-anchor="middle">⊘ Legacy Source Blocked</text>
+                        <text x="252" y="40" font-family="'Roboto', sans-serif" font-size="9.5" fill="var(--google-gray-dark)" text-anchor="middle">No Visibility in Sandbox</text>
 
                         <!-- Arrow into Clean-Room -->
-                        <line x1="90" y1="54" x2="90" y2="76" stroke="var(--google-green)" stroke-width="2.5"/>
-                        <polygon points="90,80 85,72 95,72" fill="var(--google-green)"/>
+                        <line x1="90" y1="50" x2="90" y2="68" stroke="var(--google-green)" stroke-width="2.5"/>
+                        <polygon points="90,72 85,65 95,65" fill="var(--google-green)"/>
 
                         <!-- Clean-Room Sandbox Outer Frame -->
-                        <rect x="12" y="82" width="316" height="232" rx="12" fill="var(--google-gray-bg)" stroke="var(--google-blue)" stroke-width="2" stroke-dasharray="7 4"/>
-                        <text x="26" y="101" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" fill="var(--google-blue)" letter-spacing="1">CLEAN-ROOM SANDBOX</text>
+                        <rect x="12" y="74" width="316" height="172" rx="10" fill="var(--google-gray-bg)" stroke="var(--google-blue)" stroke-width="2" stroke-dasharray="7 4"/>
+                        <text x="24" y="91" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="var(--google-blue)" letter-spacing="0.8">CLEAN-ROOM MULTI-AGENT SANDBOX</text>
 
                         <!-- Subagent Roles Row -->
-                        <rect x="24" y="112" width="68" height="36" rx="6" fill="#ffffff" stroke="var(--google-blue)" stroke-width="2"/>
-                        <text x="58" y="134" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Planner</text>
+                        <rect x="22" y="100" width="68" height="32" rx="6" fill="#ffffff" stroke="var(--google-blue)" stroke-width="1.8"/>
+                        <text x="56" y="120" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="var(--google-gray-dark)" text-anchor="middle">Planner</text>
 
-                        <rect x="99" y="112" width="68" height="36" rx="6" fill="#ffffff" stroke="var(--google-blue)" stroke-width="2"/>
-                        <text x="133" y="134" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Architect</text>
+                        <rect x="97" y="100" width="68" height="32" rx="6" fill="#ffffff" stroke="var(--google-blue)" stroke-width="1.8"/>
+                        <text x="131" y="120" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="var(--google-gray-dark)" text-anchor="middle">Architect</text>
 
-                        <rect x="174" y="112" width="68" height="36" rx="6" fill="#ffffff" stroke="var(--google-yellow)" stroke-width="2.5"/>
-                        <text x="208" y="134" font-family="'Outfit', sans-serif" font-weight="600" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Engineer</text>
+                        <rect x="172" y="100" width="68" height="32" rx="6" fill="#ffffff" stroke="var(--google-yellow)" stroke-width="2.2"/>
+                        <text x="206" y="120" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="var(--google-gray-dark)" text-anchor="middle">Engineer</text>
 
-                        <rect x="249" y="112" width="68" height="36" rx="6" fill="#ffffff" stroke="var(--google-red)" stroke-width="2"/>
-                        <text x="283" y="128" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="var(--google-red)" text-anchor="middle">Adversarial</text>
-                        <text x="283" y="141" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="var(--google-red)" text-anchor="middle">Critic</text>
+                        <rect x="247" y="100" width="70" height="32" rx="6" fill="#ffffff" stroke="var(--google-red)" stroke-width="1.8"/>
+                        <text x="282" y="115" font-family="'Outfit', sans-serif" font-weight="600" font-size="10" fill="var(--google-red)" text-anchor="middle">Adversarial</text>
+                        <text x="282" y="126" font-family="'Outfit', sans-serif" font-weight="600" font-size="10" fill="var(--google-red)" text-anchor="middle">Critic</text>
 
-                        <!-- Vertical Slices + TDD Cycle Box -->
-                        <line x1="170" y1="148" x2="170" y2="168" stroke="var(--google-blue)" stroke-width="2"/>
-                        <polygon points="170,172 165,165 175,165" fill="var(--google-blue)"/>
-
-                        <rect x="24" y="174" width="292" height="74" rx="8" fill="#ffffff" stroke="var(--google-gray-light)" stroke-width="1.5"/>
-                        <text x="170" y="193" font-family="'Outfit', sans-serif" font-weight="700" font-size="11.5" fill="var(--google-gray-dark)" text-anchor="middle">Vertical Slice 1 … Vertical Slice N</text>
+                        <!-- Vertical Slices + TDD + Deterministic Checks Box -->
+                        <rect x="22" y="140" width="295" height="96" rx="8" fill="#ffffff" stroke="var(--google-gray-light)" stroke-width="1.5"/>
+                        <text x="170" y="157" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="var(--google-gray-dark)" text-anchor="middle">Vertical Slice 1 … Vertical Slice N</text>
 
                         <!-- Red -> Green -> Refactor Pills -->
-                        <rect x="38" y="205" width="74" height="28" rx="14" fill="var(--google-red-light)" stroke="var(--google-red)" stroke-width="1.5"/>
-                        <text x="75" y="223" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="var(--google-red)" text-anchor="middle">1. Red</text>
+                        <rect x="34" y="165" width="72" height="24" rx="12" fill="var(--google-red-light)" stroke="var(--google-red)" stroke-width="1.5"/>
+                        <text x="70" y="181" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" fill="var(--google-red)" text-anchor="middle">1. Red</text>
 
-                        <text x="122" y="223" font-family="'Outfit', sans-serif" font-weight="700" font-size="13" fill="var(--google-gray-medium)" text-anchor="middle">&rarr;</text>
+                        <text x="116" y="181" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-gray-medium)" text-anchor="middle">&rarr;</text>
 
-                        <rect x="133" y="205" width="74" height="28" rx="14" fill="var(--google-green-light)" stroke="var(--google-green)" stroke-width="1.5"/>
-                        <text x="170" y="223" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="var(--google-green)" text-anchor="middle">2. Green</text>
+                        <rect x="127" y="165" width="74" height="24" rx="12" fill="var(--google-green-light)" stroke="var(--google-green)" stroke-width="1.5"/>
+                        <text x="164" y="181" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" fill="var(--google-green)" text-anchor="middle">2. Green</text>
 
-                        <text x="217" y="223" font-family="'Outfit', sans-serif" font-weight="700" font-size="13" fill="var(--google-gray-medium)" text-anchor="middle">&rarr;</text>
+                        <text x="211" y="181" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="var(--google-gray-medium)" text-anchor="middle">&rarr;</text>
 
-                        <rect x="228" y="205" width="74" height="28" rx="14" fill="var(--google-blue-light)" stroke="var(--google-blue)" stroke-width="1.5"/>
-                        <text x="265" y="223" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="var(--google-blue)" text-anchor="middle">3. Refactor</text>
+                        <rect x="222" y="165" width="80" height="24" rx="12" fill="var(--google-blue-light)" stroke="var(--google-blue)" stroke-width="1.5"/>
+                        <text x="262" y="181" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" fill="var(--google-blue)" text-anchor="middle">3. Refactor</text>
 
-                        <!-- Completion Gate -->
-                        <rect x="24" y="262" width="292" height="38" rx="8" fill="var(--google-green)" />
-                        <text x="170" y="285" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">✓ All Slices Built + Unit, Gherkin &amp; E2E Browser Pass</text>
+                        <!-- Deterministic Checks Strip -->
+                        <rect x="34" y="197" width="270" height="28" rx="6" fill="#f1f3f4" stroke="#dadce0" stroke-width="1"/>
+                        <text x="169" y="215" font-family="'Fira Code', monospace" font-size="10" fill="#202124" text-anchor="middle">⚡ Linters • Static Analysis • SAST • E2E</text>
+
+                        <!-- Arrow from Sandbox to EA Audit Gate -->
+                        <line x1="170" y1="246" x2="170" y2="258" stroke="var(--google-green)" stroke-width="2.5"/>
+                        <polygon points="170,262 165,255 175,255" fill="var(--google-green)"/>
+
+                        <!-- EA Audit Gate Box at bottom -->
+                        <rect x="12" y="264" width="316" height="52" rx="8" fill="#e6f4ea" stroke="#137333" stroke-width="2"/>
+                        <text x="170" y="284" font-family="'Outfit', sans-serif" font-weight="700" font-size="11.5" fill="#137333" text-anchor="middle">🛡️ Enterprise Architecture (EA) Audit Gate</text>
+                        <text x="170" y="303" font-family="'Roboto', sans-serif" font-size="9.5" fill="#202124" text-anchor="middle">Standards Remediation: Auth, Logging &amp; NFRs &rarr; Ready for Step 3</text>
                     </svg>
                 </div>
             </div>
